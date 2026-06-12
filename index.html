@@ -7,14 +7,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet"/>
 <style>
-/* =============================================
-   ÁLBUM DE NOITE — Design System Tokens
-   ============================================= */
 :root {
   --night: #0A0E1A;
   --surface: #141B2D;
   --card: #1E2B3A;
-  --card-hover: #243245;
   --neon: #00D166;
   --neon-dim: rgba(0,209,102,0.15);
   --gold: #E8B94F;
@@ -23,7 +19,6 @@
   --cream-dim: rgba(242,234,211,0.6);
   --red: #E03A2F;
   --red-dim: rgba(224,58,47,0.15);
-  --white: #FFFFFF;
   --muted: #6B7FA3;
   --border: rgba(232,185,79,0.25);
   --border-neon: rgba(0,209,102,0.3);
@@ -31,897 +26,230 @@
   --font-body: 'DM Sans', sans-serif;
   --font-accent: 'Playfair Display', serif;
   --radius: 12px;
-  --radius-sticker: 8px;
+  --radius-sm: 8px;
   --shadow-gold: 0 0 20px rgba(232,185,79,0.15), 0 4px 16px rgba(0,0,0,0.4);
   --shadow-neon: 0 0 20px rgba(0,209,102,0.2), 0 4px 16px rgba(0,0,0,0.4);
 }
-
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-html { scroll-behavior: smooth; }
-
-body {
-  background: var(--night);
-  color: var(--cream);
-  font-family: var(--font-body);
-  font-size: 15px;
-  line-height: 1.6;
-  min-height: 100vh;
-  overflow-x: hidden;
-}
-
-/* Field lines background */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-  background-size: 60px 60px;
-  pointer-events: none;
-  z-index: 0;
-}
-
-body::after {
-  content: '';
-  position: fixed;
-  top: -50%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 140vw;
-  height: 90vh;
-  background: radial-gradient(ellipse at center top, rgba(0,209,102,0.05) 0%, transparent 65%);
-  pointer-events: none;
-  z-index: 0;
-}
-
-#root { position: relative; z-index: 1; }
-
-/* =============================================
-   TYPOGRAPHY
-   ============================================= */
-h1, h2, h3 { font-family: var(--font-display); letter-spacing: 0.04em; }
-.accent-italic { font-family: var(--font-accent); color: var(--gold); }
-
-/* =============================================
-   LAYOUT
-   ============================================= */
-.page { display: none; }
-.page.active { display: block; }
-
-.container {
-  max-width: 680px;
-  margin: 0 auto;
-  padding: 0 16px;
-}
-
-/* =============================================
-   HEADER / NAV
-   ============================================= */
-header {
-  background: rgba(10,14,26,0.95);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  padding: 12px 16px;
-}
-
-.header-inner {
-  max-width: 680px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.logo-icon {
-  width: 36px;
-  height: 36px;
-  background: linear-gradient(135deg, var(--gold), #c49a36);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  flex-shrink: 0;
-  box-shadow: 0 0 12px rgba(232,185,79,0.4);
-}
-
-.logo-text {
-  font-family: var(--font-display);
-  font-size: 20px;
-  letter-spacing: 0.06em;
-  color: var(--cream);
-  line-height: 1.1;
-}
-
-.logo-sub {
-  font-family: var(--font-body);
-  font-size: 10px;
-  color: var(--muted);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  display: block;
-}
-
-nav {
-  display: flex;
-  gap: 4px;
-}
-
-.nav-btn {
-  background: none;
-  border: none;
-  color: var(--muted);
-  font-family: var(--font-body);
-  font-size: 12px;
-  font-weight: 500;
-  padding: 6px 10px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: all 0.2s;
-  letter-spacing: 0.04em;
-  white-space: nowrap;
-}
-
-.nav-btn:hover { color: var(--cream); background: rgba(255,255,255,0.06); }
-.nav-btn.active { color: var(--neon); background: var(--neon-dim); }
-
-.user-chip {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 24px;
-  padding: 4px 12px 4px 4px;
-  cursor: pointer;
-  transition: border-color 0.2s;
-}
-.user-chip:hover { border-color: var(--gold); }
-.user-chip .avatar-sm { width: 28px; height: 28px; font-size: 16px; border-radius: 50%; background: var(--surface); display: flex; align-items: center; justify-content: center; }
-.user-chip span { font-size: 13px; font-weight: 500; color: var(--cream-dim); }
-
-/* =============================================
-   STICKER / MATCH CARD
-   ============================================= */
-.sticker-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 16px;
-  position: relative;
-  transition: all 0.25s;
-  overflow: hidden;
-}
-
-.sticker-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(232,185,79,0.06) 0%, transparent 50%);
-  pointer-events: none;
-  border-radius: var(--radius);
-}
-
-.sticker-card:hover {
-  border-color: rgba(232,185,79,0.5);
-  box-shadow: var(--shadow-gold);
-  transform: translateY(-1px);
-}
-
-.sticker-card.locked {
-  border-color: rgba(224,58,47,0.3);
-  opacity: 0.8;
-}
-
-.sticker-card.locked::before {
-  background: linear-gradient(135deg, rgba(224,58,47,0.06) 0%, transparent 50%);
-}
-
-/* Match card internals */
-.match-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 14px;
-}
-
-.match-meta {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.grupo-badge {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--gold);
-  background: var(--gold-dim);
-  border: 1px solid rgba(232,185,79,0.3);
-  padding: 2px 8px;
-  border-radius: 4px;
-}
-
-.match-time {
-  font-size: 11px;
-  color: var(--muted);
-}
-
-.lock-badge {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 11px;
-  color: var(--red);
-  font-weight: 500;
-}
-
-.match-teams {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 14px;
-}
-
-.team {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  text-align: center;
-}
-
-.team-flag { font-size: 28px; line-height: 1; }
-
-.team-name {
-  font-family: var(--font-display);
-  font-size: 15px;
-  letter-spacing: 0.06em;
-  color: var(--cream);
-}
-
-.team.away .team-name { }
-
-.score-inputs {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.score-input {
-  width: 44px;
-  height: 52px;
-  background: var(--surface);
-  border: 2px solid var(--border);
-  border-radius: 8px;
-  color: var(--cream);
-  font-family: var(--font-display);
-  font-size: 28px;
-  text-align: center;
-  outline: none;
-  transition: border-color 0.2s, box-shadow 0.2s;
-  -moz-appearance: textfield;
-}
-.score-input::-webkit-outer-spin-button,
-.score-input::-webkit-inner-spin-button { -webkit-appearance: none; }
-.score-input:focus { border-color: var(--neon); box-shadow: 0 0 0 3px var(--neon-dim); }
-.score-input:disabled { opacity: 0.5; cursor: not-allowed; }
-.score-input.filled { border-color: rgba(232,185,79,0.5); }
-
-.score-sep {
-  font-family: var(--font-display);
-  font-size: 24px;
-  color: var(--muted);
-}
-
-/* Result display (after lock) */
-.result-display {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.result-score {
-  width: 44px;
-  height: 52px;
-  background: var(--surface);
-  border: 2px solid rgba(232,185,79,0.4);
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-display);
-  font-size: 28px;
-  color: var(--gold);
-}
-
-/* Point chip */
-.points-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 12px;
-  font-weight: 700;
-  padding: 3px 10px;
-  border-radius: 20px;
-  letter-spacing: 0.04em;
-}
-
-.points-chip.exact { background: rgba(0,209,102,0.2); color: var(--neon); border: 1px solid var(--neon-dim); }
-.points-chip.partial { background: var(--gold-dim); color: var(--gold); border: 1px solid rgba(232,185,79,0.3); }
-.points-chip.correct { background: rgba(100,150,255,0.15); color: #7FAAFF; border: 1px solid rgba(100,150,255,0.2); }
-.points-chip.wrong { background: var(--red-dim); color: var(--red); border: 1px solid rgba(224,58,47,0.2); }
-
-/* =============================================
-   BUTTONS
-   ============================================= */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  font-family: var(--font-body);
-  font-weight: 600;
-  font-size: 14px;
-  border: none;
-  border-radius: var(--radius-sticker);
-  padding: 12px 24px;
-  cursor: pointer;
-  transition: all 0.2s;
-  letter-spacing: 0.02em;
-}
-
-.btn-primary {
-  background: linear-gradient(135deg, var(--neon), #00a84f);
-  color: var(--night);
-  box-shadow: 0 0 20px rgba(0,209,102,0.25);
-}
-.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 0 30px rgba(0,209,102,0.4); }
-.btn-primary:active { transform: translateY(0); }
-.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
-
-.btn-gold {
-  background: linear-gradient(135deg, var(--gold), #c49a36);
-  color: var(--night);
-  box-shadow: 0 0 20px rgba(232,185,79,0.2);
-}
-.btn-gold:hover { transform: translateY(-1px); box-shadow: 0 0 30px rgba(232,185,79,0.35); }
-
-.btn-outline {
-  background: transparent;
-  border: 1px solid var(--border);
-  color: var(--cream-dim);
-}
-.btn-outline:hover { border-color: var(--gold); color: var(--cream); }
-
-.btn-ghost {
-  background: transparent;
-  color: var(--muted);
-  padding: 8px 12px;
-}
-.btn-ghost:hover { color: var(--cream); background: rgba(255,255,255,0.05); }
-
-.btn-full { width: 100%; }
-
-/* =============================================
-   FORM ELEMENTS
-   ============================================= */
-.form-group { margin-bottom: 20px; }
-
-.form-label {
-  display: block;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 8px;
-}
-
-.form-input {
-  width: 100%;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sticker);
-  color: var(--cream);
-  font-family: var(--font-body);
-  font-size: 15px;
-  padding: 12px 16px;
-  outline: none;
-  transition: border-color 0.2s, box-shadow 0.2s;
-}
-
-.form-input:focus {
-  border-color: var(--neon);
-  box-shadow: 0 0 0 3px var(--neon-dim);
-}
-
-.form-input::placeholder { color: var(--muted); }
-
-.form-error {
-  font-size: 12px;
-  color: var(--red);
-  margin-top: 6px;
-  display: none;
-}
-.form-error.visible { display: block; }
-
-/* =============================================
-   AVATAR PICKER
-   ============================================= */
-.avatar-grid {
-  display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  gap: 8px;
-}
-
-.avatar-option {
-  aspect-ratio: 1;
-  background: var(--surface);
-  border: 2px solid var(--border);
-  border-radius: var(--radius-sticker);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.avatar-option:hover { border-color: var(--gold); background: var(--gold-dim); }
-.avatar-option.selected { border-color: var(--gold); background: var(--gold-dim); box-shadow: 0 0 12px rgba(232,185,79,0.3); transform: scale(1.05); }
-
-/* =============================================
-   LEADERBOARD
-   ============================================= */
-.leaderboard-row {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 14px 16px;
-  border-radius: var(--radius);
-  background: var(--card);
-  border: 1px solid var(--border);
-  margin-bottom: 8px;
-  transition: all 0.2s;
-}
-
-.leaderboard-row:hover { border-color: rgba(232,185,79,0.4); }
-
-.rank-num {
-  font-family: var(--font-display);
-  font-size: 22px;
-  color: var(--muted);
-  width: 32px;
-  text-align: center;
-  flex-shrink: 0;
-}
-
-.rank-num.gold { color: var(--gold); }
-.rank-num.silver { color: #C0C8D8; }
-.rank-num.bronze { color: #CD7F32; }
-
-.leaderboard-avatar {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  background: var(--surface);
-  border: 2px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 22px;
-  flex-shrink: 0;
-}
-
-.leaderboard-info { flex: 1; min-width: 0; }
-.leaderboard-name { font-weight: 600; font-size: 15px; color: var(--cream); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.leaderboard-detail { font-size: 12px; color: var(--muted); }
-
-.leaderboard-pts {
-  font-family: var(--font-display);
-  font-size: 26px;
-  color: var(--neon);
-  flex-shrink: 0;
-}
-
-/* =============================================
-   HERO / BANNER
-   ============================================= */
-.hero {
-  padding: 40px 16px 32px;
-  text-align: center;
-  position: relative;
-}
-
-.hero-trophy {
-  font-size: 56px;
-  display: block;
-  margin-bottom: 12px;
-  filter: drop-shadow(0 0 20px rgba(232,185,79,0.5));
-}
-
-.hero-title {
-  font-family: var(--font-display);
-  font-size: clamp(38px, 8vw, 56px);
-  letter-spacing: 0.06em;
-  color: var(--cream);
-  line-height: 1;
-  margin-bottom: 4px;
-}
-
-.hero-sub {
-  font-family: var(--font-accent);
-  font-size: 16px;
-  color: var(--gold);
-  margin-bottom: 20px;
-}
-
-/* Countdown */
-.countdown-strip {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin-bottom: 28px;
-}
-
-.countdown-unit {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sticker);
-  padding: 10px 14px;
-  text-align: center;
-  min-width: 64px;
-}
-
-.countdown-num {
-  font-family: var(--font-display);
-  font-size: 30px;
-  color: var(--cream);
-  display: block;
-  line-height: 1;
-}
-
-.countdown-label {
-  font-size: 9px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--muted);
-  display: block;
-  margin-top: 3px;
-}
-
-/* Rules card */
-.rules-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 20px;
-  margin-bottom: 24px;
-  text-align: left;
-}
-
-.rules-card h3 {
-  font-family: var(--font-display);
-  font-size: 18px;
-  color: var(--gold);
-  margin-bottom: 14px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  letter-spacing: 0.06em;
-}
-
-.rules-list { list-style: none; }
-.rules-list li {
-  padding: 8px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-  font-size: 13px;
-  color: var(--cream-dim);
-  display: flex;
-  gap: 10px;
-}
-.rules-list li:last-child { border-bottom: none; }
-.rules-list .rule-icon { flex-shrink: 0; }
-
-/* =============================================
-   TABS
-   ============================================= */
-.tab-bar {
-  display: flex;
-  gap: 4px;
-  background: var(--surface);
-  border-radius: var(--radius);
-  padding: 4px;
-  margin-bottom: 24px;
-}
-
-.tab-btn {
-  flex: 1;
-  background: none;
-  border: none;
-  color: var(--muted);
-  font-family: var(--font-body);
-  font-size: 13px;
-  font-weight: 500;
-  padding: 8px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.2s;
-  text-align: center;
-}
-.tab-btn.active { background: var(--card); color: var(--cream); }
-
-/* =============================================
-   SECTION HEADER
-   ============================================= */
-.section-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 16px;
-}
-
-.section-title {
-  font-family: var(--font-display);
-  font-size: 22px;
-  letter-spacing: 0.06em;
-  color: var(--cream);
-}
-
-.section-badge {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--neon);
-  background: var(--neon-dim);
-  border: 1px solid var(--border-neon);
-  padding: 3px 10px;
-  border-radius: 4px;
-}
-
-/* =============================================
-   SHARE CODE MODAL
-   ============================================= */
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.7);
-  backdrop-filter: blur(8px);
-  z-index: 200;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.25s;
-}
-
-.modal-overlay.open {
-  opacity: 1;
-  pointer-events: all;
-}
-
-.modal {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 28px;
-  max-width: 440px;
-  width: 100%;
-  transform: translateY(20px);
-  transition: transform 0.25s;
-  box-shadow: var(--shadow-gold);
-}
-
-.modal-overlay.open .modal { transform: translateY(0); }
-
-.modal-title {
-  font-family: var(--font-display);
-  font-size: 26px;
-  color: var(--gold);
-  margin-bottom: 8px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  letter-spacing: 0.06em;
-}
-
-.modal-sub {
-  font-size: 13px;
-  color: var(--muted);
-  margin-bottom: 20px;
-}
-
-.code-box {
-  background: var(--night);
-  border: 1px solid var(--border-neon);
-  border-radius: var(--radius-sticker);
-  padding: 14px;
-  font-family: monospace;
-  font-size: 11px;
-  color: var(--neon);
-  word-break: break-all;
-  margin-bottom: 16px;
-  max-height: 120px;
-  overflow-y: auto;
-  line-height: 1.6;
-}
-
-/* =============================================
-   TRANSPARENCY TABLE
-   ============================================= */
-.transparency-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 13px;
-}
-
-.transparency-table th {
-  text-align: left;
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--muted);
-  padding: 8px 12px;
-  border-bottom: 1px solid var(--border);
-  font-weight: 600;
-}
-
-.transparency-table td {
-  padding: 10px 12px;
-  border-bottom: 1px solid rgba(255,255,255,0.04);
-  color: var(--cream-dim);
-  vertical-align: middle;
-}
-
-.transparency-table tr:last-child td { border-bottom: none; }
-.transparency-table tr:hover td { background: rgba(255,255,255,0.02); }
-
-/* =============================================
-   TOAST
-   ============================================= */
-.toast {
-  position: fixed;
-  bottom: 24px;
-  left: 50%;
-  transform: translateX(-50%) translateY(80px);
-  background: var(--card);
-  border: 1px solid var(--border-neon);
-  color: var(--neon);
-  font-size: 14px;
-  font-weight: 500;
-  padding: 12px 24px;
-  border-radius: 100px;
-  z-index: 300;
-  transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
-  white-space: nowrap;
-  box-shadow: var(--shadow-neon);
-}
-
-.toast.show { transform: translateX(-50%) translateY(0); }
-
-/* =============================================
-   PHASE SELECTOR
-   ============================================= */
-.phase-pills {
-  display: flex;
-  gap: 8px;
-  overflow-x: auto;
-  padding-bottom: 4px;
-  margin-bottom: 20px;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-.phase-pills::-webkit-scrollbar { display: none; }
-
-.phase-pill {
-  flex-shrink: 0;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 100px;
-  color: var(--muted);
-  font-size: 12px;
-  font-weight: 500;
-  padding: 6px 14px;
-  cursor: pointer;
-  transition: all 0.2s;
-  white-space: nowrap;
-}
-.phase-pill:hover { border-color: var(--gold); color: var(--cream); }
-.phase-pill.active { background: var(--gold-dim); border-color: var(--gold); color: var(--gold); }
-.phase-pill.locked-phase { opacity: 0.45; cursor: not-allowed; }
-
-/* =============================================
-   EMPTY / LOADING STATES
-   ============================================= */
-.empty-state {
-  text-align: center;
-  padding: 48px 20px;
-  color: var(--muted);
-}
-
-.empty-state .empty-icon { font-size: 40px; margin-bottom: 12px; display: block; }
-.empty-state h3 { font-family: var(--font-display); font-size: 20px; color: var(--cream-dim); margin-bottom: 6px; letter-spacing: 0.06em; }
-.empty-state p { font-size: 13px; }
-
-/* =============================================
-   MISC / UTILS
-   ============================================= */
-.divider {
-  height: 1px;
-  background: var(--border);
-  margin: 24px 0;
-}
-
-.text-gold { color: var(--gold); }
-.text-neon { color: var(--neon); }
-.text-muted { color: var(--muted); }
-.text-red { color: var(--red); }
-.fw-bold { font-weight: 700; }
-.text-center { text-align: center; }
-.mt-8 { margin-top: 8px; }
-.mt-16 { margin-top: 16px; }
-.mt-24 { margin-top: 24px; }
-.mb-8 { margin-bottom: 8px; }
-.mb-16 { margin-bottom: 16px; }
-.mb-24 { margin-bottom: 24px; }
-.gap-8 { gap: 8px; }
-.flex { display: flex; }
-.flex-col { flex-direction: column; }
-.items-center { align-items: center; }
-.justify-between { justify-content: space-between; }
-.flex-1 { flex: 1; }
-
-/* Shimmer animation for holographic sticker effect */
-@keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
-}
-
-.sticker-card.holographic::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(105deg, transparent 40%, rgba(232,185,79,0.07) 50%, rgba(0,209,102,0.06) 60%, transparent 70%);
-  background-size: 200% 100%;
-  animation: shimmer 3s linear infinite;
-  border-radius: var(--radius);
-  pointer-events: none;
-}
-
-/* Saved pulse */
-@keyframes pulse-neon {
-  0%, 100% { box-shadow: 0 0 6px rgba(0,209,102,0.4); }
-  50% { box-shadow: 0 0 18px rgba(0,209,102,0.7); }
-}
-.sticker-card.saved { border-color: rgba(0,209,102,0.5); animation: pulse-neon 2s ease-in-out 3; }
-
-/* Mobile responsiveness */
-@media (max-width: 480px) {
-  .nav-btn { font-size: 11px; padding: 5px 7px; }
-  .hero-title { font-size: 34px; }
-  .score-input { width: 40px; height: 46px; font-size: 24px; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--night);color:var(--cream);font-family:var(--font-body);font-size:15px;line-height:1.6;min-height:100vh;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0}
+body::after{content:'';position:fixed;top:-50%;left:50%;transform:translateX(-50%);width:140vw;height:90vh;background:radial-gradient(ellipse at center top,rgba(0,209,102,0.05) 0%,transparent 65%);pointer-events:none;z-index:0}
+#root{position:relative;z-index:1}
+h1,h2,h3{font-family:var(--font-display);letter-spacing:0.04em}
+.page{display:none}.page.active{display:block}
+.container{max-width:680px;margin:0 auto;padding:0 16px}
+
+/* HEADER */
+header{background:rgba(10,14,26,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;padding:12px 16px}
+.header-inner{max-width:680px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-icon{width:36px;height:36px;background:linear-gradient(135deg,var(--gold),#c49a36);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;box-shadow:0 0 12px rgba(232,185,79,0.4)}
+.logo-text{font-family:var(--font-display);font-size:20px;letter-spacing:0.06em;color:var(--cream);line-height:1.1}
+.logo-sub{font-family:var(--font-body);font-size:10px;color:var(--muted);letter-spacing:0.12em;text-transform:uppercase;display:block}
+nav{display:flex;gap:4px}
+.nav-btn{background:none;border:none;color:var(--muted);font-family:var(--font-body);font-size:12px;font-weight:500;padding:6px 10px;border-radius:6px;cursor:pointer;transition:all 0.2s;letter-spacing:0.04em;white-space:nowrap}
+.nav-btn:hover{color:var(--cream);background:rgba(255,255,255,0.06)}
+.nav-btn.active{color:var(--neon);background:var(--neon-dim)}
+
+/* STICKER CARD */
+.sticker-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;position:relative;transition:all 0.25s;overflow:hidden}
+.sticker-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(232,185,79,0.06) 0%,transparent 50%);pointer-events:none;border-radius:var(--radius)}
+.sticker-card:hover{border-color:rgba(232,185,79,0.5);box-shadow:var(--shadow-gold);transform:translateY(-1px)}
+.sticker-card.locked{border-color:rgba(224,58,47,0.3);opacity:0.85}
+.sticker-card.locked::before{background:linear-gradient(135deg,rgba(224,58,47,0.06) 0%,transparent 50%)}
+
+/* MATCH CARD */
+.match-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.match-meta{display:flex;align-items:center;gap:6px}
+.grupo-badge{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);background:var(--gold-dim);border:1px solid rgba(232,185,79,0.3);padding:2px 8px;border-radius:4px}
+.match-time{font-size:11px;color:var(--muted)}
+.lock-badge{display:flex;align-items:center;gap:4px;font-size:11px;color:var(--red);font-weight:500}
+.match-teams{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;margin-bottom:14px}
+.team{display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center}
+.team-flag{font-size:28px;line-height:1}
+.team-name{font-family:var(--font-display);font-size:15px;letter-spacing:0.06em;color:var(--cream)}
+.score-inputs{display:flex;align-items:center;gap:6px}
+.score-input{width:44px;height:52px;background:var(--surface);border:2px solid var(--border);border-radius:8px;color:var(--cream);font-family:var(--font-display);font-size:28px;text-align:center;outline:none;transition:border-color 0.2s,box-shadow 0.2s;-moz-appearance:textfield}
+.score-input::-webkit-outer-spin-button,.score-input::-webkit-inner-spin-button{-webkit-appearance:none}
+.score-input:focus{border-color:var(--neon);box-shadow:0 0 0 3px var(--neon-dim)}
+.score-input:disabled{opacity:0.5;cursor:not-allowed}
+.score-input.filled{border-color:rgba(232,185,79,0.5)}
+.score-sep{font-family:var(--font-display);font-size:24px;color:var(--muted)}
+.result-display{display:flex;align-items:center;gap:6px}
+.result-score{width:44px;height:52px;background:var(--surface);border:2px solid rgba(232,185,79,0.4);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:28px;color:var(--gold)}
+.points-chip{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:700;padding:3px 10px;border-radius:20px;letter-spacing:0.04em}
+.points-chip.exact{background:rgba(0,209,102,0.2);color:var(--neon);border:1px solid var(--neon-dim)}
+.points-chip.partial{background:var(--gold-dim);color:var(--gold);border:1px solid rgba(232,185,79,0.3)}
+.points-chip.correct{background:rgba(100,150,255,0.15);color:#7FAAFF;border:1px solid rgba(100,150,255,0.2)}
+.points-chip.wrong{background:var(--red-dim);color:var(--red);border:1px solid rgba(224,58,47,0.2)}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--font-body);font-weight:600;font-size:14px;border:none;border-radius:var(--radius-sm);padding:12px 24px;cursor:pointer;transition:all 0.2s;letter-spacing:0.02em}
+.btn-primary{background:linear-gradient(135deg,var(--neon),#00a84f);color:var(--night);box-shadow:0 0 20px rgba(0,209,102,0.25)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 0 30px rgba(0,209,102,0.4)}
+.btn-primary:disabled{opacity:0.5;cursor:not-allowed;transform:none}
+.btn-gold{background:linear-gradient(135deg,var(--gold),#c49a36);color:var(--night);box-shadow:0 0 20px rgba(232,185,79,0.2)}
+.btn-gold:hover{transform:translateY(-1px);box-shadow:0 0 30px rgba(232,185,79,0.35)}
+.btn-gold:disabled{opacity:0.5;cursor:not-allowed;transform:none}
+.btn-outline{background:transparent;border:1px solid var(--border);color:var(--cream-dim)}
+.btn-outline:hover{border-color:var(--gold);color:var(--cream)}
+.btn-full{width:100%}
+
+/* FORMS */
+.form-group{margin-bottom:20px}
+.form-label{display:block;font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.form-input{width:100%;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--cream);font-family:var(--font-body);font-size:15px;padding:12px 16px;outline:none;transition:border-color 0.2s,box-shadow 0.2s}
+.form-input:focus{border-color:var(--neon);box-shadow:0 0 0 3px var(--neon-dim)}
+.form-input::placeholder{color:var(--muted)}
+.form-error{font-size:12px;color:var(--red);margin-top:6px;display:none}
+.form-error.visible{display:block}
+
+/* AVATAR */
+.avatar-grid{display:grid;grid-template-columns:repeat(10,1fr);gap:8px}
+.avatar-option{aspect-ratio:1;background:var(--surface);border:2px solid var(--border);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;font-size:20px;cursor:pointer;transition:all 0.2s}
+.avatar-option:hover{border-color:var(--gold);background:var(--gold-dim)}
+.avatar-option.selected{border-color:var(--gold);background:var(--gold-dim);box-shadow:0 0 12px rgba(232,185,79,0.3);transform:scale(1.05)}
+
+/* LEADERBOARD */
+.leaderboard-row{display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:var(--radius);background:var(--card);border:1px solid var(--border);margin-bottom:8px;transition:all 0.2s}
+.leaderboard-row:hover{border-color:rgba(232,185,79,0.4)}
+.rank-num{font-family:var(--font-display);font-size:22px;color:var(--muted);width:32px;text-align:center;flex-shrink:0}
+.rank-num.gold{color:var(--gold)}.rank-num.silver{color:#C0C8D8}.rank-num.bronze{color:#CD7F32}
+.leaderboard-avatar{width:42px;height:42px;border-radius:50%;background:var(--surface);border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.leaderboard-info{flex:1;min-width:0}
+.leaderboard-name{font-weight:600;font-size:15px;color:var(--cream);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.leaderboard-detail{font-size:12px;color:var(--muted)}
+.leaderboard-pts{font-family:var(--font-display);font-size:26px;color:var(--neon);flex-shrink:0}
+
+/* HERO */
+.hero{padding:40px 16px 32px;text-align:center;position:relative}
+.hero-trophy{font-size:56px;display:block;margin-bottom:12px;filter:drop-shadow(0 0 20px rgba(232,185,79,0.5))}
+.hero-title{font-family:var(--font-display);font-size:clamp(38px,8vw,56px);letter-spacing:0.06em;color:var(--cream);line-height:1;margin-bottom:4px}
+.hero-sub{font-family:var(--font-accent);font-size:16px;color:var(--gold);margin-bottom:20px}
+.countdown-strip{display:flex;justify-content:center;gap:8px;margin-bottom:28px}
+.countdown-unit{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 14px;text-align:center;min-width:64px}
+.countdown-num{font-family:var(--font-display);font-size:30px;color:var(--cream);display:block;line-height:1}
+.countdown-label{font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);display:block;margin-top:3px}
+
+/* RULES */
+.rules-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:24px;text-align:left}
+.rules-card h3{font-family:var(--font-display);font-size:18px;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:8px;letter-spacing:0.06em}
+.rules-list{list-style:none}
+.rules-list li{padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.05);font-size:13px;color:var(--cream-dim);display:flex;gap:10px}
+.rules-list li:last-child{border-bottom:none}
+
+/* TABS */
+.tab-bar{display:flex;gap:4px;background:var(--surface);border-radius:var(--radius);padding:4px;margin-bottom:24px}
+.tab-btn{flex:1;background:none;border:none;color:var(--muted);font-family:var(--font-body);font-size:13px;font-weight:500;padding:8px;border-radius:8px;cursor:pointer;transition:all 0.2s;text-align:center}
+.tab-btn.active{background:var(--card);color:var(--cream)}
+
+/* SECTION HEADER */
+.section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.section-title{font-family:var(--font-display);font-size:22px;letter-spacing:0.06em;color:var(--cream)}
+.section-badge{font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--neon);background:var(--neon-dim);border:1px solid var(--border-neon);padding:3px 10px;border-radius:4px}
+
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.7);backdrop-filter:blur(8px);z-index:200;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity 0.25s}
+.modal-overlay.open{opacity:1;pointer-events:all}
+.modal{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:28px;max-width:440px;width:100%;transform:translateY(20px);transition:transform 0.25s;box-shadow:var(--shadow-gold)}
+.modal-overlay.open .modal{transform:translateY(0)}
+.modal-title{font-family:var(--font-display);font-size:26px;color:var(--gold);margin-bottom:8px;display:flex;align-items:center;gap:10px;letter-spacing:0.06em}
+.modal-sub{font-size:13px;color:var(--muted);margin-bottom:20px}
+
+/* TRANSPARENCY */
+.transparency-table{width:100%;border-collapse:collapse;font-size:13px}
+.transparency-table th{text-align:left;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);padding:8px 12px;border-bottom:1px solid var(--border);font-weight:600}
+.transparency-table td{padding:10px 12px;border-bottom:1px solid rgba(255,255,255,0.04);color:var(--cream-dim);vertical-align:middle}
+.transparency-table tr:last-child td{border-bottom:none}
+.transparency-table tr:hover td{background:rgba(255,255,255,0.02)}
+
+/* TOAST */
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--card);border:1px solid var(--border-neon);color:var(--neon);font-size:14px;font-weight:500;padding:12px 24px;border-radius:100px;z-index:300;transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1);white-space:nowrap;box-shadow:var(--shadow-neon)}
+.toast.show{transform:translateX(-50%) translateY(0)}
+.toast.error{border-color:rgba(224,58,47,0.5);color:var(--red)}
+
+/* PHASE PILLS */
+.phase-pills{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;margin-bottom:20px;-ms-overflow-style:none;scrollbar-width:none}
+.phase-pills::-webkit-scrollbar{display:none}
+.phase-pill{flex-shrink:0;background:var(--surface);border:1px solid var(--border);border-radius:100px;color:var(--muted);font-size:12px;font-weight:500;padding:6px 14px;cursor:pointer;transition:all 0.2s;white-space:nowrap}
+.phase-pill:hover{border-color:var(--gold);color:var(--cream)}
+.phase-pill.active{background:var(--gold-dim);border-color:var(--gold);color:var(--gold)}
+
+/* EMPTY STATE */
+.empty-state{text-align:center;padding:48px 20px;color:var(--muted)}
+.empty-state .empty-icon{font-size:40px;margin-bottom:12px;display:block}
+.empty-state h3{font-family:var(--font-display);font-size:20px;color:var(--cream-dim);margin-bottom:6px;letter-spacing:0.06em}
+.empty-state p{font-size:13px}
+
+/* LOADING SPINNER */
+.spinner{width:32px;height:32px;border:3px solid var(--border);border-top-color:var(--neon);border-radius:50%;animation:spin 0.7s linear infinite;margin:0 auto}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* LANDING HERO FIELD */
+.login-hero{position:relative;overflow:hidden;padding-top:0;min-height:280px;display:flex;align-items:center;justify-content:center;flex-direction:column}
+.login-field-svg{position:absolute;inset:0;width:100%;height:100%;opacity:0.13;pointer-events:none}
+.login-hero-content{position:relative;z-index:2;text-align:center;padding:48px 16px 32px}
+.login-glow{position:absolute;top:20%;left:50%;transform:translateX(-50%);width:320px;height:180px;background:radial-gradient(ellipse,rgba(0,209,102,0.18) 0%,transparent 70%);pointer-events:none;z-index:1}
+.login-stars{position:absolute;inset:0;pointer-events:none;z-index:1;overflow:hidden}
+.login-star{position:absolute;width:2px;height:2px;background:var(--gold);border-radius:50%;opacity:0;animation:twinkle var(--d,3s) ease-in-out var(--delay,0s) infinite}
+@keyframes twinkle{0%,100%{opacity:0;transform:scale(1)}50%{opacity:0.8;transform:scale(1.4)}}
+
+/* PALPITES TAB DECORATION */
+.palpites-banner{position:relative;overflow:hidden;background:linear-gradient(135deg,rgba(0,209,102,0.08),rgba(232,185,79,0.06));border:1px solid var(--border);border-radius:var(--radius);padding:16px 20px;margin-bottom:20px;display:flex;align-items:center;gap:14px}
+.palpites-banner::before{content:'';position:absolute;right:-20px;top:50%;transform:translateY(-50%);font-size:80px;opacity:0.06;line-height:1;pointer-events:none}
+.palpites-banner-icon{font-size:28px;flex-shrink:0;filter:drop-shadow(0 0 8px rgba(0,209,102,0.4))}
+.palpites-banner-text{flex:1;min-width:0}
+.palpites-banner-title{font-family:var(--font-display);font-size:17px;letter-spacing:0.06em;color:var(--cream);line-height:1.2}
+.palpites-banner-sub{font-size:12px;color:var(--muted);margin-top:2px}
+.phase-corner-deco{position:absolute;right:16px;bottom:12px;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--neon);font-weight:700;opacity:0.7}
+
+/* FLOATING BALLS ANIMATION */
+@keyframes floatBall{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-12px) rotate(180deg)}}
+.deco-ball{position:absolute;font-size:18px;opacity:0.12;animation:floatBall var(--dur,4s) ease-in-out var(--delay,0s) infinite;pointer-events:none}
+
+/* CONFIG BANNER */
+.config-banner{background:linear-gradient(135deg,rgba(224,58,47,0.15),rgba(224,58,47,0.05));border:1px solid rgba(224,58,47,0.4);border-radius:var(--radius);padding:20px;margin:20px auto;max-width:480px;text-align:center}
+.config-banner h3{font-family:var(--font-display);font-size:20px;color:var(--red);margin-bottom:8px;letter-spacing:0.06em}
+.config-banner p{font-size:13px;color:var(--cream-dim);margin-bottom:12px}
+.config-input-row{display:flex;flex-direction:column;gap:10px}
+
+/* UTILS */
+.mb-8{margin-bottom:8px}.mb-16{margin-bottom:16px}.mb-24{margin-bottom:24px}
+.mt-8{margin-top:8px}.mt-16{margin-top:16px}
+.flex{display:flex}.items-center{align-items:center}.gap-8{gap:8px}.flex-1{flex:1}
+.text-gold{color:var(--gold)}.text-neon{color:var(--neon)}.text-muted{color:var(--muted)}
+.fw-bold{font-weight:700}.text-center{text-align:center}
+
+/* ANIMATIONS */
+@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+.sticker-card.holographic::after{content:'';position:absolute;inset:0;background:linear-gradient(105deg,transparent 40%,rgba(232,185,79,0.07) 50%,rgba(0,209,102,0.06) 60%,transparent 70%);background-size:200% 100%;animation:shimmer 3s linear infinite;border-radius:var(--radius);pointer-events:none}
+@keyframes pulse-neon{0%,100%{box-shadow:0 0 6px rgba(0,209,102,0.4)}50%{box-shadow:0 0 18px rgba(0,209,102,0.7)}}
+.sticker-card.saved{border-color:rgba(0,209,102,0.5);animation:pulse-neon 2s ease-in-out 3}
+
+@media(max-width:480px){
+  .nav-btn{font-size:11px;padding:5px 7px}
+  .hero-title{font-size:34px}
+  .score-input{width:40px;height:46px;font-size:24px}
+  .avatar-grid{grid-template-columns:repeat(5,1fr)}
 }
 </style>
 </head>
 <body>
+
+<!-- ===================== SUPABASE CONFIG SCREEN ===================== -->
+<div id="config-screen" style="display:none; min-height:100vh; display:flex; align-items:center; justify-content:center; padding:20px;">
+  <div class="config-banner" style="max-width:500px;">
+    <h3>⚙️ CONFIGURAR SUPABASE</h3>
+    <p>Cole sua <strong style="color:var(--cream)">Project URL</strong> e <strong style="color:var(--cream)">anon key</strong> do Supabase para ativar o bolão. Você só precisa fazer isso uma vez — depois salve o arquivo HTML com os valores preenchidos.</p>
+    <div class="config-input-row">
+      <input id="cfg-url" class="form-input" placeholder="https://xxxx.supabase.co" autocomplete="off"/>
+      <input id="cfg-key" class="form-input" placeholder="eyJ... (anon key)" autocomplete="off"/>
+      <button class="btn btn-primary" onclick="saveConfig()">SALVAR E CONECTAR ✅</button>
+    </div>
+    <p style="font-size:11px;color:var(--muted);margin-top:12px;">Supabase → Settings → API → copie "Project URL" e "anon public key"</p>
+  </div>
+</div>
 
 <header id="app-header" style="display:none;">
   <div class="header-inner">
@@ -943,185 +271,190 @@ nav {
 
 <div id="root">
 
-  <!-- ===================== LOGIN PAGE ===================== -->
+  <!-- LOGIN -->
   <div id="page-login" class="page active">
-    <div class="container">
-      <div class="hero" style="padding-top: 60px;">
-        <span class="hero-trophy">🏆</span>
+    <!-- Decorative field hero -->
+    <div class="login-hero">
+      <div class="login-glow"></div>
+      <div class="login-stars" id="login-stars"></div>
+      <svg class="login-field-svg" viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+        <!-- Field outline -->
+        <rect x="20" y="20" width="360" height="240" fill="none" stroke="#00D166" stroke-width="2"/>
+        <!-- Center line -->
+        <line x1="200" y1="20" x2="200" y2="260" stroke="#00D166" stroke-width="1.5"/>
+        <!-- Center circle -->
+        <circle cx="200" cy="140" r="40" fill="none" stroke="#00D166" stroke-width="1.5"/>
+        <circle cx="200" cy="140" r="3" fill="#00D166"/>
+        <!-- Left penalty area -->
+        <rect x="20" y="85" width="55" height="110" fill="none" stroke="#00D166" stroke-width="1.5"/>
+        <!-- Right penalty area -->
+        <rect x="325" y="85" width="55" height="110" fill="none" stroke="#00D166" stroke-width="1.5"/>
+        <!-- Left goal area -->
+        <rect x="20" y="112" width="22" height="56" fill="none" stroke="#00D166" stroke-width="1"/>
+        <!-- Right goal area -->
+        <rect x="358" y="112" width="22" height="56" fill="none" stroke="#00D166" stroke-width="1"/>
+        <!-- Left penalty spot -->
+        <circle cx="60" cy="140" r="2.5" fill="#00D166"/>
+        <!-- Right penalty spot -->
+        <circle cx="340" cy="140" r="2.5" fill="#00D166"/>
+        <!-- Left arc -->
+        <path d="M75,114 Q90,140 75,166" fill="none" stroke="#00D166" stroke-width="1"/>
+        <!-- Right arc -->
+        <path d="M325,114 Q310,140 325,166" fill="none" stroke="#00D166" stroke-width="1"/>
+        <!-- Corner arcs -->
+        <path d="M20,30 Q28,20 38,20" fill="none" stroke="#00D166" stroke-width="1"/>
+        <path d="M362,20 Q372,20 380,30" fill="none" stroke="#00D166" stroke-width="1"/>
+        <path d="M20,250 Q20,260 30,260" fill="none" stroke="#00D166" stroke-width="1"/>
+        <path d="M380,250 Q380,260 370,260" fill="none" stroke="#00D166" stroke-width="1"/>
+        <!-- Decorative horizontal stripes (grass) -->
+        <rect x="20" y="20" width="360" height="24" fill="#00D166" fill-opacity="0.04"/>
+        <rect x="20" y="68" width="360" height="24" fill="#00D166" fill-opacity="0.04"/>
+        <rect x="20" y="116" width="360" height="24" fill="#00D166" fill-opacity="0.04"/>
+        <rect x="20" y="164" width="360" height="24" fill="#00D166" fill-opacity="0.04"/>
+        <rect x="20" y="212" width="360" height="24" fill="#00D166" fill-opacity="0.04"/>
+      </svg>
+      <div class="login-hero-content">
+        <div style="font-size:52px;margin-bottom:8px;filter:drop-shadow(0 0 24px rgba(232,185,79,0.6));">🏆</div>
         <h1 class="hero-title">BOLÃO WIRTHMANN</h1>
         <p class="hero-sub">Copa do Mundo 2026</p>
       </div>
+    </div>
 
-      <div class="sticker-card holographic" style="max-width: 400px; margin: 0 auto 32px;">
-        <h2 style="font-size:22px; margin-bottom:6px; color: var(--cream); font-family: var(--font-display); letter-spacing: 0.06em;">ENTRAR NO BOLÃO</h2>
-        <p style="font-size: 13px; color: var(--muted); margin-bottom: 20px;">Use o código de convite para participar</p>
-
+    <div class="container">
+      <div class="sticker-card holographic" style="max-width:400px;margin:0 auto 32px;position:relative;">
+        <!-- floating decorative balls -->
+        <span class="deco-ball" style="top:8px;right:48px;--dur:3.5s;--delay:0s;">⚽</span>
+        <span class="deco-ball" style="bottom:12px;right:16px;--dur:4.2s;--delay:1s;">⚽</span>
+        <span class="deco-ball" style="top:50%;left:8px;--dur:5s;--delay:0.5s;">⚽</span>
+        <h2 style="font-size:22px;margin-bottom:6px;color:var(--cream);font-family:var(--font-display);letter-spacing:0.06em;">ENTRAR NO BOLÃO</h2>
+        <p style="font-size:13px;color:var(--muted);margin-bottom:20px;">Use o código de convite para participar</p>
         <div class="form-group">
           <label class="form-label">Código de Convite</label>
-          <input id="input-codigo" class="form-input" type="text" placeholder="Digite o código de convite" autocomplete="off"/>
+          <input id="input-codigo" class="form-input" type="password" placeholder="Digite o código de convite" autocomplete="off"/>
           <p class="form-error" id="err-codigo">Código inválido. Peça ao Admin!</p>
         </div>
-
         <div class="form-group" id="group-nome" style="display:none;">
           <label class="form-label">Seu Nome no Bolão</label>
-          <input id="input-nome" class="form-input" type="text" placeholder="Ex: Maria Bolinha" maxlength="24"/>
+          <input id="input-nome" class="form-input" type="text" placeholder="Como você quer ser chamado?" maxlength="24"/>
           <p class="form-error" id="err-nome">Digite seu nome para continuar.</p>
         </div>
-
         <div class="form-group" id="group-avatar" style="display:none;">
           <label class="form-label">Escolha sua Figurinha</label>
-          <div class="avatar-grid" id="avatar-grid">
-            <!-- populated by JS -->
-          </div>
+          <div class="avatar-grid" id="avatar-grid"></div>
           <p class="form-error" id="err-avatar">Escolha uma figurinha!</p>
         </div>
-
-
-
-        <button class="btn btn-primary btn-full" id="btn-entrar" onclick="handleLogin()">
-          ENTRAR NO BOLÃO ⚽
-        </button>
+        <button class="btn btn-primary btn-full" id="btn-entrar" onclick="handleLogin()">ENTRAR NO BOLÃO ⚽</button>
       </div>
     </div>
   </div>
 
-  <!-- ===================== DASHBOARD ===================== -->
+  <!-- DASHBOARD -->
   <div id="page-dashboard" class="page">
     <div class="container">
       <div class="hero">
         <span class="hero-trophy">🏆</span>
         <h1 class="hero-title">COPA 2026</h1>
         <p class="hero-sub" id="dashboard-welcome">Bem-vindo ao Bolão!</p>
-
-        <button class="btn btn-gold" onclick="showPage('palpites')" style="margin-bottom: 8px;">
-          ✏️ FAZER PALPITES
-        </button>
+        <div class="countdown-strip">
+          <div class="countdown-unit"><span class="countdown-num" id="cd-dias">--</span><span class="countdown-label">Dias</span></div>
+          <div class="countdown-unit"><span class="countdown-num" id="cd-horas">--</span><span class="countdown-label">Horas</span></div>
+          <div class="countdown-unit"><span class="countdown-num" id="cd-min">--</span><span class="countdown-label">Min</span></div>
+          <div class="countdown-unit"><span class="countdown-num" id="cd-seg">--</span><span class="countdown-label">Seg</span></div>
+        </div>
+        <button class="btn btn-gold" onclick="showPage('palpites')" style="margin-bottom:8px;">✏️ FAZER PALPITES</button>
       </div>
-
       <div class="rules-card">
         <h3>📋 REGRAS DO BOLÃO WIRTHMANN</h3>
         <ul class="rules-list">
-          <li><span class="rule-icon">🔒</span><span>Seus palpites fecham individualmente <strong style="color:var(--cream)">1 hora antes</strong> de cada partida!</span></li>
-          <li><span class="rule-icon">📲</span><span>Ao salvar, copie o <strong style="color:var(--cream)">"Código do Palpite"</strong> gerado e mande para o Admin no WhatsApp para garantir seus pontos!</span></li>
-          <li><span class="rule-icon">🔄</span><span>A cada nova fase do mata-mata, os confrontos reais se formam aqui. Fique atento para mandar seu novo código!</span></li>
-          <li><span class="rule-icon">⚖️</span><span>Empates no ranking são decididos por quem tem mais <strong style="color:var(--cream)">acertos totais</strong> (soma de todos os palpites corretos ao longo da Copa).</span></li>
+          <li><span>🔒</span><span>Seus palpites fecham individualmente <strong style="color:var(--cream)">1 hora antes</strong> de cada partida!</span></li>
+          <li><span>☁️</span><span>Seus palpites são <strong style="color:var(--cream)">salvos automaticamente</strong> — sem precisar enviar código para ninguém!</span></li>
+          <li><span>🔄</span><span>A cada nova fase do mata-mata, os confrontos reais se formam aqui. Fique atento para fazer seus novos palpites!</span></li>
+          <li><span>⚖️</span><span>Empates no ranking são decididos por quem tem mais <strong style="color:var(--cream)">acertos totais</strong> ao longo da Copa.</span></li>
         </ul>
       </div>
-
       <div class="sticker-card">
-        <h3 style="font-family: var(--font-display); font-size: 18px; margin-bottom: 14px; color: var(--gold); letter-spacing: 0.06em;">🏅 TABELA DE PONTUAÇÃO</h3>
-        <div style="overflow-x: auto;">
-          <table style="width:100%; border-collapse:collapse; font-size: 12px; min-width: 420px;">
-            <thead>
-              <tr style="color: var(--muted);">
-                <th style="text-align:left; padding: 6px 8px; font-weight:600; letter-spacing:0.06em; border-bottom: 1px solid var(--border);">Fase</th>
-                <th style="padding: 6px 8px; border-bottom: 1px solid var(--border);" title="Placar Exato">🎯 Exato</th>
-                <th style="padding: 6px 8px; border-bottom: 1px solid var(--border);" title="Resultado + 1 gol">✅ + Gol</th>
-                <th style="padding: 6px 8px; border-bottom: 1px solid var(--border);" title="Resultado Certo">✅ Certo</th>
-              </tr>
-            </thead>
-            <tbody id="points-table-body">
+        <h3 style="font-family:var(--font-display);font-size:18px;margin-bottom:14px;color:var(--gold);letter-spacing:0.06em;">🏅 TABELA DE PONTUAÇÃO</h3>
+        <div style="overflow-x:auto;">
+          <table style="width:100%;border-collapse:collapse;font-size:12px;min-width:380px;">
+            <thead><tr style="color:var(--muted);">
+              <th style="text-align:left;padding:6px 8px;font-weight:600;letter-spacing:0.06em;border-bottom:1px solid var(--border);">Fase</th>
+              <th style="padding:6px 8px;border-bottom:1px solid var(--border);">🎯 Exato</th>
+              <th style="padding:6px 8px;border-bottom:1px solid var(--border);">✅+Gol</th>
+              <th style="padding:6px 8px;border-bottom:1px solid var(--border);">✅ Certo</th>
+            </tr></thead>
+            <tbody>
+              <tr><td style="padding:6px 8px;color:var(--cream-dim);font-size:12px;">Grupos</td><td style="padding:6px 8px;text-align:center;color:var(--neon);font-weight:700;">10</td><td style="padding:6px 8px;text-align:center;color:var(--gold);">7</td><td style="padding:6px 8px;text-align:center;color:#7FAAFF;">4</td></tr>
+              <tr><td style="padding:6px 8px;color:var(--cream-dim);font-size:12px;">R-32</td><td style="padding:6px 8px;text-align:center;color:var(--neon);font-weight:700;">12</td><td style="padding:6px 8px;text-align:center;color:var(--gold);">8</td><td style="padding:6px 8px;text-align:center;color:#7FAAFF;">5</td></tr>
+              <tr><td style="padding:6px 8px;color:var(--cream-dim);font-size:12px;">Oitavas</td><td style="padding:6px 8px;text-align:center;color:var(--neon);font-weight:700;">14</td><td style="padding:6px 8px;text-align:center;color:var(--gold);">9</td><td style="padding:6px 8px;text-align:center;color:#7FAAFF;">6</td></tr>
+              <tr><td style="padding:6px 8px;color:var(--cream-dim);font-size:12px;">Quartas</td><td style="padding:6px 8px;text-align:center;color:var(--neon);font-weight:700;">16</td><td style="padding:6px 8px;text-align:center;color:var(--gold);">10</td><td style="padding:6px 8px;text-align:center;color:#7FAAFF;">7</td></tr>
+              <tr><td style="padding:6px 8px;color:var(--cream-dim);font-size:12px;">Semis</td><td style="padding:6px 8px;text-align:center;color:var(--neon);font-weight:700;">18</td><td style="padding:6px 8px;text-align:center;color:var(--gold);">11</td><td style="padding:6px 8px;text-align:center;color:#7FAAFF;">8</td></tr>
+              <tr><td style="padding:6px 8px;color:var(--cream-dim);font-size:12px;">3º / Final</td><td style="padding:6px 8px;text-align:center;color:var(--neon);font-weight:700;">20</td><td style="padding:6px 8px;text-align:center;color:var(--gold);">12</td><td style="padding:6px 8px;text-align:center;color:#7FAAFF;">9</td></tr>
             </tbody>
           </table>
         </div>
       </div>
-
-      <div style="height: 32px;"></div>
+      <div style="height:32px;"></div>
     </div>
   </div>
 
-  <!-- ===================== PALPITES PAGE ===================== -->
+  <!-- PALPITES -->
   <div id="page-palpites" class="page">
-    <div class="container" style="padding-top: 24px;">
-
-      <div class="section-header">
-        <h2 class="section-title">MEUS PALPITES</h2>
+    <div class="container" style="padding-top:24px;">
+      <!-- Decorative banner -->
+      <div class="palpites-banner">
+        <span class="palpites-banner-icon">✏️</span>
+        <div class="palpites-banner-text">
+          <div class="palpites-banner-title">MEUS PALPITES</div>
+          <div class="palpites-banner-sub">Você pode editar qualquer jogo até <strong style="color:var(--cream);">1h antes</strong> do apito inicial</div>
+        </div>
         <span class="section-badge" id="palpites-phase-badge">Grupos</span>
       </div>
-
-      <div class="phase-pills" id="phase-pills">
-        <!-- populated by JS -->
+      <!-- Floating balls deco behind match list -->
+      <div style="position:relative;">
+        <span class="deco-ball" style="top:40px;right:0;--dur:5s;--delay:0.2s;font-size:24px;">⚽</span>
+        <span class="deco-ball" style="top:220px;left:0;--dur:4s;--delay:1.3s;font-size:20px;">⚽</span>
+        <span class="deco-ball" style="top:420px;right:4px;--dur:6s;--delay:0.7s;font-size:16px;">⚽</span>
+        <div class="phase-pills" id="phase-pills"></div>
+        <div id="matches-list"></div>
       </div>
-
-      <div id="matches-list">
-        <!-- populated by JS -->
-      </div>
-
-      <div id="save-section" style="margin-top: 24px; margin-bottom: 32px;">
-        <button class="btn btn-gold btn-full" onclick="saveAndGenerateCode()" id="btn-salvar">
-          💾 SALVAR E GERAR CÓDIGO
-        </button>
-        <p style="font-size: 12px; color: var(--muted); text-align: center; margin-top: 8px;">
-          Copie o código e envie para o Admin via WhatsApp para garantir seus pontos!
-        </p>
+      <div id="save-section" style="margin-top:24px;margin-bottom:32px;">
+        <button class="btn btn-gold btn-full" onclick="saveToSupabase()" id="btn-salvar">💾 SALVAR PALPITES</button>
+        <p style="font-size:12px;color:var(--muted);text-align:center;margin-top:8px;">Palpites salvos na nuvem ☁️ — volte quando quiser para editar jogos ainda abertos</p>
       </div>
     </div>
   </div>
 
-  <!-- ===================== RANKING PAGE ===================== -->
+  <!-- RANKING -->
   <div id="page-ranking" class="page">
-    <div class="container" style="padding-top: 24px;">
-
+    <div class="container" style="padding-top:24px;">
       <div class="section-header">
         <h2 class="section-title">RANKING</h2>
         <span class="section-badge" id="ranking-count">0 participantes</span>
       </div>
-
-      <div id="ranking-list">
-        <!-- populated by JS -->
-      </div>
+      <div id="ranking-list"></div>
     </div>
   </div>
 
-  <!-- ===================== FAMÍLIA PAGE ===================== -->
+  <!-- FAMÍLIA -->
   <div id="page-familia" class="page">
-    <div class="container" style="padding-top: 24px;">
-
-      <div class="section-header">
-        <h2 class="section-title">PALPITES DA FAMÍLIA</h2>
-      </div>
-
-      <p style="font-size: 13px; color: var(--muted); margin-bottom: 20px;">
-        Clique em uma partida <strong style="color:var(--cream)">já bloqueada</strong> para ver os palpites de toda a família.
-      </p>
-
+    <div class="container" style="padding-top:24px;">
+      <div class="section-header"><h2 class="section-title">PALPITES DA FAMÍLIA</h2></div>
+      <p style="font-size:13px;color:var(--muted);margin-bottom:20px;">Clique em uma partida <strong style="color:var(--cream)">já bloqueada</strong> para ver os palpites de toda a família.</p>
       <div class="phase-pills" id="familia-phase-pills"></div>
-
       <div id="familia-matches-list"></div>
-
     </div>
   </div>
 
-</div><!-- #root -->
-
-<!-- ===================== SHARE CODE MODAL ===================== -->
-<div class="modal-overlay" id="modal-code">
-  <div class="modal">
-    <div class="modal-title">🎉 SEU CÓDIGO</div>
-    <p class="modal-sub">Copie este código e envie para o Admin no WhatsApp! Sem ele, seus palpites não contam.</p>
-    <div class="code-box" id="code-box-content"></div>
-    <div style="display:flex; gap: 10px;">
-      <button class="btn btn-primary flex-1" onclick="copyCode()">📋 COPIAR CÓDIGO</button>
-      <button class="btn btn-outline" onclick="closeModal()">Fechar</button>
-    </div>
-  </div>
 </div>
 
-<!-- ===================== TRANSPARENCY MODAL ===================== -->
+<!-- TRANSPARENCY MODAL -->
 <div class="modal-overlay" id="modal-transparency">
-  <div class="modal" style="max-width: 500px;">
-    <div class="modal-title" id="trans-modal-title" style="font-size:20px;">Palpites da Família</div>
+  <div class="modal" style="max-width:500px;">
+    <div class="modal-title" id="trans-modal-title" style="font-size:20px;"></div>
     <p class="modal-sub" id="trans-modal-sub"></p>
-    <div id="trans-table-container" style="overflow-x:auto; max-height: 320px; overflow-y:auto;">
-      <table class="transparency-table" id="trans-table">
-        <thead>
-          <tr>
-            <th style="width:40px;"></th>
-            <th>Nome</th>
-            <th style="text-align:center;">Palpite</th>
-            <th style="text-align:center;">Pontos</th>
-          </tr>
-        </thead>
+    <div style="overflow-x:auto;max-height:320px;overflow-y:auto;">
+      <table class="transparency-table">
+        <thead><tr><th style="width:40px;"></th><th>Nome</th><th style="text-align:center;">Palpite</th><th style="text-align:center;">Pontos</th></tr></thead>
         <tbody id="trans-tbody"></tbody>
       </table>
     </div>
@@ -1129,62 +462,116 @@ nav {
   </div>
 </div>
 
-<!-- TOAST -->
 <div class="toast" id="toast"></div>
 
 <script>
-// =============================================
-//  CONSTANTS & GLOBALS
-// =============================================
-const INVITE_CODE = 'Wirthmann2026';
-const LOCK_MINUTES_BEFORE = 60;
+// ============================================================
+//  ⚙️  SUPABASE CONFIG — paste your values here after setup
+//  Or leave blank and the app will show the config screen
+// ============================================================
+const SUPABASE_URL = 'https://abjpyguwedzzpxvxcbml.supabase.co/rest/v1/';
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFianB5Z3V3ZWR6enB4dnhjYm1sIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEyNjQ0MzIsImV4cCI6MjA5Njg0MDQzMn0.6MZqJSONHxsTZG0PiIrnKLb2levxZBj5INXHKHqqVVs';
 
+// ============================================================
+//  CONSTANTS
+// ============================================================
+const INVITE_CODE = 'Wirthmann2026';
+const LOCK_MINUTES = 60;
 const AVATARS = [
   '⚽','🏆','🥇','🎯','⚡','🔥','🌟','💫','🌈','👑',
   '🦁','🐯','🦅','🐆','🦊','🐉','🦄','🐺','🦉','🦋',
-  '🐧','🦜','🦩','🐬','🦈','🐃','🦏','🦛','🐊','🦁',
+  '🐧','🦜','🦩','🐬','🦈','🐃','🦏','🦛','🐊','🐻',
   '🎸','🎺','🥁','🎻','🎹','🎭','🃏','🔮','💎','🧠',
   '🚀','🛸','🌙','☄️','🌊','🍀','🌺','🌸','🌵','🏄'
 ];
 
-const PHASE_LABELS = {
-  grupos: 'Grupos', dezesseis: 'R-32', oitavas: 'Oitavas',
-  quartas: 'Quartas', semifinais: 'Semis', terceiro: '3º Lugar', final: 'Final'
-};
-
 let torneioData = null;
-let palpitesGlobal = [];
-let currentUser = null;
-let localPalpites = {}; // { matchId: { casa: N, fora: N } }
+let palpitesGlobal = [];   // all users from Supabase
+let currentUser = null;    // { nome, avatar }
+let localPalpites = {};    // { matchId: { casa, fora } } — current unsaved edits
+let dbPalpites = {};       // what's already saved in Supabase for this user
 let currentPalpitesPhase = 'grupos';
 let currentFamiliaPhase = 'grupos';
-let generatedCode = '';
+let supabaseReady = false;
 
-// =============================================
-//  DATA LOADING
-// =============================================
-async function loadData() {
-  try {
-    const [t, p] = await Promise.all([
-      fetch('./data/partidas.json').then(r => r.json()),
-      fetch('./data/palpites.json').then(r => r.json()).catch(() => ({ palpites: [] }))
-    ]);
-    torneioData = t;
-    palpitesGlobal = (p.palpites || []).map(code => {
-      try { return JSON.parse(atob(code)); } catch(e) { return null; }
-    }).filter(Boolean);
-  } catch(e) {
-    torneioData = { tournament: { currentPhase: 'grupos' }, fases: {} };
-    palpitesGlobal = [];
-  }
+// ============================================================
+//  SUPABASE CONFIG SCREEN
+// ============================================================
+function saveConfig() {
+  const url = document.getElementById('cfg-url').value.trim();
+  const key = document.getElementById('cfg-key').value.trim();
+  if (!url || !key) { showToast('Cole a URL e a key do Supabase!', true); return; }
+  // Inject into the script constants and reload concept — we just store locally
+  localStorage.setItem('sb_url', url);
+  localStorage.setItem('sb_key', key);
+  location.reload();
 }
 
-// =============================================
+function getSupabaseConfig() {
+  const url = SUPABASE_URL || localStorage.getItem('sb_url') || '';
+  const key = SUPABASE_KEY || localStorage.getItem('sb_key') || '';
+  return { url: url.replace(/\/$/, ''), key };
+}
+
+// ============================================================
+//  SUPABASE API HELPERS
+// ============================================================
+async function sbFetch(path, options = {}) {
+  const { url, key } = getSupabaseConfig();
+  const res = await fetch(`${url}/rest/v1/${path}`, {
+    headers: {
+      'apikey': key,
+      'Authorization': `Bearer ${key}`,
+      'Content-Type': 'application/json',
+      'Prefer': options.prefer || 'return=minimal',
+      ...options.headers
+    },
+    ...options
+  });
+  if (!res.ok) {
+    const err = await res.text();
+    throw new Error(err);
+  }
+  const text = await res.text();
+  return text ? JSON.parse(text) : null;
+}
+
+async function sbUpsert(data) {
+  return sbFetch('palpites', {
+    method: 'POST',
+    prefer: 'resolution=merge-duplicates,return=minimal',
+    headers: { 'Prefer': 'resolution=merge-duplicates,return=minimal' },
+    body: JSON.stringify(data)
+  });
+}
+
+async function sbSelectAll() {
+  return sbFetch('palpites?select=nome,avatar,fase,palpites_json', {
+    headers: { 'Prefer': '' }
+  });
+}
+
+async function sbSelectUser(nome) {
+  return sbFetch(`palpites?select=fase,palpites_json&nome=eq.${encodeURIComponent(nome)}`, {
+    headers: { 'Prefer': '' }
+  });
+}
+
+// ============================================================
+//  TOURNAMENT DATA
+// ============================================================
+async function loadTorneio() {
+  const res = await fetch('./data/partidas.json');
+  torneioData = await res.json();
+}
+
+// ============================================================
 //  UTILS
-// =============================================
-function showToast(msg, duration = 2800) {
+// ============================================================
+function showToast(msg, isError = false, duration = 3000) {
   const t = document.getElementById('toast');
   t.textContent = msg;
+  t.className = 'toast' + (isError ? ' error' : '');
   t.classList.add('show');
   setTimeout(() => t.classList.remove('show'), duration);
 }
@@ -1192,126 +579,80 @@ function showToast(msg, duration = 2800) {
 function formatDate(dateStr) {
   if (!dateStr) return '';
   const d = new Date(dateStr);
-  return d.toLocaleDateString('pt-BR', { weekday:'short', day:'2-digit', month:'2-digit' }) +
-    ' · ' + d.toLocaleTimeString('pt-BR', { hour:'2-digit', minute:'2-digit' });
+  return d.toLocaleDateString('pt-BR', { weekday: 'short', day: '2-digit', month: '2-digit' }) +
+    ' · ' + d.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
 }
 
 function isLocked(dateStr) {
   if (!dateStr) return false;
-  return new Date(dateStr).getTime() - Date.now() < LOCK_MINUTES_BEFORE * 60 * 1000;
+  return new Date(dateStr).getTime() - Date.now() < LOCK_MINUTES * 60000;
 }
 
 function getTimeToLock(dateStr) {
-  const diff = new Date(dateStr).getTime() - Date.now() - LOCK_MINUTES_BEFORE * 60 * 1000;
+  const diff = new Date(dateStr).getTime() - Date.now() - LOCK_MINUTES * 60000;
   if (diff <= 0) return null;
   const h = Math.floor(diff / 3600000);
   const m = Math.floor((diff % 3600000) / 60000);
-  if (h > 0) return `Fecha em ${h}h ${m}min`;
-  return `Fecha em ${m}min`;
+  return h > 0 ? `Fecha em ${h}h ${m}min` : `Fecha em ${m}min`;
 }
 
-function calcPoints(palpite, resultado, pontosConfig) {
-  if (resultado.gols_casa === null || resultado.gols_fora === null) return null;
-  const { gols_casa: rc, gols_fora: rf } = resultado;
-  const { gols_casa: pc, gols_fora: pf } = palpite;
-  if (pc === rc && pf === rf) return pontosConfig.placar_exato;
-  const realOutcome = rc > rf ? 1 : rc < rf ? -1 : 0;
-  const palpOutcome = pc > pf ? 1 : pc < pf ? -1 : 0;
-  if (realOutcome !== palpOutcome) return pontosConfig.resultado_errado;
-  if (pc === rc || pf === rf) return pontosConfig.resultado_e_um_gol;
-  return pontosConfig.resultado_certo;
-}
-
-// Count total correct outcomes (used as tiebreaker — no guessing required)
-function getTotalCorrectOutcomes(userData) {
-  if (!torneioData) return 0;
-  let correct = 0;
-  for (const [faseKey, faseData] of Object.entries(torneioData.fases)) {
-    const config = faseData.pontos;
-    const userFase = (userData.palpites || {})[faseKey] || {};
-    for (const partida of (faseData.partidas || [])) {
-      const p = userFase[partida.id];
-      if (!p || partida.gols_casa === null) continue;
-      const pts = calcPoints(p, partida, config);
-      if (pts !== null && pts > 0) correct++;
-    }
-  }
-  return correct;
+function calcPoints(palpite, partida, config) {
+  if (partida.gols_casa === null || partida.gols_fora === null) return null;
+  if (palpite.casa === '' || palpite.fora === '' || palpite.casa === undefined) return null;
+  const rc = partida.gols_casa, rf = partida.gols_fora;
+  const pc = Number(palpite.casa), pf = Number(palpite.fora);
+  if (pc === rc && pf === rf) return config.placar_exato;
+  const ro = rc > rf ? 1 : rc < rf ? -1 : 0;
+  const po = pc > pf ? 1 : pc < pf ? -1 : 0;
+  if (ro !== po) return config.resultado_errado;
+  if (pc === rc || pf === rf) return config.resultado_e_um_gol;
+  return config.resultado_certo;
 }
 
 function pointsClass(pts, config) {
-  if (pts === null) return '';
+  if (pts === null || pts === undefined) return '';
   if (pts === config.placar_exato) return 'exact';
   if (pts === config.resultado_e_um_gol) return 'partial';
-  if (pts === config.resultado_certo) return 'correct';
+  if (pts > 0) return 'correct';
   return 'wrong';
 }
 
-function pointsLabel(pts, config) {
-  if (pts === null) return '';
-  if (pts === config.placar_exato) return `🎯 ${pts} pts`;
-  if (pts === config.resultado_e_um_gol) return `✅ ${pts} pts`;
-  if (pts === config.resultado_certo) return `✅ ${pts} pts`;
-  return `0 pts`;
-}
-
-function getTotalUserPoints(userData) {
+function getTotalPoints(userPalpites) {
   if (!torneioData) return 0;
   let total = 0;
   for (const [faseKey, faseData] of Object.entries(torneioData.fases)) {
     const config = faseData.pontos;
-    const userFase = (userData.palpites || {})[faseKey] || {};
-    for (const partida of (faseData.partidas || [])) {
-      const p = userFase[partida.id];
-      if (!p) continue;
-      const pts = calcPoints(p, partida, config);
+    const fasePalpites = (userPalpites || {})[faseKey] || {};
+    for (const p of (faseData.partidas || [])) {
+      const pal = fasePalpites[p.id];
+      if (!pal) continue;
+      const pts = calcPoints(pal, p, config);
       if (pts !== null) total += pts;
     }
   }
   return total;
 }
 
-// =============================================
-//  LOGIN
-// =============================================
-let loginStep = 0;
-
-function handleLogin() {
-  const code = document.getElementById('input-codigo').value.trim();
-  const errCode = document.getElementById('err-codigo');
-
-  if (loginStep === 0) {
-    if (code !== INVITE_CODE) {
-      errCode.classList.add('visible');
-      return;
+function getTotalCorrect(userPalpites) {
+  if (!torneioData) return 0;
+  let c = 0;
+  for (const [faseKey, faseData] of Object.entries(torneioData.fases)) {
+    const config = faseData.pontos;
+    const fasePalpites = (userPalpites || {})[faseKey] || {};
+    for (const p of (faseData.partidas || [])) {
+      const pal = fasePalpites[p.id];
+      if (!pal || p.gols_casa === null) continue;
+      const pts = calcPoints(pal, p, config);
+      if (pts !== null && pts > 0) c++;
     }
-    errCode.classList.remove('visible');
-    document.getElementById('group-nome').style.display = '';
-    document.getElementById('group-avatar').style.display = '';
-    populateAvatarGrid();
-    document.getElementById('btn-entrar').textContent = 'CONFIRMAR E ENTRAR ✅';
-    loginStep = 1;
-    return;
   }
-
-  // Step 2: validate all fields
-  const nome = document.getElementById('input-nome').value.trim();
-  let valid = true;
-
-  if (!nome) { document.getElementById('err-nome').classList.add('visible'); valid = false; }
-  else document.getElementById('err-nome').classList.remove('visible');
-
-  if (!selectedAvatar) { document.getElementById('err-avatar').classList.add('visible'); valid = false; }
-  else document.getElementById('err-avatar').classList.remove('visible');
-
-  if (!valid) return;
-
-  currentUser = { nome, avatar: selectedAvatar, palpites: {} };
-  localStorage.setItem('bolao_user', JSON.stringify(currentUser));
-  localPalpites = {};
-  initApp();
+  return c;
 }
 
+// ============================================================
+//  LOGIN
+// ============================================================
+let loginStep = 0;
 let selectedAvatar = null;
 
 function populateAvatarGrid() {
@@ -1330,24 +671,94 @@ function populateAvatarGrid() {
   });
 }
 
-// =============================================
-//  APP INIT
-// =============================================
-function initApp() {
-  document.getElementById('app-header').style.display = '';
-  showPage('dashboard');
+function handleLogin() {
+  const code = document.getElementById('input-codigo').value.trim();
+  if (loginStep === 0) {
+    if (code !== INVITE_CODE) {
+      document.getElementById('err-codigo').classList.add('visible');
+      return;
+    }
+    document.getElementById('err-codigo').classList.remove('visible');
+    document.getElementById('group-nome').style.display = '';
+    document.getElementById('group-avatar').style.display = '';
+    populateAvatarGrid();
+    document.getElementById('btn-entrar').textContent = 'CONFIRMAR E ENTRAR ✅';
+    loginStep = 1;
+    return;
+  }
+  const nome = document.getElementById('input-nome').value.trim();
+  let valid = true;
+  if (!nome) { document.getElementById('err-nome').classList.add('visible'); valid = false; }
+  else document.getElementById('err-nome').classList.remove('visible');
+  if (!selectedAvatar) { document.getElementById('err-avatar').classList.add('visible'); valid = false; }
+  else document.getElementById('err-avatar').classList.remove('visible');
+  if (!valid) return;
 
-  // Restore local palpites
-  const saved = localStorage.getItem('bolao_palpites');
-  if (saved) localPalpites = JSON.parse(saved);
+  currentUser = { nome, avatar: selectedAvatar };
+  localStorage.setItem('bolao_user', JSON.stringify(currentUser));
+  initApp();
+}
+
+// ============================================================
+//  APP INIT
+// ============================================================
+async function initApp() {
+  document.getElementById('app-header').style.display = '';
+  document.getElementById('page-login').classList.remove('active');
+
+  // Load saved local palpites for this user
+  const saved = localStorage.getItem(`bolao_pal_${currentUser.nome}`);
+  localPalpites = saved ? JSON.parse(saved) : {};
+
+  // Load user's existing DB palpites
+  try {
+    const rows = await sbSelectUser(currentUser.nome);
+    if (rows && rows.length) {
+      rows.forEach(row => {
+        dbPalpites[row.fase] = row.palpites_json;
+        // Merge DB into local (DB is authoritative for already-saved phases)
+        if (!localPalpites[row.fase]) localPalpites[row.fase] = row.palpites_json;
+      });
+    }
+  } catch(e) { console.warn('Could not load user DB palpites', e); }
+
+  // Load all palpites for ranking/transparency
+  await refreshGlobalPalpites();
 
   renderDashboard();
   renderPalpites();
   renderRanking();
   renderFamilia();
   startCountdown();
+  showPage('dashboard');
+
+  // Refresh global data every 3 minutes
+  setInterval(refreshGlobalPalpites, 180000);
+  // Re-render match cards every minute (lock timers)
+  setInterval(() => {
+    if (document.getElementById('page-palpites').classList.contains('active')) renderPalpites();
+    if (document.getElementById('page-familia').classList.contains('active')) renderFamilia();
+  }, 60000);
 }
 
+async function refreshGlobalPalpites() {
+  try {
+    const rows = await sbSelectAll();
+    if (rows) {
+      // Build map: nome → { avatar, palpites: { fase: { matchId: {casa,fora} } } }
+      const map = {};
+      rows.forEach(row => {
+        if (!map[row.nome]) map[row.nome] = { nome: row.nome, avatar: row.avatar, palpites: {} };
+        map[row.nome].palpites[row.fase] = row.palpites_json;
+      });
+      palpitesGlobal = Object.values(map);
+    }
+  } catch(e) { console.warn('Could not refresh global palpites', e); }
+}
+
+// ============================================================
+//  NAVIGATION
+// ============================================================
 function showPage(name) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.getElementById('page-' + name).classList.add('active');
@@ -1358,74 +769,52 @@ function showPage(name) {
   if (name === 'familia') renderFamilia();
 }
 
-// =============================================
+// ============================================================
 //  COUNTDOWN
-// =============================================
+// ============================================================
 function startCountdown() {
-  const target = new Date('2026-06-11T13:00:00-05:00');
+  // Count to first match
+  const firstMatch = Object.values(torneioData.fases)
+    .flatMap(f => f.partidas || [])
+    .map(p => new Date(p.data).getTime())
+    .filter(t => t > Date.now())
+    .sort()[0];
+  const target = firstMatch || new Date('2026-06-11T15:00:00-06:00').getTime();
+
   function update() {
-    const now = Date.now();
-    const diff = target - now;
+    const diff = target - Date.now();
     if (diff <= 0) {
       ['dias','horas','min','seg'].forEach(k => document.getElementById('cd-' + k).textContent = '0');
       return;
     }
-    const d = Math.floor(diff / 86400000);
-    const h = Math.floor((diff % 86400000) / 3600000);
-    const m = Math.floor((diff % 3600000) / 60000);
-    const s = Math.floor((diff % 60000) / 1000);
-    document.getElementById('cd-dias').textContent = d;
-    document.getElementById('cd-horas').textContent = String(h).padStart(2,'0');
-    document.getElementById('cd-min').textContent = String(m).padStart(2,'0');
-    document.getElementById('cd-seg').textContent = String(s).padStart(2,'0');
+    document.getElementById('cd-dias').textContent = Math.floor(diff / 86400000);
+    document.getElementById('cd-horas').textContent = String(Math.floor((diff % 86400000) / 3600000)).padStart(2,'0');
+    document.getElementById('cd-min').textContent = String(Math.floor((diff % 3600000) / 60000)).padStart(2,'0');
+    document.getElementById('cd-seg').textContent = String(Math.floor((diff % 60000) / 1000)).padStart(2,'0');
   }
   update();
   setInterval(update, 1000);
 }
 
-// =============================================
+// ============================================================
 //  DASHBOARD
-// =============================================
+// ============================================================
 function renderDashboard() {
-  if (!currentUser) return;
   document.getElementById('dashboard-welcome').textContent =
     `${currentUser.avatar} Bem-vindo, ${currentUser.nome}!`;
-
-  // Points table
-  const tbody = document.getElementById('points-table-body');
-  const phases = ['grupos','dezesseis','oitavas','quartas','semifinais','terceiro','final'];
-  const labels = ['Grupos','R-32','Oitavas','Quartas','Semis','3º Lugar','Final'];
-  const configs = {
-    grupos: { placar_exato:10, resultado_e_um_gol:7, resultado_certo:4 },
-    dezesseis: { placar_exato:12, resultado_e_um_gol:8, resultado_certo:5 },
-    oitavas: { placar_exato:14, resultado_e_um_gol:9, resultado_certo:6 },
-    quartas: { placar_exato:16, resultado_e_um_gol:10, resultado_certo:7 },
-    semifinais: { placar_exato:18, resultado_e_um_gol:11, resultado_certo:8 },
-    terceiro: { placar_exato:20, resultado_e_um_gol:12, resultado_certo:9 },
-    final: { placar_exato:20, resultado_e_um_gol:12, resultado_certo:9 }
-  };
-  tbody.innerHTML = phases.map((ph, i) => {
-    const c = configs[ph];
-    return `<tr>
-      <td style="padding:7px 8px; color: var(--cream-dim); font-size:12px;">${labels[i]}</td>
-      <td style="padding:7px 8px; text-align:center;"><span style="color:var(--neon); font-weight:700;">${c.placar_exato}</span></td>
-      <td style="padding:7px 8px; text-align:center;"><span style="color:var(--gold);">${c.resultado_e_um_gol}</span></td>
-      <td style="padding:7px 8px; text-align:center;"><span style="color:#7FAAFF;">${c.resultado_certo}</span></td>
-    </tr>`;
-  }).join('');
 }
 
-// =============================================
+// ============================================================
 //  PALPITES PAGE
-// =============================================
+// ============================================================
 function renderPalpites() {
   if (!torneioData) return;
-  const phases = Object.entries(torneioData.fases).filter(([k,v]) => v.partidas && v.partidas.length > 0);
-  const pills = document.getElementById('phase-pills');
-  pills.innerHTML = phases.map(([key, fase]) => {
-    const isActive = key === currentPalpitesPhase;
-    return `<button class="phase-pill${isActive ? ' active' : ''}" onclick="setPalpitesPhase('${key}')">${fase.label}</button>`;
-  }).join('');
+  const phases = Object.entries(torneioData.fases).filter(([,v]) => v.partidas && v.partidas.length > 0);
+
+  // Phase pills
+  document.getElementById('phase-pills').innerHTML = phases.map(([key, fase]) =>
+    `<button class="phase-pill${key === currentPalpitesPhase ? ' active' : ''}" onclick="setPalpitesPhase('${key}')">${fase.label}</button>`
+  ).join('');
 
   const currentFase = torneioData.fases[currentPalpitesPhase];
   if (!currentFase || !currentFase.partidas.length) {
@@ -1437,53 +826,48 @@ function renderPalpites() {
   document.getElementById('save-section').style.display = '';
   document.getElementById('palpites-phase-badge').textContent = currentFase.label;
 
+  const userFasePalpites = localPalpites[currentPalpitesPhase] || {};
   const list = document.getElementById('matches-list');
   list.innerHTML = '';
 
   currentFase.partidas.forEach(partida => {
     const locked = isLocked(partida.data);
-    const userPalpite = localPalpites[partida.id];
-    const hasCasa = userPalpite && userPalpite.casa !== undefined && userPalpite.casa !== '';
-    const hasFora = userPalpite && userPalpite.fora !== undefined && userPalpite.fora !== '';
-    const isFilled = hasCasa && hasFora;
-
-    const timeLabel = locked ? '' : (getTimeToLock(partida.data) || '');
-    const lockTag = locked ? `<span class="lock-badge">🔒 BLOQUEADO</span>` : (timeLabel ? `<span style="font-size:11px;color:var(--gold);">⏱ ${timeLabel}</span>` : '');
+    const userPal = userFasePalpites[partida.id];
+    const hasBoth = userPal && userPal.casa !== '' && userPal.fora !== '' && userPal.casa !== undefined;
+    const timeLabel = !locked ? (getTimeToLock(partida.data) || '') : '';
+    const lockTag = locked
+      ? `<span class="lock-badge">🔒 BLOQUEADO</span>`
+      : timeLabel ? `<span style="font-size:11px;color:var(--gold);">⏱ ${timeLabel}</span>` : '';
 
     let scoreZone;
     if (locked && partida.gols_casa !== null) {
-      // Show result
-      const pts = userPalpite ? calcPoints(userPalpite, partida, currentFase.pontos) : null;
-      const pClass = pts !== null ? pointsClass(pts, currentFase.pontos) : '';
-      const pLabel = pts !== null ? pointsLabel(pts, currentFase.pontos) : '';
+      const pts = userPal ? calcPoints(userPal, partida, currentFase.pontos) : null;
+      const pc = pointsClass(pts, currentFase.pontos);
       scoreZone = `
         <div class="result-display">
           <div class="result-score">${partida.gols_casa}</div>
           <div class="score-sep">×</div>
           <div class="result-score">${partida.gols_fora}</div>
         </div>
-        ${pts !== null ? `<span class="points-chip ${pClass}" style="margin-top:8px;">${pLabel}</span>` : ''}
-        ${userPalpite ? `<div style="font-size:11px;color:var(--muted);margin-top:4px;">Seu palpite: ${userPalpite.casa}×${userPalpite.fora}</div>` : ''}`;
+        ${pts !== null ? `<span class="points-chip ${pc}" style="margin-top:8px;">${pts > 0 ? '🎯 ' : ''}${pts} pts</span>` : ''}
+        ${userPal && userPal.casa !== undefined ? `<div style="font-size:11px;color:var(--muted);margin-top:4px;">Seu palpite: ${userPal.casa}×${userPal.fora}</div>` : '<div style="font-size:11px;color:var(--muted);margin-top:4px;">Sem palpite</div>'}`;
     } else {
-      // Input mode
-      const cVal = hasCasa ? userPalpite.casa : '';
-      const fVal = hasFora ? userPalpite.fora : '';
+      const cVal = userPal?.casa !== undefined ? userPal.casa : '';
+      const fVal = userPal?.fora !== undefined ? userPal.fora : '';
       scoreZone = `
         <div class="score-inputs">
-          <input class="score-input${isFilled?' filled':''}" type="number" min="0" max="20" value="${cVal}"
-            id="inp-${partida.id}-casa" ${locked ? 'disabled' : ''}
-            oninput="savePalpiteLocal('${partida.id}','casa',this.value)"
-            placeholder="–"/>
+          <input class="score-input${hasBoth?' filled':''}" type="number" min="0" max="20" value="${cVal}"
+            id="inp-${partida.id}-casa" ${locked?'disabled':''}
+            oninput="savePalpiteLocal('${partida.id}','casa',this.value)" placeholder="–"/>
           <span class="score-sep">×</span>
-          <input class="score-input${isFilled?' filled':''}" type="number" min="0" max="20" value="${fVal}"
-            id="inp-${partida.id}-fora" ${locked ? 'disabled' : ''}
-            oninput="savePalpiteLocal('${partida.id}','fora',this.value)"
-            placeholder="–"/>
+          <input class="score-input${hasBoth?' filled':''}" type="number" min="0" max="20" value="${fVal}"
+            id="inp-${partida.id}-fora" ${locked?'disabled':''}
+            oninput="savePalpiteLocal('${partida.id}','fora',this.value)" placeholder="–"/>
         </div>`;
     }
 
     const card = document.createElement('div');
-    card.className = `sticker-card${locked ? ' locked' : ''}${isFilled && !locked ? ' holographic saved' : ''} mb-16`;
+    card.className = `sticker-card${locked?' locked':''}${hasBoth&&!locked?' holographic saved':''} mb-16`;
     card.innerHTML = `
       <div class="match-header">
         <div class="match-meta">
@@ -1493,17 +877,9 @@ function renderPalpites() {
         ${lockTag}
       </div>
       <div class="match-teams">
-        <div class="team">
-          <span class="team-flag">${partida.bandeira_casa || '🏳'}</span>
-          <span class="team-name">${partida.casa}</span>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
-          ${scoreZone}
-        </div>
-        <div class="team">
-          <span class="team-flag">${partida.bandeira_fora || '🏳'}</span>
-          <span class="team-name">${partida.fora}</span>
-        </div>
+        <div class="team"><span class="team-flag">${partida.bandeira_casa||'🏳'}</span><span class="team-name">${partida.casa}</span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">${scoreZone}</div>
+        <div class="team"><span class="team-flag">${partida.bandeira_fora||'🏳'}</span><span class="team-name">${partida.fora}</span></div>
       </div>`;
     list.appendChild(card);
   });
@@ -1515,104 +891,97 @@ function setPalpitesPhase(key) {
 }
 
 function savePalpiteLocal(matchId, side, value) {
-  if (!localPalpites[matchId]) localPalpites[matchId] = {};
-  localPalpites[matchId][side] = value === '' ? '' : parseInt(value);
-  localStorage.setItem('bolao_palpites', JSON.stringify(localPalpites));
-  // Update filled styling
+  if (!localPalpites[currentPalpitesPhase]) localPalpites[currentPalpitesPhase] = {};
+  if (!localPalpites[currentPalpitesPhase][matchId]) localPalpites[currentPalpitesPhase][matchId] = {};
+  localPalpites[currentPalpitesPhase][matchId][side] = value === '' ? '' : parseInt(value);
+  localStorage.setItem(`bolao_pal_${currentUser.nome}`, JSON.stringify(localPalpites));
+  // Update sibling input fill state
   const other = side === 'casa' ? 'fora' : 'casa';
-  const thisInput = document.getElementById(`inp-${matchId}-${side}`);
-  const otherInput = document.getElementById(`inp-${matchId}-${other}`);
-  if (thisInput && otherInput && value !== '' && otherInput.value !== '') {
-    thisInput.classList.add('filled');
-    otherInput.classList.add('filled');
+  const a = document.getElementById(`inp-${matchId}-${side}`);
+  const b = document.getElementById(`inp-${matchId}-${other}`);
+  if (a && b && value !== '' && b.value !== '') {
+    a.classList.add('filled'); b.classList.add('filled');
   }
 }
 
-// =============================================
-//  SAVE & GENERATE CODE
-// =============================================
-function saveAndGenerateCode() {
-  if (!currentUser) return;
-  // Merge localPalpites into user
-  currentUser.palpites[currentPalpitesPhase] = localPalpites;
-  currentUser.timestamp = Date.now();
-  localStorage.setItem('bolao_user', JSON.stringify(currentUser));
+// ============================================================
+//  SAVE TO SUPABASE
+// ============================================================
+async function saveToSupabase() {
+  const btn = document.getElementById('btn-salvar');
+  btn.disabled = true;
+  btn.textContent = '⏳ Salvando...';
 
-  const payload = {
-    nome: currentUser.nome,
-    avatar: currentUser.avatar,
-    totalGols: currentUser.totalGols,
-    fase: currentPalpitesPhase,
-    palpites: localPalpites,
-    timestamp: currentUser.timestamp
-  };
+  const fase = currentPalpitesPhase;
+  const fasePalpites = localPalpites[fase] || {};
+  const faseData = torneioData.fases[fase];
 
-  generatedCode = btoa(JSON.stringify(payload));
+  // Build the full palpites_json for this phase:
+  // Start with whatever is in the DB (preserves locked entries), then
+  // overwrite with current local values for any UNLOCKED matches.
+  const toSave = Object.assign({}, dbPalpites[fase] || {});
 
-  // Show modal
-  document.getElementById('code-box-content').textContent = generatedCode;
-  document.getElementById('modal-code').classList.add('open');
-
-  // Auto-copy
-  copyCode();
-}
-
-function copyCode() {
-  navigator.clipboard.writeText(generatedCode).then(() => {
-    showToast('✅ Código copiado! Cole no WhatsApp do Admin.');
-  }).catch(() => {
-    showToast('Selecione e copie o código manualmente!');
+  faseData.partidas.forEach(p => {
+    if (isLocked(p.data)) return; // don't overwrite locked entries from DB
+    const pal = fasePalpites[p.id];
+    if (pal && pal.casa !== '' && pal.fora !== '' && pal.casa !== undefined && pal.fora !== undefined) {
+      toSave[p.id] = { casa: Number(pal.casa), fora: Number(pal.fora) };
+    }
   });
+
+  try {
+    await sbUpsert({
+      nome: currentUser.nome,
+      avatar: currentUser.avatar,
+      fase,
+      palpites_json: toSave
+    });
+    dbPalpites[fase] = toSave;
+    // Sync local storage
+    if (!localPalpites[fase]) localPalpites[fase] = {};
+    Object.assign(localPalpites[fase], toSave);
+    localStorage.setItem(`bolao_pal_${currentUser.nome}`, JSON.stringify(localPalpites));
+    showToast('✅ Palpites salvos! Pode editar a qualquer hora.');
+    await refreshGlobalPalpites();
+    renderPalpites();
+  } catch(e) {
+    console.error(e);
+    showToast('❌ Erro ao salvar. Tente novamente.', true);
+  } finally {
+    btn.disabled = false;
+    btn.textContent = '💾 SALVAR PALPITES';
+  }
 }
 
-function closeModal() {
-  document.getElementById('modal-code').classList.remove('open');
-}
-
-// =============================================
+// ============================================================
 //  RANKING
-// =============================================
+// ============================================================
 function renderRanking() {
-  if (!torneioData || !palpitesGlobal.length) {
-    document.getElementById('ranking-list').innerHTML =
-      `<div class="empty-state"><span class="empty-icon">🏆</span><h3>RANKING AINDA VAZIO</h3><p>Quando os participantes enviarem seus códigos, o Admin atualiza o arquivo e o ranking aparece aqui.</p></div>`;
+  const list = document.getElementById('ranking-list');
+  if (!palpitesGlobal.length) {
+    list.innerHTML = `<div class="empty-state"><span class="empty-icon">🏆</span><h3>RANKING AINDA VAZIO</h3><p>Seja o primeiro a enviar seus palpites!</p></div>`;
     document.getElementById('ranking-count').textContent = '0 participantes';
     return;
   }
 
-  // Aggregate all palpites per user (last submission per fase wins)
-  const usersMap = {};
-  palpitesGlobal.forEach(p => {
-    if (!usersMap[p.nome]) usersMap[p.nome] = { nome: p.nome, avatar: p.avatar, totalGols: p.totalGols, palpites: {} };
-    if (p.fase && p.palpites) {
-      usersMap[p.nome].palpites[p.fase] = p.palpites;
-    }
-  });
-
-  const users = Object.values(usersMap).map(u => ({
+  const users = palpitesGlobal.map(u => ({
     ...u,
-    pts: getTotalUserPoints(u),
-    acertos: getTotalCorrectOutcomes(u)
-  }));
-
-  // Sort: points first, then correct outcomes as tiebreaker
-  users.sort((a, b) => {
-    if (b.pts !== a.pts) return b.pts - a.pts;
-    return b.acertos - a.acertos;
-  });
+    pts: getTotalPoints(u.palpites),
+    acertos: getTotalCorrect(u.palpites)
+  })).sort((a, b) => b.pts !== a.pts ? b.pts - a.pts : b.acertos - a.acertos);
 
   document.getElementById('ranking-count').textContent = `${users.length} participante${users.length !== 1 ? 's' : ''}`;
 
-  const list = document.getElementById('ranking-list');
   list.innerHTML = users.map((u, i) => {
     const rank = i + 1;
     const rankClass = rank === 1 ? 'gold' : rank === 2 ? 'silver' : rank === 3 ? 'bronze' : '';
     const medal = rank === 1 ? '🥇' : rank === 2 ? '🥈' : rank === 3 ? '🥉' : rank;
-    return `<div class="leaderboard-row">
+    const isMe = currentUser && u.nome === currentUser.nome;
+    return `<div class="leaderboard-row" style="${isMe ? 'border-color:rgba(0,209,102,0.4);' : ''}">
       <div class="rank-num ${rankClass}">${medal}</div>
       <div class="leaderboard-avatar">${u.avatar}</div>
       <div class="leaderboard-info">
-        <div class="leaderboard-name">${u.nome}</div>
+        <div class="leaderboard-name">${u.nome}${isMe ? ' <span style="font-size:11px;color:var(--neon);">• você</span>' : ''}</div>
         <div class="leaderboard-detail">✅ ${u.acertos} acerto${u.acertos !== 1 ? 's' : ''}</div>
       </div>
       <div class="leaderboard-pts">${u.pts}</div>
@@ -1620,22 +989,21 @@ function renderRanking() {
   }).join('');
 }
 
-// =============================================
-//  FAMÍLIA / TRANSPARENCY TAB
-// =============================================
+// ============================================================
+//  FAMÍLIA / TRANSPARENCY
+// ============================================================
 function renderFamilia() {
   if (!torneioData) return;
-  const phases = Object.entries(torneioData.fases).filter(([k,v]) => v.partidas && v.partidas.length > 0);
+  const phases = Object.entries(torneioData.fases).filter(([,v]) => v.partidas && v.partidas.length > 0);
 
-  const pills = document.getElementById('familia-phase-pills');
-  pills.innerHTML = phases.map(([key, fase]) =>
+  document.getElementById('familia-phase-pills').innerHTML = phases.map(([key, fase]) =>
     `<button class="phase-pill${key === currentFamiliaPhase ? ' active' : ''}" onclick="setFamiliaPhase('${key}')">${fase.label}</button>`
   ).join('');
 
   const currentFase = torneioData.fases[currentFamiliaPhase];
   if (!currentFase || !currentFase.partidas.length) {
     document.getElementById('familia-matches-list').innerHTML =
-      `<div class="empty-state"><span class="empty-icon">👨‍👩‍👧‍👦</span><h3>FASE NÃO LIBERADA</h3><p>Aguarde o Admin atualizar o bracket.</p></div>`;
+      `<div class="empty-state"><span class="empty-icon">👨‍👩‍👧‍👦</span><h3>FASE NÃO LIBERADA</h3></div>`;
     return;
   }
 
@@ -1645,8 +1013,9 @@ function renderFamilia() {
   currentFase.partidas.forEach(partida => {
     const locked = isLocked(partida.data);
     const card = document.createElement('div');
-    card.className = `sticker-card mb-16${locked ? '' : ' opacity-50'}`;
+    card.className = `sticker-card mb-16`;
     card.style.cursor = locked ? 'pointer' : 'default';
+    if (!locked) card.style.opacity = '0.6';
     if (locked) card.onclick = () => showTransparency(partida, currentFase);
 
     card.innerHTML = `
@@ -1655,24 +1024,15 @@ function renderFamilia() {
           ${partida.grupo ? `<span class="grupo-badge">Grupo ${partida.grupo}</span>` : ''}
           <span class="match-time">${formatDate(partida.data)}</span>
         </div>
-        ${locked ? `<span style="font-size:12px;color:var(--neon);font-weight:600;">👁 Ver palpites</span>` : `<span class="lock-badge" style="color:var(--muted);">🔓 Ainda aberto</span>`}
+        ${locked ? `<span style="font-size:12px;color:var(--neon);font-weight:600;">👁 Ver palpites</span>` : `<span style="font-size:11px;color:var(--muted);">🔓 Ainda aberto</span>`}
       </div>
-      <div class="match-teams" style="grid-template-columns:1fr auto 1fr;">
-        <div class="team">
-          <span class="team-flag">${partida.bandeira_casa || '🏳'}</span>
-          <span class="team-name">${partida.casa}</span>
-        </div>
-        <div style="font-family:var(--font-display);font-size:20px;color:var(--muted);">
-          ${partida.gols_casa !== null ? `${partida.gols_casa} × ${partida.gols_fora}` : 'vs'}
-        </div>
-        <div class="team">
-          <span class="team-flag">${partida.bandeira_fora || '🏳'}</span>
-          <span class="team-name">${partida.fora}</span>
-        </div>
+      <div class="match-teams">
+        <div class="team"><span class="team-flag">${partida.bandeira_casa||'🏳'}</span><span class="team-name">${partida.casa}</span></div>
+        <div style="font-family:var(--font-display);font-size:20px;color:var(--muted);">${partida.gols_casa !== null ? `${partida.gols_casa} × ${partida.gols_fora}` : 'vs'}</div>
+        <div class="team"><span class="team-flag">${partida.bandeira_fora||'🏳'}</span><span class="team-name">${partida.fora}</span></div>
       </div>
-      ${locked ? `<p style="font-size:11px;color:var(--neon);text-align:center;margin-top:4px;">Toque para ver os palpites da família</p>` : `<p style="font-size:11px;color:var(--muted);text-align:center;margin-top:4px;">Palpites visíveis após o bloqueio</p>`}`;
-
-    if (!locked) card.style.opacity = '0.6';
+      <p style="font-size:11px;color:${locked?'var(--neon)':'var(--muted)'};text-align:center;margin-top:4px;">
+        ${locked ? 'Toque para ver os palpites da família' : 'Palpites visíveis após o bloqueio'}</p>`;
     list.appendChild(card);
   });
 }
@@ -1688,33 +1048,23 @@ function showTransparency(partida, faseData) {
   document.getElementById('trans-modal-sub').textContent = formatDate(partida.data);
 
   const tbody = document.getElementById('trans-tbody');
-
   if (!palpitesGlobal.length) {
     tbody.innerHTML = `<tr><td colspan="4" style="text-align:center;color:var(--muted);padding:20px;">Nenhum palpite registrado ainda.</td></tr>`;
   } else {
-    // Aggregate latest per user
-    const usersMap = {};
-    palpitesGlobal.forEach(p => {
-      if (!usersMap[p.nome]) usersMap[p.nome] = { nome: p.nome, avatar: p.avatar, palpites: {} };
-      if (p.fase && p.palpites) {
-        Object.assign(usersMap[p.nome].palpites, p.palpites);
-      }
-    });
-
-    tbody.innerHTML = Object.values(usersMap).map(u => {
-      const p = (u.palpites || {})[partida.id];
+    tbody.innerHTML = palpitesGlobal.map(u => {
+      const fasePal = (u.palpites || {})[faseData.label === torneioData.fases[currentFamiliaPhase]?.label ? currentFamiliaPhase : currentFamiliaPhase] || {};
+      const p = fasePal[partida.id];
       const pText = p && p.casa !== undefined && p.fora !== undefined ? `${p.casa} × ${p.fora}` : '–';
       const pts = p ? calcPoints(p, partida, faseData.pontos) : null;
-      const pClass = pts !== null ? pointsClass(pts, faseData.pontos) : '';
+      const pc = pts !== null ? pointsClass(pts, faseData.pontos) : '';
       return `<tr>
-        <td style="font-size:22px; text-align:center;">${u.avatar}</td>
-        <td style="color:var(--cream); font-weight:500;">${u.nome}</td>
-        <td style="text-align:center; font-family:var(--font-display); font-size:18px; color:var(--cream-dim);">${pText}</td>
-        <td style="text-align:center;">${pts !== null ? `<span class="points-chip ${pClass}">${pts}pts</span>` : '<span style="color:var(--muted)">–</span>'}</td>
+        <td style="font-size:22px;text-align:center;">${u.avatar}</td>
+        <td style="color:var(--cream);font-weight:500;">${u.nome}</td>
+        <td style="text-align:center;font-family:var(--font-display);font-size:18px;color:var(--cream-dim);">${pText}</td>
+        <td style="text-align:center;">${pts !== null ? `<span class="points-chip ${pc}">${pts}pts</span>` : '<span style="color:var(--muted)">–</span>'}</td>
       </tr>`;
     }).join('');
   }
-
   document.getElementById('modal-transparency').classList.add('open');
 }
 
@@ -1722,40 +1072,51 @@ function closeTransModal() {
   document.getElementById('modal-transparency').classList.remove('open');
 }
 
-// Close modals on overlay click
-document.querySelectorAll('.modal-overlay').forEach(overlay => {
-  overlay.addEventListener('click', e => {
-    if (e.target === overlay) {
-      overlay.classList.remove('open');
-    }
-  });
-});
+document.querySelectorAll('.modal-overlay').forEach(o =>
+  o.addEventListener('click', e => { if (e.target === o) o.classList.remove('open'); })
+);
 
-// =============================================
-//  COUNTDOWN: re-render match cards every min
-// =============================================
-setInterval(() => {
-  if (document.getElementById('page-palpites').classList.contains('active')) renderPalpites();
-  if (document.getElementById('page-familia').classList.contains('active')) renderFamilia();
-}, 60000);
-
-// =============================================
+// ============================================================
 //  BOOT
-// =============================================
+// ============================================================
 (async function boot() {
-  await loadData();
+  const { url, key } = getSupabaseConfig();
+
+  // Show config screen if not set up yet
+  if (!url || !key) {
+    document.getElementById('page-login').style.display = 'none';
+    document.getElementById('config-screen').style.display = 'flex';
+    return;
+  }
+
+  await loadTorneio();
+  supabaseReady = true;
+
+  // Animate stars on login page
+  const starsEl = document.getElementById('login-stars');
+  if (starsEl) {
+    for (let i = 0; i < 18; i++) {
+      const s = document.createElement('span');
+      s.className = 'login-star';
+      s.style.cssText = `left:${Math.random()*100}%;top:${Math.random()*100}%;--d:${2+Math.random()*4}s;--delay:${Math.random()*4}s;`;
+      // alternate gold and neon
+      s.style.background = i % 3 === 0 ? 'var(--neon)' : 'var(--gold)';
+      s.style.width = s.style.height = `${1+Math.random()*2}px`;
+      starsEl.appendChild(s);
+    }
+  }
+
+  // Restore session
   const saved = localStorage.getItem('bolao_user');
   if (saved) {
     try {
       currentUser = JSON.parse(saved);
-      const savedPalpites = localStorage.getItem('bolao_palpites');
-      if (savedPalpites) localPalpites = JSON.parse(savedPalpites);
-      initApp();
-    } catch(e) {
-      localStorage.clear();
-    }
+      await initApp();
+      return;
+    } catch(e) { localStorage.removeItem('bolao_user'); }
   }
-  // page-login already active by default
+
+  document.getElementById('page-login').classList.add('active');
 })();
 </script>
 </body>
