@@ -1113,6 +1113,7 @@ document.querySelectorAll('.modal-overlay').forEach(o =>
   }
 
   await loadTorneio();
+  await refreshGlobalPalpites();
   supabaseReady = true;
 
   // Animate stars on login page
