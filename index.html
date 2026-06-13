@@ -522,7 +522,6 @@ async function sbUpsert(data) {
   return sbFetch('palpites', {
     method: 'POST',
     prefer: 'resolution=merge-duplicates,return=minimal',
-    headers: { 'Prefer': 'resolution=merge-duplicates,return=minimal' },
     body: JSON.stringify(data)
   });
 }
