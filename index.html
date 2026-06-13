@@ -926,9 +926,9 @@ async function saveToSupabase() {
     showToast('✅ Palpites salvos! Pode editar a qualquer hora.');
     await refreshGlobalPalpites();
     renderPalpites();
-  } catch(e) {
+    } catch(e) {
     console.error(e);
-    showToast('❌ Erro ao salvar. Tente novamente.', true);
+    showToast('❌ ' + e.message, true, 8000);
   } finally {
     btn.disabled = false;
     btn.textContent = '💾 SALVAR PALPITES';
