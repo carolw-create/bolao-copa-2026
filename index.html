@@ -769,13 +769,12 @@ async function initApp() {
   // Load all palpites for ranking/transparency
   await refreshGlobalPalpites();
 
+  showPage('dashboard');
   renderDashboard();
   renderPalpites();
   renderRanking();
   renderFamilia();
-  startCountdown();
-  showPage('dashboard');
-
+    
   // Refresh global data every 3 minutes
   setInterval(refreshGlobalPalpites, 180000);
   // Re-render match cards every minute (lock timers)
