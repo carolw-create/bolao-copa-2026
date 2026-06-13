@@ -11,8 +11,8 @@
       "partidas": [
         { "id": "g01", "casa": "México", "fora": "África do Sul", "bandeira_casa": "🇲🇽", "bandeira_fora": "🇿🇦", "grupo": "A", "data": "2026-06-11T15:00:00-06:00", "gols_casa": "2", "gols_fora": "0" },
         { "id": "g02", "casa": "Coreia do Sul", "fora": "Tchéquia", "bandeira_casa": "🇰🇷", "bandeira_fora": "🇨🇿", "grupo": "A", "data": "2026-06-11T22:00:00-06:00", "gols_casa": "2", "gols_fora": "1" },
-        { "id": "g03", "casa": "Canadá", "fora": "Bósnia e Herzegovina", "bandeira_casa": "🇨🇦", "bandeira_fora": "🇧🇦", "grupo": "B", "data": "2026-06-12T15:00:00-05:00", "gols_casa": null, "gols_fora": null },
-        { "id": "g04", "casa": "EUA", "fora": "Paraguai", "bandeira_casa": "🇺🇸", "bandeira_fora": "🇵🇾", "grupo": "D", "data": "2026-06-12T21:00:00-08:00", "gols_casa": null, "gols_fora": null },
+        { "id": "g03", "casa": "Canadá", "fora": "Bósnia e Herzegovina", "bandeira_casa": "🇨🇦", "bandeira_fora": "🇧🇦", "grupo": "B", "data": "2026-06-12T15:00:00-05:00", "gols_casa": "1", "gols_fora": "1" },
+        { "id": "g04", "casa": "EUA", "fora": "Paraguai", "bandeira_casa": "🇺🇸", "bandeira_fora": "🇵🇾", "grupo": "D", "data": "2026-06-12T21:00:00-08:00", "gols_casa": "4", "gols_fora": "1" },
         { "id": "g05", "casa": "Catar", "fora": "Suíça", "bandeira_casa": "🇶🇦", "bandeira_fora": "🇨🇭", "grupo": "B", "data": "2026-06-13T15:00:00-07:00", "gols_casa": null, "gols_fora": null },
         { "id": "g06", "casa": "Brasil", "fora": "Marrocos", "bandeira_casa": "🇧🇷", "bandeira_fora": "🇲🇦", "grupo": "C", "data": "2026-06-13T18:00:00-04:00", "gols_casa": null, "gols_fora": null },
         { "id": "g07", "casa": "Haiti", "fora": "Escócia", "bandeira_casa": "🇭🇹", "bandeira_fora": "🏴󠁧󠁢󠁳󠁣󠁴󠁿", "grupo": "C", "data": "2026-06-13T21:00:00-04:00", "gols_casa": null, "gols_fora": null },
