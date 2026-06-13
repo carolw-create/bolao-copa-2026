@@ -1,4 +1,0 @@
-{
-  "_instrucoes": "Cole os códigos recebidos dos participantes no array 'palpites' abaixo. Cada entrada é uma string base64 gerada pelo app.",
-  "palpites": []
-}
