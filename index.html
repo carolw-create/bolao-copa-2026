@@ -316,6 +316,13 @@ nav{display:flex;gap:4px}
         <span class="deco-ball" style="top:50%;left:8px;--dur:5s;--delay:0.5s;">⚽</span>
         <h2 style="font-size:22px;margin-bottom:6px;color:var(--cream);font-family:var(--font-display);letter-spacing:0.06em;">ENTRAR NO BOLÃO</h2>
         <p style="font-size:13px;color:var(--muted);margin-bottom:20px;">Use o código de convite para participar</p>
+        <div class="form-group" id="group-returning" style="display:none;">
+          <label class="form-label">Já participou? Selecione seu nome</label>
+          <select id="select-returning" class="form-input">
+            <option value="">— Sou novo, quero me cadastrar —</option>
+          </select>
+          <p style="font-size:11px;color:var(--muted);margin-top:6px;">Se já enviou palpites antes, selecione seu nome acima para entrar direto.</p>
+        </div>
         <div class="form-group">
           <label class="form-label">Código de Convite</label>
           <input id="input-codigo" class="form-input" type="password" placeholder="Digite o código de convite" autocomplete="off"/>
@@ -528,7 +535,7 @@ async function sbFetch(path, options = {}) {
 }
 
 async function sbUpsert(data) {
-  return sbFetch('palpites', {
+  return sbFetch('palpites?on_conflict=nome,fase', {
     method: 'POST',
     prefer: 'resolution=merge-duplicates,return=minimal',
     body: JSON.stringify(data)
@@ -669,13 +676,39 @@ function handleLogin() {
       return;
     }
     document.getElementById('err-codigo').classList.remove('visible');
+    document.getElementById('group-returning').style.display = '';
     document.getElementById('group-nome').style.display = '';
     document.getElementById('group-avatar').style.display = '';
+    // Populate returning users dropdown
+const sel = document.getElementById('select-returning');
+if (sel && palpitesGlobal.length) {
+  palpitesGlobal.forEach(u => {
+    const opt = document.createElement('option');
+    opt.value = u.nome;
+    opt.textContent = `${u.avatar} ${u.nome}`;
+    sel.appendChild(opt);
+  });
+}
     populateAvatarGrid();
     document.getElementById('btn-entrar').textContent = 'CONFIRMAR E ENTRAR ✅';
     loginStep = 1;
     return;
   }
+
+  // Check if returning user selected themselves
+  const returningSelect = document.getElementById('select-returning');
+  const selectedReturning = returningSelect ? returningSelect.value : '';
+  if (selectedReturning) {
+    // Load from DB and skip registration
+    const match = palpitesGlobal.find(u => u.nome === selectedReturning);
+    if (match) {
+      currentUser = { nome: match.nome, avatar: match.avatar };
+      localStorage.setItem('bolao_user', JSON.stringify(currentUser));
+      initApp();
+      return;
+    }
+  }
+
   const nome = document.getElementById('input-nome').value.trim();
   let valid = true;
   if (!nome) { document.getElementById('err-nome').classList.add('visible'); valid = false; }
