@@ -1064,10 +1064,10 @@ document.querySelectorAll('.modal-overlay').forEach(o =>
 (async function boot() {
   const { url, key } = getSupabaseConfig();
 
-  // Show config screen if not set up yet
+    // If keys are missing, just show login and warn
   if (!url || !key) {
-    document.getElementById('page-login').style.display = 'none';
-    document.getElementById('config-screen').style.display = 'flex';
+    console.error('Supabase não configurado.');
+    document.getElementById('page-login').classList.add('active');
     return;
   }
 
