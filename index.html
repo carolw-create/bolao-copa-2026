@@ -514,22 +514,33 @@ function getSupabaseConfig() {
 // ============================================================
 //  SUPABASE API HELPERS
 // ============================================================
+
 async function sbFetch(path, options = {}) {
   const { url, key } = getSupabaseConfig();
+
+  const {
+    headers: customHeaders = {},
+    prefer,
+    ...fetchOptions
+  } = options;
+
   const res = await fetch(`${url}/rest/v1/${path}`, {
+    ...fetchOptions,
     headers: {
       'apikey': key,
       'Authorization': `Bearer ${key}`,
       'Content-Type': 'application/json',
-      'Prefer': options.prefer || 'return=minimal',
-      ...options.headers
-    },
-    ...options
+      'Prefer': prefer || customHeaders.Prefer || 'return=minimal',
+      ...customHeaders
+    }
   });
+
   if (!res.ok) {
     const err = await res.text();
+    console.error('Supabase error:', res.status, err);
     throw new Error(err);
   }
+
   const text = await res.text();
   return text ? JSON.parse(text) : null;
 }
@@ -544,13 +555,14 @@ async function sbUpsert(data) {
 
 async function sbSelectAll() {
   return sbFetch('palpites?select=nome,avatar,fase,palpites_json', {
-    headers: { 'Prefer': '' }
+    prefer: ''
+
   });
 }
 
 async function sbSelectUser(nome) {
-  return sbFetch(`palpites?select=fase,palpites_json&nome=eq.${encodeURIComponent(nome)}`, {
-    headers: { 'Prefer': '' }
+    return sbFetch(`palpites?select=fase,palpites_json&nome=eq.${encodeURIComponent(nome)}`, {
+    prefer: ''
   });
 }
 
@@ -680,15 +692,24 @@ function handleLogin() {
     document.getElementById('group-nome').style.display = '';
     document.getElementById('group-avatar').style.display = '';
     // Populate returning users dropdown
+
 const sel = document.getElementById('select-returning');
-if (sel && palpitesGlobal.length) {
+if (sel) {
+  sel.innerHTML = '<option value="">— Sou novo, quero me cadastrar —</option>';
+
   palpitesGlobal.forEach(u => {
+    if (!u.nome) return;
+
     const opt = document.createElement('option');
     opt.value = u.nome;
-    opt.textContent = `${u.avatar} ${u.nome}`;
+    opt.textContent = `${u.avatar || '⚽'} ${u.nome}`;
     sel.appendChild(opt);
   });
+
+  console.log('Dropdown users:', palpitesGlobal);
 }
+``
+
     populateAvatarGrid();
     document.getElementById('btn-entrar').textContent = 'CONFIRMAR E ENTRAR ✅';
     loginStep = 1;
