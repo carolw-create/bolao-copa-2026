@@ -318,7 +318,7 @@ nav{display:flex;gap:4px}
         <p style="font-size:13px;color:var(--muted);margin-bottom:20px;">Use o código de convite para participar</p>
         <div class="form-group" id="group-returning" style="display:none;">
           <label class="form-label">Já participou? Selecione seu nome</label>
-          <select id="select-returning" class="form-input">
+          <select id="select-returning" class="form-input" onchange="handleReturningChange()">
             <option value="">— Sou novo, quero me cadastrar —</option>
           </select>
           <p style="font-size:11px;color:var(--muted);margin-top:6px;">Se já enviou palpites antes, selecione seu nome acima para entrar direto.</p>
@@ -328,15 +328,17 @@ nav{display:flex;gap:4px}
           <input id="input-codigo" class="form-input" type="text" placeholder="Digite o código de convite" autocomplete="off"/>
           <p class="form-error" id="err-codigo">Código inválido. Peça ao Admin!</p>
         </div>
-        <div class="form-group" id="group-nome" style="display:none;">
-          <label class="form-label">Seu Nome no Bolão</label>
-          <input id="input-nome" class="form-input" type="text" placeholder="Como você quer ser chamado?" maxlength="24"/>
-          <p class="form-error" id="err-nome">Digite seu nome para continuar.</p>
-        </div>
-        <div class="form-group" id="group-avatar" style="display:none;">
-          <label class="form-label">Escolha sua Figurinha</label>
-          <div class="avatar-grid" id="avatar-grid"></div>
-          <p class="form-error" id="err-avatar">Escolha uma figurinha!</p>
+        <div id="group-new-user">
+          <div class="form-group" id="group-nome">
+            <label class="form-label">Seu Nome no Bolão</label>
+            <input id="input-nome" class="form-input" type="text" placeholder="Como você quer ser chamado?" maxlength="24"/>
+            <p class="form-error" id="err-nome">Digite seu nome para continuar.</p>
+          </div>
+          <div class="form-group" id="group-avatar">
+            <label class="form-label">Escolha sua Figurinha</label>
+            <div class="avatar-grid" id="avatar-grid"></div>
+            <p class="form-error" id="err-avatar">Escolha uma figurinha!</p>
+          </div>
         </div>
         <button class="btn btn-primary btn-full" id="btn-entrar" onclick="handleLogin()">ENTRAR NO BOLÃO ⚽</button>
       </div>
@@ -679,7 +681,19 @@ function populateAvatarGrid() {
     grid.appendChild(d);
   });
 }
-
+function handleReturningChange() {
+  const sel = document.getElementById('select-returning');
+  const newUserFields = document.getElementById('group-new-user');
+  const btn = document.getElementById('btn-entrar');
+  if (sel.value) {
+    newUserFields.style.display = 'none';
+    const name = sel.options[sel.selectedIndex].text.split(' ').slice(1).join(' ');
+    btn.textContent = `ENTRAR COMO ${name} ✅`;
+  } else {
+    newUserFields.style.display = '';
+    btn.textContent = 'CONFIRMAR E ENTRAR ✅';
+  }
+}
 function handleLogin() {
   const code = document.getElementById('input-codigo').value.trim();
   if (loginStep === 0) {
