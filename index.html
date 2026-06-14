@@ -825,33 +825,6 @@ function showPage(name) {
 }
 
 // ============================================================
-//  COUNTDOWN
-// ============================================================
-function startCountdown() {
-  // Count to first match
-  const firstMatch = Object.values(torneioData.fases)
-    .flatMap(f => f.partidas || [])
-    .map(p => new Date(p.data).getTime())
-    .filter(t => t > Date.now())
-    .sort()[0];
-  const target = firstMatch || new Date('2026-06-11T15:00:00-06:00').getTime();
-
-  function update() {
-    const diff = target - Date.now();
-    if (diff <= 0) {
-      ['dias','horas','min','seg'].forEach(k => document.getElementById('cd-' + k).textContent = '0');
-      return;
-    }
-    document.getElementById('cd-dias').textContent = Math.floor(diff / 86400000);
-    document.getElementById('cd-horas').textContent = String(Math.floor((diff % 86400000) / 3600000)).padStart(2,'0');
-    document.getElementById('cd-min').textContent = String(Math.floor((diff % 3600000) / 60000)).padStart(2,'0');
-    document.getElementById('cd-seg').textContent = String(Math.floor((diff % 60000) / 1000)).padStart(2,'0');
-  }
-  update();
-  setInterval(update, 1000);
-}
-
-// ============================================================
 //  DASHBOARD
 // ============================================================
 function renderDashboard() {
