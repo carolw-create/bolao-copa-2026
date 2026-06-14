@@ -169,7 +169,31 @@ nav{display:flex;gap:4px}
 .toast.show{transform:translateX(-50%) translateY(0)}
 .toast.error{border-color:rgba(224,58,47,0.5);color:var(--red)}
 
-/* PHASE PILLS */
+/* DATE FILTER PILLS */
+.date-filter-bar{display:flex;gap:6px;overflow-x:auto;padding-bottom:6px;margin-bottom:16px;-ms-overflow-style:none;scrollbar-width:none;padding-top:2px}
+.date-filter-bar::-webkit-scrollbar{display:none}
+.date-pill{flex-shrink:0;background:var(--surface);border:1px solid var(--border);border-radius:100px;color:var(--muted);font-size:11px;font-weight:600;padding:5px 12px;cursor:pointer;transition:all 0.2s;white-space:nowrap;position:relative}
+.date-pill:hover{border-color:var(--neon);color:var(--cream)}
+.date-pill.active{background:var(--neon-dim);border-color:var(--neon);color:var(--neon)}
+.date-pill.has-open::after{content:'';position:absolute;top:3px;right:5px;width:5px;height:5px;background:var(--neon);border-radius:50%}
+.date-pill.all-locked{opacity:0.45}
+
+/* DATE GROUP HEADER */
+.date-group-header{display:flex;align-items:center;gap:10px;margin:20px 0 12px;padding:0 4px}
+.date-group-label{font-family:var(--font-display);font-size:14px;letter-spacing:0.1em;color:var(--muted);text-transform:uppercase;white-space:nowrap}
+.date-group-line{flex:1;height:1px;background:var(--border)}
+.date-group-count{font-size:11px;color:var(--muted);white-space:nowrap}
+
+/* STICKY SAVE BUTTON */
+.sticky-save{position:fixed;bottom:0;left:0;right:0;z-index:150;padding:12px 16px 20px;background:linear-gradient(to top,rgba(10,14,26,1) 60%,rgba(10,14,26,0));pointer-events:none}
+.sticky-save-inner{max-width:680px;margin:0 auto;pointer-events:all}
+.sticky-save-btn{width:100%;background:linear-gradient(135deg,var(--gold),#c49a36);color:var(--night);font-family:var(--font-body);font-weight:700;font-size:15px;border:none;border-radius:var(--radius);padding:14px 24px;cursor:pointer;transition:all 0.2s;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 0 24px rgba(232,185,79,0.3),0 4px 16px rgba(0,0,0,0.4);letter-spacing:0.02em}
+.sticky-save-btn:hover{transform:translateY(-1px);box-shadow:0 0 32px rgba(232,185,79,0.45)}
+.sticky-save-btn:disabled{opacity:0.6;cursor:not-allowed;transform:none}
+.sticky-save-badge{background:var(--night);color:var(--gold);font-size:11px;font-weight:700;padding:2px 7px;border-radius:100px;border:1px solid rgba(232,185,79,0.4);margin-left:4px}
+.palpites-bottom-pad{height:80px}
+
+  /* PHASE PILLS */
 .phase-pills{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;margin-bottom:20px;-ms-overflow-style:none;scrollbar-width:none}
 .phase-pills::-webkit-scrollbar{display:none}
 .phase-pill{flex-shrink:0;background:var(--surface);border:1px solid var(--border);border-radius:100px;color:var(--muted);font-size:12px;font-weight:500;padding:6px 14px;cursor:pointer;transition:all 0.2s;white-space:nowrap}
@@ -397,29 +421,28 @@ nav{display:flex;gap:4px}
     </div>
   </div>
 
-  <!-- PALPITES -->
+<!-- PALPITES -->
   <div id="page-palpites" class="page">
-    <div class="container" style="padding-top:24px;">
-      <!-- Decorative banner -->
+    <div class="container" style="padding-top:20px;">
       <div class="palpites-banner">
         <span class="palpites-banner-icon">✏️</span>
         <div class="palpites-banner-text">
           <div class="palpites-banner-title">MEUS PALPITES</div>
-          <div class="palpites-banner-sub">Você pode editar qualquer jogo até <strong style="color:var(--cream);">1h antes</strong> do apito inicial</div>
+          <div class="palpites-banner-sub">Edite até <strong style="color:var(--cream);">5 min antes</strong> do apito • Salve quando quiser ☁️</div>
         </div>
         <span class="section-badge" id="palpites-phase-badge">Grupos</span>
       </div>
-      <!-- Floating balls deco behind match list -->
-      <div style="position:relative;">
-        <span class="deco-ball" style="top:40px;right:0;--dur:5s;--delay:0.2s;font-size:24px;">⚽</span>
-        <span class="deco-ball" style="top:220px;left:0;--dur:4s;--delay:1.3s;font-size:20px;">⚽</span>
-        <span class="deco-ball" style="top:420px;right:4px;--dur:6s;--delay:0.7s;font-size:16px;">⚽</span>
-        <div class="phase-pills" id="phase-pills"></div>
-        <div id="matches-list"></div>
-      </div>
-      <div id="save-section" style="margin-top:24px;margin-bottom:32px;">
-        <button class="btn btn-gold btn-full" onclick="saveToSupabase()" id="btn-salvar">💾 SALVAR PALPITES</button>
-        <p style="font-size:12px;color:var(--muted);text-align:center;margin-top:8px;">Palpites salvos na nuvem ☁️ — volte quando quiser para editar jogos ainda abertos</p>
+      <div class="phase-pills" id="phase-pills"></div>
+      <div class="date-filter-bar" id="date-filter-bar"></div>
+      <div id="matches-list"></div>
+      <div class="palpites-bottom-pad"></div>
+    </div>
+    <div class="sticky-save" id="sticky-save" style="display:none;">
+      <div class="sticky-save-inner">
+        <button class="sticky-save-btn" onclick="saveToSupabase()" id="btn-salvar">
+          💾 SALVAR PALPITES
+          <span class="sticky-save-badge" id="save-badge" style="display:none;"></span>
+        </button>
       </div>
     </div>
   </div>
@@ -492,6 +515,7 @@ let localPalpites = {};    // { matchId: { casa, fora } } — current unsaved ed
 let dbPalpites = {};       // what's already saved in Supabase for this user
 let currentPalpitesPhase = 'grupos';
 let currentFamiliaPhase = 'grupos';
+let currentDateFilter = 'next';
 let supabaseReady = false;
 
 // ============================================================
@@ -590,8 +614,13 @@ function showToast(msg, isError = false, duration = 3000) {
 function formatDate(dateStr) {
   if (!dateStr) return '';
   const d = new Date(dateStr);
-  return d.toLocaleDateString('pt-BR', { weekday: 'short', day: '2-digit', month: '2-digit' }) +
-    ' · ' + d.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+  return d.toLocaleDateString('pt-BR', {
+    timeZone: 'America/Sao_Paulo',
+    weekday: 'short', day: '2-digit', month: '2-digit'
+  }) + ' · ' + d.toLocaleTimeString('pt-BR', {
+    timeZone: 'America/Sao_Paulo',
+    hour: '2-digit', minute: '2-digit'
+  });
 }
 
 function isLocked(dateStr) {
@@ -820,6 +849,7 @@ function showPage(name) {
   document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
   const nb = document.getElementById('nav-' + name);
   if (nb) nb.classList.add('active');
+  document.getElementById('sticky-save').style.display = name === 'palpites' ? '' : 'none';
   if (name === 'ranking') renderRanking();
   if (name === 'familia') renderFamilia();
 }
@@ -838,6 +868,71 @@ function renderDashboard() {
 function renderPalpites() {
   if (!torneioData) return;
   const phases = Object.entries(torneioData.fases).filter(([,v]) => v.partidas && v.partidas.length > 0);
+
+  document.getElementById('phase-pills').innerHTML = phases.map(([key, fase]) =>
+    `<button class="phase-pill${key === currentPalpitesPhase ? ' active' : ''}" onclick="setPalpitesPhase('${key}')">${fase.label}</button>`
+  ).join('');
+
+  const currentFase = torneioData.fases[currentPalpitesPhase];
+  if (!currentFase || !currentFase.partidas.length) {
+    document.getElementById('date-filter-bar').innerHTML = '';
+    document.getElementById('matches-list').innerHTML =
+      `<div class="empty-state"><span class="empty-icon">⏳</span><h3>FASE AINDA NÃO LIBERADA</h3><p>Quando o Admin atualizar o bracket, as partidas aparecem aqui.</p></div>`;
+    return;
+  }
+
+  document.getElementById('palpites-phase-badge').textContent = currentFase.label;
+  const allPartidas = currentFase.partidas;
+
+  // Set default to next open matchday
+  if (currentDateFilter === 'next') {
+    currentDateFilter = getNextMatchDate(allPartidas) || 'todos';
+  }
+
+  renderDateFilterBar(allPartidas);
+
+  const userFasePalpites = localPalpites[currentPalpitesPhase] || {};
+  const list = document.getElementById('matches-list');
+  list.innerHTML = '';
+
+  let filteredPartidas = currentDateFilter === 'todos'
+    ? allPartidas
+    : allPartidas.filter(p => getDateKey(p.data) === currentDateFilter);
+
+  if (filteredPartidas.length === 0) {
+    list.innerHTML = `<div class="empty-state"><span class="empty-icon">📅</span><h3>NENHUMA PARTIDA</h3><p>Selecione outra data acima.</p></div>`;
+    updateSaveBadge();
+    return;
+  }
+
+  if (currentDateFilter === 'todos') {
+    const dates = getMatchDates(filteredPartidas);
+    dates.forEach(date => {
+      const dayMatches = filteredPartidas.filter(p => getDateKey(p.data) === date);
+      const openCount = dayMatches.filter(p => !isLocked(p.data)).length;
+      const header = document.createElement('div');
+      header.className = 'date-group-header';
+      header.innerHTML = `
+        <span class="date-group-label">${getDateLabel(date)}</span>
+        <span class="date-group-line"></span>
+        <span class="date-group-count">${openCount > 0 ? `${openCount} aberto${openCount !== 1 ? 's' : ''}` : `${dayMatches.length} encerrado${dayMatches.length !== 1 ? 's' : ''}`}</span>`;
+      list.appendChild(header);
+      dayMatches.forEach(p => renderMatchCard(p, currentFase, userFasePalpites, list));
+    });
+  } else {
+    const openCount = filteredPartidas.filter(p => !isLocked(p.data)).length;
+    const header = document.createElement('div');
+    header.className = 'date-group-header';
+    header.innerHTML = `
+      <span class="date-group-label">${getDateLabel(currentDateFilter)}</span>
+      <span class="date-group-line"></span>
+      <span class="date-group-count">${openCount > 0 ? `${openCount} aberto${openCount !== 1 ? 's' : ''}` : `${filteredPartidas.length} encerrado${filteredPartidas.length !== 1 ? 's' : ''}`}</span>`;
+    list.appendChild(header);
+    filteredPartidas.forEach(p => renderMatchCard(p, currentFase, userFasePalpites, list));
+  }
+
+  updateSaveBadge();
+}
 
   // Phase pills
   document.getElementById('phase-pills').innerHTML = phases.map(([key, fase]) =>
@@ -912,9 +1007,143 @@ function renderPalpites() {
     list.appendChild(card);
   });
 }
+  
+// DATE FILTER HELPERS
+function getMatchDates(partidas) {
+  return [...new Set(partidas.map(p => getDateKey(p.data)))].sort();
+}
 
+function getNextMatchDate(partidas) {
+  const dates = getMatchDates(partidas);
+  for (const date of dates) {
+    const dayMatches = partidas.filter(p => getDateKey(p.data) === date);
+    if (dayMatches.some(p => !isLocked(p.data))) return date;
+  }
+  return dates[dates.length - 1] || null;
+}
+
+function getDateKey(dateStr) {
+  return new Date(dateStr).toLocaleDateString('en-CA', { timeZone: 'America/Sao_Paulo' });
+}
+
+function getDateLabel(dateKey) {
+  const d = new Date(dateKey + 'T12:00:00-03:00');
+  return d.toLocaleDateString('pt-BR', {
+    timeZone: 'America/Sao_Paulo',
+    weekday: 'short', day: '2-digit', month: '2-digit'
+  });
+}
+
+function renderDateFilterBar(partidas) {
+  const bar = document.getElementById('date-filter-bar');
+  const dates = getMatchDates(partidas);
+  const userFasePalpites = localPalpites[currentPalpitesPhase] || {};
+
+  let html = `<button class="date-pill ${currentDateFilter === 'todos' ? 'active' : ''}" onclick="setDateFilter('todos')">📋 Todos</button>`;
+
+  dates.forEach(date => {
+    const dayMatches = partidas.filter(p => getDateKey(p.data) === date);
+    const hasOpen = dayMatches.some(p => !isLocked(p.data));
+    const filled = dayMatches.filter(p => {
+      const pal = userFasePalpites[p.id];
+      return pal && pal.casa !== undefined && pal.casa !== '' && pal.fora !== undefined && pal.fora !== '';
+    }).length;
+    const isActive = currentDateFilter === date;
+
+    html += `<button class="date-pill ${isActive ? 'active' : ''} ${!hasOpen ? 'all-locked' : 'has-open'}"
+      onclick="setDateFilter('${date}')">
+      ${getDateLabel(date)}${filled > 0 ? ` <span style="font-size:9px;opacity:0.7;">${filled}/${dayMatches.length}</span>` : ''}
+    </button>`;
+  });
+
+  bar.innerHTML = html;
+}
+
+function setDateFilter(dateKey) {
+  currentDateFilter = dateKey;
+  renderPalpites();
+}
+
+function updateSaveBadge() {
+  const fase = currentPalpitesPhase;
+  const faseData = torneioData?.fases[fase];
+  if (!faseData) return;
+  const userFasePalpites = localPalpites[fase] || {};
+  const dbFase = dbPalpites[fase] || {};
+  let count = 0;
+  faseData.partidas.forEach(p => {
+    if (isLocked(p.data)) return;
+    const local = userFasePalpites[p.id];
+    const db = dbFase[p.id];
+    if (!local || local.casa === '' || local.fora === '' || local.casa === undefined) return;
+    if (!db || db.casa !== Number(local.casa) || db.fora !== Number(local.fora)) count++;
+  });
+  const badge = document.getElementById('save-badge');
+  if (badge) {
+    badge.textContent = count;
+    badge.style.display = count > 0 ? '' : 'none';
+  }
+}
+
+function renderMatchCard(partida, faseData, userFasePalpites, container) {
+  const locked = isLocked(partida.data);
+  const userPal = userFasePalpites[partida.id];
+  const hasBoth = userPal && userPal.casa !== '' && userPal.fora !== '' && userPal.casa !== undefined;
+  const timeLabel = !locked ? (getTimeToLock(partida.data) || '') : '';
+  const lockTag = locked
+    ? `<span class="lock-badge">🔒 BLOQUEADO</span>`
+    : timeLabel ? `<span style="font-size:11px;color:var(--gold);">⏱ ${timeLabel}</span>` : '';
+
+  let scoreZone;
+  if (locked && partida.gols_casa !== null) {
+    const pts = userPal ? calcPoints(userPal, partida, faseData.pontos) : null;
+    const pc = pointsClass(pts, faseData.pontos);
+    scoreZone = `
+      <div class="result-display">
+        <div class="result-score">${partida.gols_casa}</div>
+        <div class="score-sep">×</div>
+        <div class="result-score">${partida.gols_fora}</div>
+      </div>
+      ${pts !== null ? `<span class="points-chip ${pc}" style="margin-top:8px;">${pts > 0 ? '🎯 ' : ''}${pts} pts</span>` : ''}
+      ${userPal && userPal.casa !== undefined
+        ? `<div style="font-size:11px;color:var(--muted);margin-top:4px;">Seu palpite: ${userPal.casa}×${userPal.fora}</div>`
+        : '<div style="font-size:11px;color:var(--muted);margin-top:4px;">Sem palpite</div>'}`;
+  } else {
+    const cVal = userPal?.casa !== undefined ? userPal.casa : '';
+    const fVal = userPal?.fora !== undefined ? userPal.fora : '';
+    scoreZone = `
+      <div class="score-inputs">
+        <input class="score-input${hasBoth?' filled':''}" type="number" min="0" max="20" value="${cVal}"
+          id="inp-${partida.id}-casa" ${locked?'disabled':''}
+          oninput="savePalpiteLocal('${partida.id}','casa',this.value)" placeholder="–"/>
+        <span class="score-sep">×</span>
+        <input class="score-input${hasBoth?' filled':''}" type="number" min="0" max="20" value="${fVal}"
+          id="inp-${partida.id}-fora" ${locked?'disabled':''}
+          oninput="savePalpiteLocal('${partida.id}','fora',this.value)" placeholder="–"/>
+      </div>`;
+  }
+
+  const card = document.createElement('div');
+  card.className = `sticker-card${locked?' locked':''}${hasBoth&&!locked?' saved':''} mb-16`;
+  card.innerHTML = `
+    <div class="match-header">
+      <div class="match-meta">
+        ${partida.grupo ? `<span class="grupo-badge">Grupo ${partida.grupo}</span>` : ''}
+        <span class="match-time">${formatDate(partida.data)}</span>
+      </div>
+      ${lockTag}
+    </div>
+    <div class="match-teams">
+      <div class="team"><span class="team-flag">${partida.bandeira_casa||'🏳'}</span><span class="team-name">${partida.casa}</span></div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">${scoreZone}</div>
+      <div class="team"><span class="team-flag">${partida.bandeira_fora||'🏳'}</span><span class="team-name">${partida.fora}</span></div>
+    </div>`;
+  container.appendChild(card);
+}
+  
 function setPalpitesPhase(key) {
   currentPalpitesPhase = key;
+  currentDateFilter = 'next';
   renderPalpites();
 }
 
@@ -923,13 +1152,13 @@ function savePalpiteLocal(matchId, side, value) {
   if (!localPalpites[currentPalpitesPhase][matchId]) localPalpites[currentPalpitesPhase][matchId] = {};
   localPalpites[currentPalpitesPhase][matchId][side] = value === '' ? '' : parseInt(value);
   localStorage.setItem(`bolao_pal_${currentUser.nome}`, JSON.stringify(localPalpites));
-  // Update sibling input fill state
   const other = side === 'casa' ? 'fora' : 'casa';
   const a = document.getElementById(`inp-${matchId}-${side}`);
   const b = document.getElementById(`inp-${matchId}-${other}`);
   if (a && b && value !== '' && b.value !== '') {
     a.classList.add('filled'); b.classList.add('filled');
   }
+  updateSaveBadge();
 }
 
 // ============================================================
@@ -977,7 +1206,8 @@ async function saveToSupabase() {
     showToast('❌ ' + e.message, true, 8000);
   } finally {
     btn.disabled = false;
-    btn.textContent = '💾 SALVAR PALPITES';
+    btn.innerHTML = '💾 SALVAR PALPITES <span class="sticky-save-badge" id="save-badge" style="display:none;"></span>';
+    updateSaveBadge();
   }
 }
 
