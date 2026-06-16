@@ -31,7 +31,7 @@
         { "id": "g13", "casa": "Espanha", "fora": "Cabo Verde", "bandeira_casa": "🇪🇸", "bandeira_fora": "🇨🇻", "grupo": "H", "data": "2026-06-15T12:00:00-04:00", "gols_casa": 0, "gols_fora": 0 },
         { "id": "g14", "casa": "Bélgica", "fora": "Egito", "bandeira_casa": "🇧🇪", "bandeira_fora": "🇪🇬", "grupo": "G", "data": "2026-06-15T12:00:00-07:00", "gols_casa": 1, "gols_fora": 1 },
         { "id": "g15", "casa": "Arábia Saudita", "fora": "Uruguai", "bandeira_casa": "🇸🇦", "bandeira_fora": "🇺🇾", "grupo": "H", "data": "2026-06-15T18:00:00-04:00", "gols_casa": 1, "gols_fora": 1 },
-        { "id": "g16", "casa": "Irã", "fora": "Nova Zelândia", "bandeira_casa": "🇮🇷", "bandeira_fora": "🇳🇿", "grupo": "G", "data": "2026-06-15T18:00:00-07:00", "gols_casa": null, "gols_fora": null },
+        { "id": "g16", "casa": "Irã", "fora": "Nova Zelândia", "bandeira_casa": "🇮🇷", "bandeira_fora": "🇳🇿", "grupo": "G", "data": "2026-06-15T18:00:00-07:00", "gols_casa": 2, "gols_fora": 2 },
 
         { "id": "g17", "casa": "França", "fora": "Senegal", "bandeira_casa": "🇫🇷", "bandeira_fora": "🇸🇳", "grupo": "I", "data": "2026-06-16T15:00:00-04:00", "gols_casa": null, "gols_fora": null },
         { "id": "g18", "casa": "Iraque", "fora": "Noruega", "bandeira_casa": "🇮🇶", "bandeira_fora": "🇳🇴", "grupo": "I", "data": "2026-06-16T18:00:00-04:00", "gols_casa": null, "gols_fora": null },
