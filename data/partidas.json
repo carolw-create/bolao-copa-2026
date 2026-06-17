@@ -35,7 +35,7 @@
 
         { "id": "g17", "casa": "França", "fora": "Senegal", "bandeira_casa": "🇫🇷", "bandeira_fora": "🇸🇳", "grupo": "I", "data": "2026-06-16T15:00:00-04:00", "gols_casa": 3, "gols_fora": 1 },
         { "id": "g18", "casa": "Iraque", "fora": "Noruega", "bandeira_casa": "🇮🇶", "bandeira_fora": "🇳🇴", "grupo": "I", "data": "2026-06-16T18:00:00-04:00", "gols_casa": 1, "gols_fora": 4 },
-        { "id": "g19", "casa": "Argentina", "fora": "Argélia", "bandeira_casa": "🇦🇷", "bandeira_fora": "🇩🇿", "grupo": "J", "data": "2026-06-16T21:00:00-05:00", "gols_casa": null, "gols_fora": null },
+        { "id": "g19", "casa": "Argentina", "fora": "Argélia", "bandeira_casa": "🇦🇷", "bandeira_fora": "🇩🇿", "grupo": "J", "data": "2026-06-16T19:00:00-04:00", "gols_casa": null, "gols_fora": null },
         { "id": "g20", "casa": "Áustria", "fora": "Jordânia", "bandeira_casa": "🇦🇹", "bandeira_fora": "🇯🇴", "grupo": "J", "data": "2026-06-16T21:00:00-07:00", "gols_casa": null, "gols_fora": null },
 
         { "id": "g21", "casa": "Portugal", "fora": "Congo (RD)", "bandeira_casa": "🇵🇹", "bandeira_fora": "🇨🇩", "grupo": "K", "data": "2026-06-17T12:00:00-05:00", "gols_casa": null, "gols_fora": null },
