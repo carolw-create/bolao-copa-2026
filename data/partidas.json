@@ -46,7 +46,7 @@
         { "id": "g25", "casa": "Tchéquia", "fora": "África do Sul", "bandeira_casa": "🇨🇿", "bandeira_fora": "🇿🇦", "grupo": "A", "data": "2026-06-18T12:00:00-04:00", "gols_casa": 1, "gols_fora": 1 },
         { "id": "g26", "casa": "Suíça", "fora": "Bósnia e Herz.", "bandeira_casa": "🇨🇭", "bandeira_fora": "🇧🇦", "grupo": "B", "data": "2026-06-18T12:00:00-07:00", "gols_casa": 4, "gols_fora": 1 },
         { "id": "g27", "casa": "Canadá", "fora": "Catar", "bandeira_casa": "🇨🇦", "bandeira_fora": "🇶🇦", "grupo": "B", "data": "2026-06-18T15:00:00-07:00", "gols_casa": 6, "gols_fora": 0 },
-        { "id": "g28", "casa": "México", "fora": "Coreia do Sul", "bandeira_casa": "🇲🇽", "bandeira_fora": "🇰🇷", "grupo": "A", "data": "2026-06-18T19:00:00-06:00", "gols_casa": null, "gols_fora": null },
+        { "id": "g28", "casa": "México", "fora": "Coreia do Sul", "bandeira_casa": "🇲🇽", "bandeira_fora": "🇰🇷", "grupo": "A", "data": "2026-06-18T19:00:00-06:00", "gols_casa": 1, "gols_fora": 0 },
 
         { "id": "g29", "casa": "EUA", "fora": "Austrália", "bandeira_casa": "🇺🇸", "bandeira_fora": "🇦🇺", "grupo": "D", "data": "2026-06-19T12:00:00-07:00", "gols_casa": null, "gols_fora": null },
         { "id": "g30", "casa": "Escócia", "fora": "Marrocos", "bandeira_casa": "🏴", "bandeira_fora": "🇲🇦", "grupo": "C", "data": "2026-06-19T18:00:00-04:00", "gols_casa": null, "gols_fora": null },
