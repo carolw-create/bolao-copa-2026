@@ -53,7 +53,7 @@
         { "id": "g31", "casa": "Brasil", "fora": "Haiti", "bandeira_casa": "🇧🇷", "bandeira_fora": "🇭🇹", "grupo": "C", "data": "2026-06-19T20:30:00-04:00", "gols_casa": 3, "gols_fora": 0 },
         { "id": "g32", "casa": "Turquia", "fora": "Paraguai", "bandeira_casa": "🇹🇷", "bandeira_fora": "🇵🇾", "grupo": "D", "data": "2026-06-19T20:00:00-07:00", "gols_casa": 0, "gols_fora": 1 },
 
-        { "id": "g33", "casa": "Holanda", "fora": "Suécia", "bandeira_casa": "🇳🇱", "bandeira_fora": "🇸🇪", "grupo": "F", "data": "2026-06-20T12:00:00-05:00", "gols_casa": null, "gols_fora": null },
+        { "id": "g33", "casa": "Holanda", "fora": "Suécia", "bandeira_casa": "🇳🇱", "bandeira_fora": "🇸🇪", "grupo": "F", "data": "2026-06-20T12:00:00-05:00", "gols_casa": 5, "gols_fora": 1 },
         { "id": "g34", "casa": "Alemanha", "fora": "Costa do Marfim", "bandeira_casa": "🇩🇪", "bandeira_fora": "🇨🇮", "grupo": "E", "data": "2026-06-20T16:00:00-04:00", "gols_casa": null, "gols_fora": null },
         { "id": "g35", "casa": "Equador", "fora": "Curaçao", "bandeira_casa": "🇪🇨", "bandeira_fora": "🇨🇼", "grupo": "E", "data": "2026-06-20T19:00:00-05:00", "gols_casa": null, "gols_fora": null },
         { "id": "g36", "casa": "Tunísia", "fora": "Japão", "bandeira_casa": "🇹🇳", "bandeira_fora": "🇯🇵", "grupo": "F", "data": "2026-06-20T22:00:00-06:00", "gols_casa": null, "gols_fora": null },
