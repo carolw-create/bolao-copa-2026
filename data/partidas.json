@@ -77,8 +77,8 @@
         { "id": "g50", "casa": "Bósnia e Herz.", "fora": "Catar", "bandeira_casa": "🇧🇦", "bandeira_fora": "🇶🇦", "grupo": "B", "data": "2026-06-24T12:00:00-07:00", "gols_casa": 3, "gols_fora": 1 },
         { "id": "g51", "casa": "Marrocos", "fora": "Haiti", "bandeira_casa": "🇲🇦", "bandeira_fora": "🇭🇹", "grupo": "C", "data": "2026-06-24T18:00:00-04:00", "gols_casa": 4, "gols_fora": 2 },
         { "id": "g52", "casa": "Escócia", "fora": "Brasil", "bandeira_casa": "🏴", "bandeira_fora": "🇧🇷", "grupo": "C", "data": "2026-06-24T18:00:00-04:00", "gols_casa": 0, "gols_fora": 3 },
-        { "id": "g53", "casa": "África do Sul", "fora": "Coreia do Sul", "bandeira_casa": "🇿🇦", "bandeira_fora": "🇰🇷", "grupo": "A", "data": "2026-06-24T19:00:00-06:00", "gols_casa": null, "gols_fora": null },
-        { "id": "g54", "casa": "Tchéquia", "fora": "México", "bandeira_casa": "🇨🇿", "bandeira_fora": "🇲🇽", "grupo": "A", "data": "2026-06-24T19:00:00-06:00", "gols_casa": null, "gols_fora": null },
+        { "id": "g53", "casa": "África do Sul", "fora": "Coreia do Sul", "bandeira_casa": "🇿🇦", "bandeira_fora": "🇰🇷", "grupo": "A", "data": "2026-06-24T19:00:00-06:00", "gols_casa": 1, "gols_fora": 0 },
+        { "id": "g54", "casa": "Tchéquia", "fora": "México", "bandeira_casa": "🇨🇿", "bandeira_fora": "🇲🇽", "grupo": "A", "data": "2026-06-24T19:00:00-06:00", "gols_casa": 0, "gols_fora": 3 },
 
         { "id": "g55", "casa": "Equador", "fora": "Alemanha", "bandeira_casa": "🇪🇨", "bandeira_fora": "🇩🇪", "grupo": "E", "data": "2026-06-25T16:00:00-04:00", "gols_casa": null, "gols_fora": null },
         { "id": "g56", "casa": "Curaçao", "fora": "Costa do Marfim", "bandeira_casa": "🇨🇼", "bandeira_fora": "🇨🇮", "grupo": "E", "data": "2026-06-25T16:00:00-04:00", "gols_casa": null, "gols_fora": null },
