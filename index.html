@@ -61,7 +61,7 @@ nav{display:flex;gap:4px}
 
 /* MATCH CARD */
 .match-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
-.match-meta{display:flex;align-items:center;gap:6px}
+.match-meta{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
 .grupo-badge{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);background:var(--gold-dim);border:1px solid rgba(232,185,79,0.3);padding:2px 8px;border-radius:4px}
 .match-time{font-size:11px;color:var(--muted)}
 .lock-badge{display:flex;align-items:center;gap:4px;font-size:11px;color:var(--red);font-weight:500}
@@ -83,6 +83,24 @@ nav{display:flex;gap:4px}
 .points-chip.partial{background:var(--gold-dim);color:var(--gold);border:1px solid rgba(232,185,79,0.3)}
 .points-chip.correct{background:rgba(100,150,255,0.15);color:#7FAAFF;border:1px solid rgba(100,150,255,0.2)}
 .points-chip.wrong{background:var(--red-dim);color:var(--red);border:1px solid rgba(224,58,47,0.2)}
+
+/* KNOCKOUT CARD EXTRAS */
+.knockout-helper{font-size:11px;color:var(--muted);text-align:center;margin-bottom:10px;line-height:1.4;font-style:italic}
+.knockout-label{font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);text-align:center;margin-bottom:8px}
+.knockout-toggle{display:flex;gap:8px;justify-content:center;margin-top:10px}
+.knockout-toggle-btn{flex:1;max-width:160px;background:var(--surface);border:2px solid var(--border);border-radius:8px;color:var(--muted);font-family:var(--font-body);font-size:12px;font-weight:600;padding:8px 12px;cursor:pointer;transition:all 0.2s;text-align:center}
+.knockout-toggle-btn:hover{border-color:var(--gold);color:var(--cream)}
+.knockout-toggle-btn.selected{background:var(--gold-dim);border-color:var(--gold);color:var(--gold)}
+.penalty-winner-row{margin-top:10px;text-align:center}
+.penalty-winner-label{font-size:11px;color:var(--cream-dim);margin-bottom:8px;font-weight:600}
+.winner-options{display:flex;gap:8px;justify-content:center}
+.winner-option{flex:1;max-width:160px;background:var(--surface);border:2px solid var(--border);border-radius:8px;color:var(--muted);font-family:var(--font-body);font-size:12px;font-weight:600;padding:8px 10px;cursor:pointer;transition:all 0.2s;text-align:center}
+.winner-option:hover{border-color:var(--neon);color:var(--cream)}
+.winner-option.selected{background:var(--neon-dim);border-color:var(--neon);color:var(--neon)}
+.path-chip{display:inline-block;font-size:11px;font-weight:600;padding:2px 8px;border-radius:100px;margin-top:4px}
+.path-chip.prorrogacao{background:rgba(232,185,79,0.15);color:var(--gold);border:1px solid rgba(232,185,79,0.3)}
+.path-chip.penaltis{background:rgba(100,150,255,0.15);color:#7FAAFF;border:1px solid rgba(100,150,255,0.2)}
+.draw-notice{font-size:12px;color:var(--cream-dim);text-align:center;padding:6px;margin-top:6px;background:rgba(100,150,255,0.08);border-radius:6px;border:1px solid rgba(100,150,255,0.15)}
 
 /* BUTTONS */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--font-body);font-weight:600;font-size:14px;border:none;border-radius:var(--radius-sm);padding:12px 24px;cursor:pointer;transition:all 0.2s;letter-spacing:0.02em}
@@ -127,10 +145,6 @@ nav{display:flex;gap:4px}
 .hero-trophy{font-size:56px;display:block;margin-bottom:12px;filter:drop-shadow(0 0 20px rgba(232,185,79,0.5))}
 .hero-title{font-family:var(--font-display);font-size:clamp(38px,8vw,56px);letter-spacing:0.06em;color:var(--cream);line-height:1;margin-bottom:4px}
 .hero-sub{font-family:var(--font-accent);font-size:16px;color:var(--gold);margin-bottom:20px}
-.countdown-strip{display:flex;justify-content:center;gap:8px;margin-bottom:28px}
-.countdown-unit{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 14px;text-align:center;min-width:64px}
-.countdown-num{font-family:var(--font-display);font-size:30px;color:var(--cream);display:block;line-height:1}
-.countdown-label{font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);display:block;margin-top:3px}
 
 /* RULES */
 .rules-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:24px;text-align:left}
@@ -138,6 +152,14 @@ nav{display:flex;gap:4px}
 .rules-list{list-style:none}
 .rules-list li{padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.05);font-size:13px;color:var(--cream-dim);display:flex;gap:10px}
 .rules-list li:last-child{border-bottom:none}
+
+/* ATUALIZAÇÕES BANNER */
+.updates-banner{background:linear-gradient(135deg,rgba(0,209,102,0.1),rgba(232,185,79,0.08));border:1px solid rgba(0,209,102,0.35);border-radius:var(--radius);padding:16px 20px;margin-bottom:24px;position:relative;overflow:hidden}
+.updates-banner::before{content:'🆕';position:absolute;right:12px;top:12px;font-size:20px;opacity:0.4}
+.updates-banner-title{font-family:var(--font-display);font-size:16px;letter-spacing:0.08em;color:var(--neon);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.updates-banner ul{list-style:none;padding:0}
+.updates-banner ul li{font-size:13px;color:var(--cream-dim);padding:5px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;gap:8px;align-items:flex-start}
+.updates-banner ul li:last-child{border-bottom:none}
 
 /* TABS */
 .tab-bar{display:flex;gap:4px;background:var(--surface);border-radius:var(--radius);padding:4px;margin-bottom:24px}
@@ -193,7 +215,7 @@ nav{display:flex;gap:4px}
 .sticky-save-badge{background:var(--night);color:var(--gold);font-size:11px;font-weight:700;padding:2px 7px;border-radius:100px;border:1px solid rgba(232,185,79,0.4);margin-left:4px}
 .palpites-bottom-pad{height:80px}
 
-  /* PHASE PILLS */
+/* PHASE PILLS */
 .phase-pills{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;margin-bottom:20px;-ms-overflow-style:none;scrollbar-width:none}
 .phase-pills::-webkit-scrollbar{display:none}
 .phase-pill{flex-shrink:0;background:var(--surface);border:1px solid var(--border);border-radius:100px;color:var(--muted);font-size:12px;font-weight:500;padding:6px 14px;cursor:pointer;transition:all 0.2s;white-space:nowrap}
@@ -210,7 +232,7 @@ nav{display:flex;gap:4px}
 .spinner{width:32px;height:32px;border:3px solid var(--border);border-top-color:var(--neon);border-radius:50%;animation:spin 0.7s linear infinite;margin:0 auto}
 @keyframes spin{to{transform:rotate(360deg)}}
 
-/* LANDING HERO FIELD */
+/* LOGIN HERO */
 .login-hero{position:relative;overflow:hidden;padding-top:0;min-height:280px;display:flex;align-items:center;justify-content:center;flex-direction:column}
 .login-field-svg{position:absolute;inset:0;width:100%;height:100%;opacity:0.13;pointer-events:none}
 .login-hero-content{position:relative;z-index:2;text-align:center;padding:48px 16px 32px}
@@ -219,24 +241,16 @@ nav{display:flex;gap:4px}
 .login-star{position:absolute;width:2px;height:2px;background:var(--gold);border-radius:50%;opacity:0;animation:twinkle var(--d,3s) ease-in-out var(--delay,0s) infinite}
 @keyframes twinkle{0%,100%{opacity:0;transform:scale(1)}50%{opacity:0.8;transform:scale(1.4)}}
 
-/* PALPITES TAB DECORATION */
+/* PALPITES BANNER */
 .palpites-banner{position:relative;overflow:hidden;background:linear-gradient(135deg,rgba(0,209,102,0.08),rgba(232,185,79,0.06));border:1px solid var(--border);border-radius:var(--radius);padding:16px 20px;margin-bottom:20px;display:flex;align-items:center;gap:14px}
-.palpites-banner::before{content:'';position:absolute;right:-20px;top:50%;transform:translateY(-50%);font-size:80px;opacity:0.06;line-height:1;pointer-events:none}
 .palpites-banner-icon{font-size:28px;flex-shrink:0;filter:drop-shadow(0 0 8px rgba(0,209,102,0.4))}
 .palpites-banner-text{flex:1;min-width:0}
 .palpites-banner-title{font-family:var(--font-display);font-size:17px;letter-spacing:0.06em;color:var(--cream);line-height:1.2}
 .palpites-banner-sub{font-size:12px;color:var(--muted);margin-top:2px}
-.phase-corner-deco{position:absolute;right:16px;bottom:12px;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--neon);font-weight:700;opacity:0.7}
 
-/* FLOATING BALLS ANIMATION */
+/* FLOATING BALLS */
 @keyframes floatBall{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-12px) rotate(180deg)}}
 .deco-ball{position:absolute;font-size:18px;opacity:0.12;animation:floatBall var(--dur,4s) ease-in-out var(--delay,0s) infinite;pointer-events:none}
-
-/* CONFIG BANNER */
-.config-banner{background:linear-gradient(135deg,rgba(224,58,47,0.15),rgba(224,58,47,0.05));border:1px solid rgba(224,58,47,0.4);border-radius:var(--radius);padding:20px;margin:20px auto;max-width:480px;text-align:center}
-.config-banner h3{font-family:var(--font-display);font-size:20px;color:var(--red);margin-bottom:8px;letter-spacing:0.06em}
-.config-banner p{font-size:13px;color:var(--cream-dim);margin-bottom:12px}
-.config-input-row{display:flex;flex-direction:column;gap:10px}
 
 /* UTILS */
 .mb-8{margin-bottom:8px}.mb-16{margin-bottom:16px}.mb-24{margin-bottom:24px}
@@ -256,12 +270,11 @@ nav{display:flex;gap:4px}
   .hero-title{font-size:34px}
   .score-input{width:40px;height:46px;font-size:24px}
   .avatar-grid{grid-template-columns:repeat(5,1fr)}
+  .knockout-toggle-btn,.winner-option{font-size:11px;padding:7px 8px}
 }
 </style>
 </head>
 <body>
-
-
 
 <header id="app-header" style="display:none;">
   <div class="header-inner">
@@ -285,40 +298,26 @@ nav{display:flex;gap:4px}
 
   <!-- LOGIN -->
   <div id="page-login" class="page active">
-    <!-- Decorative field hero -->
     <div class="login-hero">
       <div class="login-glow"></div>
       <div class="login-stars" id="login-stars"></div>
       <svg class="login-field-svg" viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-        <!-- Field outline -->
         <rect x="20" y="20" width="360" height="240" fill="none" stroke="#00D166" stroke-width="2"/>
-        <!-- Center line -->
         <line x1="200" y1="20" x2="200" y2="260" stroke="#00D166" stroke-width="1.5"/>
-        <!-- Center circle -->
         <circle cx="200" cy="140" r="40" fill="none" stroke="#00D166" stroke-width="1.5"/>
         <circle cx="200" cy="140" r="3" fill="#00D166"/>
-        <!-- Left penalty area -->
         <rect x="20" y="85" width="55" height="110" fill="none" stroke="#00D166" stroke-width="1.5"/>
-        <!-- Right penalty area -->
         <rect x="325" y="85" width="55" height="110" fill="none" stroke="#00D166" stroke-width="1.5"/>
-        <!-- Left goal area -->
         <rect x="20" y="112" width="22" height="56" fill="none" stroke="#00D166" stroke-width="1"/>
-        <!-- Right goal area -->
         <rect x="358" y="112" width="22" height="56" fill="none" stroke="#00D166" stroke-width="1"/>
-        <!-- Left penalty spot -->
         <circle cx="60" cy="140" r="2.5" fill="#00D166"/>
-        <!-- Right penalty spot -->
         <circle cx="340" cy="140" r="2.5" fill="#00D166"/>
-        <!-- Left arc -->
         <path d="M75,114 Q90,140 75,166" fill="none" stroke="#00D166" stroke-width="1"/>
-        <!-- Right arc -->
         <path d="M325,114 Q310,140 325,166" fill="none" stroke="#00D166" stroke-width="1"/>
-        <!-- Corner arcs -->
         <path d="M20,30 Q28,20 38,20" fill="none" stroke="#00D166" stroke-width="1"/>
         <path d="M362,20 Q372,20 380,30" fill="none" stroke="#00D166" stroke-width="1"/>
         <path d="M20,250 Q20,260 30,260" fill="none" stroke="#00D166" stroke-width="1"/>
         <path d="M380,250 Q380,260 370,260" fill="none" stroke="#00D166" stroke-width="1"/>
-        <!-- Decorative horizontal stripes (grass) -->
         <rect x="20" y="20" width="360" height="24" fill="#00D166" fill-opacity="0.04"/>
         <rect x="20" y="68" width="360" height="24" fill="#00D166" fill-opacity="0.04"/>
         <rect x="20" y="116" width="360" height="24" fill="#00D166" fill-opacity="0.04"/>
@@ -334,7 +333,6 @@ nav{display:flex;gap:4px}
 
     <div class="container">
       <div class="sticker-card holographic" style="max-width:400px;margin:0 auto 32px;position:relative;">
-        <!-- floating decorative balls -->
         <span class="deco-ball" style="top:8px;right:48px;--dur:3.5s;--delay:0s;">⚽</span>
         <span class="deco-ball" style="bottom:12px;right:16px;--dur:4.2s;--delay:1s;">⚽</span>
         <span class="deco-ball" style="top:50%;left:8px;--dur:5s;--delay:0.5s;">⚽</span>
@@ -378,6 +376,18 @@ nav{display:flex;gap:4px}
         <p class="hero-sub" id="dashboard-welcome">Bem-vindo ao Bolão!</p>
         <button class="btn btn-gold" onclick="showPage('palpites')" style="margin-bottom:8px;">✏️ FAZER PALPITES</button>
       </div>
+
+      <!-- NOVIDADES BANNER — visible when knockout matches exist -->
+      <div class="updates-banner" id="updates-banner" style="display:none;">
+        <div class="updates-banner-title">🆕 ATUALIZAÇÕES PARA AS PRÓXIMAS FASES</div>
+        <ul>
+          <li><span>🏆</span><span>O bolão agora suporta o <strong style="color:var(--cream)">mata-mata</strong>! Novas fases aparecerão automaticamente nas abas Palpites e Família.</span></li>
+          <li><span>⏱️</span><span>No mata-mata, você aposta no <strong style="color:var(--cream)">placar após 120 minutos</strong>. Se não houver empate, diga se o jogo foi para prorrogação. Se empatar, escolha quem avança nos pênaltis.</span></li>
+          <li><span>🎯</span><span>Bônus exclusivos do mata-mata: <strong style="color:var(--gold)">+2</strong> se acertar prorrogação, <strong style="color:var(--gold)">+4</strong> se acertar pênaltis, <strong style="color:var(--gold)">+2</strong> se acertar o vencedor nos pênaltis.</span></li>
+          <li><span>🔒</span><span>Palpites de grupos continuam visíveis como histórico — nada foi perdido.</span></li>
+        </ul>
+      </div>
+
       <div class="rules-card">
         <h3>📋 REGRAS DO BOLÃO WIRTHMANN</h3>
         <ul class="rules-list">
@@ -387,41 +397,60 @@ nav{display:flex;gap:4px}
           <li><span>⚖️</span><span>Empates no ranking são decididos por quem tem mais <strong style="color:var(--cream)">acertos totais</strong> ao longo da Copa.</span></li>
         </ul>
       </div>
+
       <div class="sticker-card">
         <h3 style="font-family:var(--font-display);font-size:18px;margin-bottom:14px;color:var(--gold);letter-spacing:0.06em;">🏅 TABELA DE PONTUAÇÃO</h3>
         <div style="overflow-x:auto;">
-          <table style="width:100%;border-collapse:collapse;font-size:12px;min-width:380px;">
+          <table style="width:100%;border-collapse:collapse;font-size:12px;min-width:420px;">
             <thead><tr style="color:var(--muted);">
               <th style="text-align:left;padding:6px 8px;font-weight:600;letter-spacing:0.06em;border-bottom:1px solid var(--border);">Fase</th>
               <th style="padding:6px 8px;border-bottom:1px solid var(--border);">✅ Certo</th>
               <th style="padding:6px 8px;border-bottom:1px solid var(--border);">✅+Gol</th>
               <th style="padding:6px 8px;border-bottom:1px solid var(--border);">🎯 Exato</th>
+              <th style="padding:6px 8px;border-bottom:1px solid var(--border);color:var(--neon);font-size:10px;">+Prorr.</th>
+              <th style="padding:6px 8px;border-bottom:1px solid var(--border);color:#7FAAFF;font-size:10px;">+Pên.</th>
+              <th style="padding:6px 8px;border-bottom:1px solid var(--border);color:var(--gold);font-size:10px;">+Venc.</th>
             </tr></thead>
             <tbody>
-              <tr><td style="padding:6px 8px;color:var(--cream-dim);font-size:12px;">Grupos</td><td style="padding:6px 8px;text-align:center;color:var(--neon);font-weight:700;">4</td><td style="padding:6px 8px;text-align:center;color:var(--gold);">7</td><td style="padding:6px 8px;text-align:center;color:#7FAAFF;">10</td></tr>
-              <tr><td style="padding:6px 8px;color:var(--cream-dim);font-size:12px;">R-32</td><td style="padding:6px 8px;text-align:center;color:var(--neon);font-weight:700;">5</td><td style="padding:6px 8px;text-align:center;color:var(--gold);">8</td><td style="padding:6px 8px;text-align:center;color:#7FAAFF;">12</td></tr>
-              <tr><td style="padding:6px 8px;color:var(--cream-dim);font-size:12px;">Oitavas</td><td style="padding:6px 8px;text-align:center;color:var(--neon);font-weight:700;">6</td><td style="padding:6px 8px;text-align:center;color:var(--gold);">9</td><td style="padding:6px 8px;text-align:center;color:#7FAAFF;">14</td></tr>
-              <tr><td style="padding:6px 8px;color:var(--cream-dim);font-size:12px;">Quartas</td><td style="padding:6px 8px;text-align:center;color:var(--neon);font-weight:700;">7</td><td style="padding:6px 8px;text-align:center;color:var(--gold);">10</td><td style="padding:6px 8px;text-align:center;color:#7FAAFF;">16</td></tr>
-              <tr><td style="padding:6px 8px;color:var(--cream-dim);font-size:12px;">Semis</td><td style="padding:6px 8px;text-align:center;color:var(--neon);font-weight:700;">8</td><td style="padding:6px 8px;text-align:center;color:var(--gold);">11</td><td style="padding:6px 8px;text-align:center;color:#7FAAFF;">18</td></tr>
-              <tr><td style="padding:6px 8px;color:var(--cream-dim);font-size:12px;">3º / Final</td><td style="padding:6px 8px;text-align:center;color:var(--neon);font-weight:700;">9</td><td style="padding:6px 8px;text-align:center;color:var(--gold);">12</td><td style="padding:6px 8px;text-align:center;color:#7FAAFF;">20</td></tr>
+              <tr><td style="padding:6px 8px;color:var(--cream-dim);font-size:12px;">Grupos</td><td style="padding:6px 8px;text-align:center;color:var(--neon);font-weight:700;">4</td><td style="padding:6px 8px;text-align:center;color:var(--gold);">7</td><td style="padding:6px 8px;text-align:center;color:#7FAAFF;">10</td><td style="padding:6px 8px;text-align:center;color:var(--muted);">–</td><td style="padding:6px 8px;text-align:center;color:var(--muted);">–</td><td style="padding:6px 8px;text-align:center;color:var(--muted);">–</td></tr>
+              <tr><td style="padding:6px 8px;color:var(--cream-dim);font-size:12px;">R-32</td><td style="padding:6px 8px;text-align:center;color:var(--neon);font-weight:700;">5</td><td style="padding:6px 8px;text-align:center;color:var(--gold);">8</td><td style="padding:6px 8px;text-align:center;color:#7FAAFF;">12</td><td style="padding:6px 8px;text-align:center;color:var(--neon);">+2</td><td style="padding:6px 8px;text-align:center;color:#7FAAFF;">+4</td><td style="padding:6px 8px;text-align:center;color:var(--gold);">+2</td></tr>
+              <tr><td style="padding:6px 8px;color:var(--cream-dim);font-size:12px;">Oitavas</td><td style="padding:6px 8px;text-align:center;color:var(--neon);font-weight:700;">6</td><td style="padding:6px 8px;text-align:center;color:var(--gold);">9</td><td style="padding:6px 8px;text-align:center;color:#7FAAFF;">14</td><td style="padding:6px 8px;text-align:center;color:var(--neon);">+2</td><td style="padding:6px 8px;text-align:center;color:#7FAAFF;">+4</td><td style="padding:6px 8px;text-align:center;color:var(--gold);">+2</td></tr>
+              <tr><td style="padding:6px 8px;color:var(--cream-dim);font-size:12px;">Quartas</td><td style="padding:6px 8px;text-align:center;color:var(--neon);font-weight:700;">7</td><td style="padding:6px 8px;text-align:center;color:var(--gold);">10</td><td style="padding:6px 8px;text-align:center;color:#7FAAFF;">16</td><td style="padding:6px 8px;text-align:center;color:var(--neon);">+2</td><td style="padding:6px 8px;text-align:center;color:#7FAAFF;">+4</td><td style="padding:6px 8px;text-align:center;color:var(--gold);">+2</td></tr>
+              <tr><td style="padding:6px 8px;color:var(--cream-dim);font-size:12px;">Semis</td><td style="padding:6px 8px;text-align:center;color:var(--neon);font-weight:700;">8</td><td style="padding:6px 8px;text-align:center;color:var(--gold);">11</td><td style="padding:6px 8px;text-align:center;color:#7FAAFF;">18</td><td style="padding:6px 8px;text-align:center;color:var(--neon);">+2</td><td style="padding:6px 8px;text-align:center;color:#7FAAFF;">+4</td><td style="padding:6px 8px;text-align:center;color:var(--gold);">+2</td></tr>
+              <tr><td style="padding:6px 8px;color:var(--cream-dim);font-size:12px;">3º / Final</td><td style="padding:6px 8px;text-align:center;color:var(--neon);font-weight:700;">9</td><td style="padding:6px 8px;text-align:center;color:var(--gold);">12</td><td style="padding:6px 8px;text-align:center;color:#7FAAFF;">20</td><td style="padding:6px 8px;text-align:center;color:var(--neon);">+2</td><td style="padding:6px 8px;text-align:center;color:#7FAAFF;">+4</td><td style="padding:6px 8px;text-align:center;color:var(--gold);">+2</td></tr>
             </tbody>
           </table>
         </div>
+        <p style="font-size:11px;color:var(--muted);margin-top:10px;">* Bônus do mata-mata acumulam sobre a pontuação base da partida.</p>
       </div>
+
       <div class="rules-card" style="margin-top:24px;">
-  <h3>❓ COMO FUNCIONA A PONTUAÇÃO</h3>
-  <ul class="rules-list">
-    <li><span>✅</span><span><strong style="color:var(--cream)">Certo:</strong> você acertou o vencedor, mas errou os gols dos dois times. Ex: chutou 3×0, foi 2×1.</span></li>
-    <li><span>✅</span><span><strong style="color:var(--cream)">+ Gol:</strong> você acertou o vencedor E os gols exatos de um dos times. Ex: chutou 2×0, foi 2×1 — acertou o vencedor e os gols do Brasil.</span></li>
-    <li><span>🎯</span><span><strong style="color:var(--cream)">Exato:</strong> você acertou o placar exato. Ex: chutou 2×1 e foi 2×1.</span></li>
-    <li><span>❌</span><span><strong style="color:var(--cream)">0 pts:</strong> você errou o vencedor ou chutou empate quando não foi. Zero pontos.</span></li>
-  </ul>
-</div>
+        <h3>❓ COMO FUNCIONA A PONTUAÇÃO</h3>
+        <ul class="rules-list">
+          <li><span>✅</span><span><strong style="color:var(--cream)">Certo:</strong> você acertou o vencedor, mas errou os gols dos dois times.</span></li>
+          <li><span>✅</span><span><strong style="color:var(--cream)">+ Gol:</strong> você acertou o vencedor E os gols exatos de um dos times.</span></li>
+          <li><span>🎯</span><span><strong style="color:var(--cream)">Exato:</strong> você acertou o placar exato.</span></li>
+          <li><span>❌</span><span><strong style="color:var(--cream)">0 pts:</strong> você errou o vencedor. Zero pontos.</span></li>
+        </ul>
+      </div>
+
+      <div class="rules-card" style="margin-top:24px;" id="mata-mata-rules" style="display:none;">
+        <h3>🏆 MATA-MATA — COMO FUNCIONA</h3>
+        <ul class="rules-list">
+          <li><span>⏱️</span><span>Você aposta no <strong style="color:var(--cream)">placar após 120 minutos</strong>, antes de pênaltis.</span></li>
+          <li><span>🔘</span><span>Se o placar tiver vencedor, indique se o jogo foi para <strong style="color:var(--cream)">prorrogação</strong> ou terminou no tempo normal.</span></li>
+          <li><span>🥅</span><span>Se o placar for empate, o app entende automaticamente que foi para prorrogação e você escolhe o <strong style="color:var(--cream)">vencedor nos pênaltis</strong>.</span></li>
+          <li><span>🎯</span><span><strong style="color:var(--gold)">+2</strong> se acertar que o jogo foi para prorrogação (mas não pênaltis).</span></li>
+          <li><span>🎯</span><span><strong style="color:var(--gold)">+4</strong> se acertar que o jogo foi para pênaltis (inclui acertar o empate no placar).</span></li>
+          <li><span>🎯</span><span><strong style="color:var(--gold)">+2</strong> se acertar o vencedor nos pênaltis (além dos +4).</span></li>
+        </ul>
+      </div>
+
       <div style="height:32px;"></div>
     </div>
   </div>
 
-<!-- PALPITES -->
+  <!-- PALPITES -->
   <div id="page-palpites" class="page">
     <div class="container" style="padding-top:20px;">
       <div class="palpites-banner">
@@ -464,6 +493,7 @@ nav{display:flex;gap:4px}
       <div class="section-header"><h2 class="section-title">PALPITES DA FAMÍLIA</h2></div>
       <p style="font-size:13px;color:var(--muted);margin-bottom:20px;">Clique em uma partida <strong style="color:var(--cream)">já bloqueada</strong> para ver os palpites de toda a família.</p>
       <div class="phase-pills" id="familia-phase-pills"></div>
+      <div class="date-filter-bar" id="familia-date-filter-bar"></div>
       <div id="familia-matches-list"></div>
     </div>
   </div>
@@ -475,6 +505,7 @@ nav{display:flex;gap:4px}
   <div class="modal" style="max-width:500px;">
     <div class="modal-title" id="trans-modal-title" style="font-size:20px;"></div>
     <p class="modal-sub" id="trans-modal-sub"></p>
+    <div id="trans-resultado-display" style="margin-bottom:12px;text-align:center;"></div>
     <div style="overflow-x:auto;max-height:320px;overflow-y:auto;">
       <table class="transparency-table">
         <thead><tr><th style="width:40px;"></th><th>Nome</th><th style="text-align:center;">Palpite</th><th style="text-align:center;">Pontos</th></tr></thead>
@@ -489,14 +520,13 @@ nav{display:flex;gap:4px}
 
 <script>
 // ============================================================
-//  ⚙️  SUPABASE CONFIG — paste your values here after setup
-//  Or leave blank and the app will show the config screen
+// ⚙️ SUPABASE CONFIG
 // ============================================================
 const SUPABASE_URL = 'https://abjpyguwedzzpxvxcbml.supabase.co';
 const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFianB5Z3V3ZWR6enB4dnhjYm1sIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEyNjQ0MzIsImV4cCI6MjA5Njg0MDQzMn0.6MZqJSONHxsTZG0PiIrnKLb2levxZBj5INXHKHqqVVs';
 
 // ============================================================
-//  CONSTANTS
+// CONSTANTS
 // ============================================================
 const INVITE_CODE = 'Wirthmann2026';
 const LOCK_MINUTES = 5;
@@ -509,47 +539,28 @@ const AVATARS = [
 ];
 
 let torneioData = null;
-let palpitesGlobal = [];   // all users from Supabase
-let currentUser = null;    // { nome, avatar }
-let localPalpites = {};    // { matchId: { casa, fora } } — current unsaved edits
-let dbPalpites = {};       // what's already saved in Supabase for this user
+let palpitesGlobal = [];
+let currentUser = null;
+let localPalpites = {};
+let dbPalpites = {};
 let currentPalpitesPhase = 'grupos';
 let currentFamiliaPhase = 'grupos';
 let currentDateFilter = 'next';
+let currentFamiliaDateFilter = 'today';
 let supabaseReady = false;
 
 // ============================================================
-//  SUPABASE CONFIG SCREEN
+// SUPABASE HELPERS
 // ============================================================
-function saveConfig() {
-  const url = document.getElementById('cfg-url').value.trim();
-  const key = document.getElementById('cfg-key').value.trim();
-  if (!url || !key) { showToast('Cole a URL e a key do Supabase!', true); return; }
-  // Inject into the script constants and reload concept — we just store locally
-  localStorage.setItem('sb_url', url);
-  localStorage.setItem('sb_key', key);
-  location.reload();
-}
-
 function getSupabaseConfig() {
   const url = SUPABASE_URL || localStorage.getItem('sb_url') || '';
   const key = SUPABASE_KEY || localStorage.getItem('sb_key') || '';
   return { url: url.replace(/\/$/, ''), key };
 }
 
-// ============================================================
-//  SUPABASE API HELPERS
-// ============================================================
-
 async function sbFetch(path, options = {}) {
   const { url, key } = getSupabaseConfig();
-
-  const {
-    headers: customHeaders = {},
-    prefer,
-    ...fetchOptions
-  } = options;
-
+  const { headers: customHeaders = {}, prefer, ...fetchOptions } = options;
   const res = await fetch(`${url}/rest/v1/${path}`, {
     ...fetchOptions,
     headers: {
@@ -560,13 +571,11 @@ async function sbFetch(path, options = {}) {
       ...customHeaders
     }
   });
-
   if (!res.ok) {
     const err = await res.text();
     console.error('Supabase error:', res.status, err);
     throw new Error(err);
   }
-
   const text = await res.text();
   return text ? JSON.parse(text) : null;
 }
@@ -580,20 +589,15 @@ async function sbUpsert(data) {
 }
 
 async function sbSelectAll() {
-  return sbFetch('palpites?select=nome,avatar,fase,palpites_json', {
-    prefer: ''
-
-  });
+  return sbFetch('palpites?select=nome,avatar,fase,palpites_json', { prefer: '' });
 }
 
 async function sbSelectUser(nome) {
-    return sbFetch(`palpites?select=fase,palpites_json&nome=eq.${encodeURIComponent(nome)}`, {
-    prefer: ''
-  });
+  return sbFetch(`palpites?select=fase,palpites_json&nome=eq.${encodeURIComponent(nome)}`, { prefer: '' });
 }
 
 // ============================================================
-//  TOURNAMENT DATA
+// TOURNAMENT DATA
 // ============================================================
 async function loadTorneio() {
   const res = await fetch('./data/partidas.json');
@@ -601,26 +605,38 @@ async function loadTorneio() {
 }
 
 // ============================================================
-//  UTILS
+// TIMEZONE + DATE HELPERS (user-local, no hardcoded timezone)
 // ============================================================
-function showToast(msg, isError = false, duration = 3000) {
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.className = 'toast' + (isError ? ' error' : '');
-  t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), duration);
-}
-
 function formatDate(dateStr) {
   if (!dateStr) return '';
   const d = new Date(dateStr);
   return d.toLocaleDateString('pt-BR', {
-    timeZone: 'America/Sao_Paulo',
     weekday: 'short', day: '2-digit', month: '2-digit'
   }) + ' · ' + d.toLocaleTimeString('pt-BR', {
-    timeZone: 'America/Sao_Paulo',
     hour: '2-digit', minute: '2-digit'
   });
+}
+
+function getDateKey(dateStr) {
+  const d = new Date(dateStr);
+  const parts = new Intl.DateTimeFormat('en-CA', {
+    year: 'numeric', month: '2-digit', day: '2-digit'
+  }).formatToParts(d);
+  const y = parts.find(p => p.type === 'year').value;
+  const m = parts.find(p => p.type === 'month').value;
+  const day = parts.find(p => p.type === 'day').value;
+  return `${y}-${m}-${day}`;
+}
+
+function getDateLabel(dateKey) {
+  // parse date key as local noon to avoid any off-by-one
+  const [y, mo, da] = dateKey.split('-').map(Number);
+  const d = new Date(y, mo - 1, da, 12, 0, 0);
+  return d.toLocaleDateString('pt-BR', { weekday: 'short', day: '2-digit', month: '2-digit' });
+}
+
+function getTodayKey() {
+  return getDateKey(new Date().toISOString());
 }
 
 function isLocked(dateStr) {
@@ -636,7 +652,82 @@ function getTimeToLock(dateStr) {
   return h > 0 ? `Fecha em ${h}h ${m}min` : `Fecha em ${m}min`;
 }
 
-function calcPoints(palpite, partida, config) {
+function sortMatches(partidas) {
+  return [...(partidas || [])].sort((a, b) => new Date(a.data).getTime() - new Date(b.data).getTime());
+}
+
+// ============================================================
+// PHASE HELPERS
+// ============================================================
+function isKnockoutPhase(faseKey) {
+  return torneioData?.fases?.[faseKey]?.tipo === 'mata_mata';
+}
+
+function getActiveFases() {
+  return Object.entries(torneioData.fases)
+    .filter(([, v]) => v.partidas && v.partidas.length > 0);
+}
+
+// ============================================================
+// KNOCKOUT PREDICTION HELPERS
+// ============================================================
+function getPredictedWinner(palpite) {
+  if (!palpite) return null;
+  if (palpite.vencedor) return palpite.vencedor;
+  const c = Number(palpite.casa), f = Number(palpite.fora);
+  if (isNaN(c) || isNaN(f) || palpite.casa === '' || palpite.fora === '') return null;
+  if (c > f) return 'casa';
+  if (f > c) return 'fora';
+  return null; // tie — need explicit vencedor
+}
+
+function isDrawScore(casa, fora) {
+  if (casa === '' || fora === '' || casa === undefined || fora === undefined) return false;
+  return Number(casa) === Number(fora);
+}
+
+function isPalpiteCompleteForMatch(palpite, partida, faseKey) {
+  if (!palpite) return false;
+  const c = palpite.casa, f = palpite.fora;
+  if (c === '' || f === '' || c === undefined || f === undefined) return false;
+  if (!isKnockoutPhase(faseKey)) {
+    return true; // group: just need both scores
+  }
+  // Knockout
+  if (isDrawScore(c, f)) {
+    // tied after 120: need vencedor selected
+    return !!palpite.vencedor;
+  } else {
+    // non-draw: need foi_prorrogacao explicitly set
+    return palpite.foi_prorrogacao === true || palpite.foi_prorrogacao === false;
+  }
+}
+
+function normalizeKnockoutPalpite(matchId, faseKey) {
+  const fase = localPalpites[faseKey] || {};
+  const p = fase[matchId];
+  if (!p) return;
+  const c = p.casa, f = p.fora;
+  if (c === '' || f === '' || c === undefined || f === undefined) return;
+  if (isDrawScore(c, f)) {
+    p.foi_prorrogacao = true;
+    p.foi_penaltis = true;
+    // vencedor must be selected by user
+    if (!p.vencedor) p.vencedor = null;
+  } else {
+    p.foi_penaltis = false;
+    // infer vencedor from score
+    p.vencedor = Number(c) > Number(f) ? 'casa' : 'fora';
+    // foi_prorrogacao stays as user set it (true/false/undefined)
+  }
+  localPalpites[faseKey][matchId] = p;
+  localStorage.setItem(`bolao_pal_${currentUser.nome}`, JSON.stringify(localPalpites));
+}
+
+// ============================================================
+// SCORING
+// ============================================================
+function calcGroupPoints(palpite, partida, config) {
   if (partida.gols_casa === null || partida.gols_fora === null) return null;
   if (palpite.casa === '' || palpite.fora === '' || palpite.casa === undefined) return null;
   const rc = partida.gols_casa, rf = partida.gols_fora;
@@ -649,10 +740,57 @@ function calcPoints(palpite, partida, config) {
   return config.resultado_certo;
 }
 
+function calcKnockoutPoints(palpite, partida, config) {
+  // Need actual result
+  if (partida.gols_casa === null || partida.gols_fora === null || !partida.vencedor) return null;
+  if (!palpite || palpite.casa === '' || palpite.fora === '' || palpite.casa === undefined) return null;
+
+  const rc = partida.gols_casa, rf = partida.gols_fora;
+  const pc = Number(palpite.casa), pf = Number(palpite.fora);
+  const actualWinner = partida.vencedor;
+  const predWinner = getPredictedWinner(palpite);
+
+  // Base score: compare 120-min scores and winner
+  let base = config.resultado_errado;
+  const winnerCorrect = predWinner === actualWinner;
+
+  if (pc === rc && pf === rf) {
+    base = config.placar_exato;
+  } else if (winnerCorrect && (pc === rc || pf === rf)) {
+    base = config.resultado_e_um_gol;
+  } else if (winnerCorrect) {
+    base = config.resultado_certo;
+  }
+
+  // Bonuses
+  let bonus = 0;
+  if (partida.foi_penaltis) {
+    // actual went to penalties
+    if (isDrawScore(pc, pf)) {
+      bonus += config.bonus_penaltis || 4; // predicted draw = predicted penalties
+      if (palpite.vencedor === actualWinner) {
+        bonus += config.bonus_vencedor_penaltis || 2;
+      }
+    }
+  } else if (partida.foi_prorrogacao) {
+    // extra time but not penalties
+    if (palpite.foi_prorrogacao === true) {
+      bonus += config.bonus_prorrogacao || 2;
+    }
+  }
+
+  return base + bonus;
+}
+
+function calcPoints(palpite, partida, config, faseKey) {
+  if (isKnockoutPhase(faseKey)) return calcKnockoutPoints(palpite, partida, config);
+  return calcGroupPoints(palpite, partida, config);
+}
+
 function pointsClass(pts, config) {
   if (pts === null || pts === undefined) return '';
-  if (pts === config.placar_exato) return 'exact';
-  if (pts === config.resultado_e_um_gol) return 'partial';
+  if (pts >= (config.placar_exato || 0)) return 'exact';
+  if (pts >= (config.resultado_e_um_gol || 0)) return 'partial';
   if (pts > 0) return 'correct';
   return 'wrong';
 }
@@ -663,10 +801,10 @@ function getTotalPoints(userPalpites) {
   for (const [faseKey, faseData] of Object.entries(torneioData.fases)) {
     const config = faseData.pontos;
     const fasePalpites = (userPalpites || {})[faseKey] || {};
-    for (const p of (faseData.partidas || [])) {
+    for (const p of sortMatches(faseData.partidas || [])) {
       const pal = fasePalpites[p.id];
       if (!pal) continue;
-      const pts = calcPoints(pal, p, config);
+      const pts = calcPoints(pal, p, config, faseKey);
       if (pts !== null) total += pts;
     }
   }
@@ -679,10 +817,10 @@ function getTotalCorrect(userPalpites) {
   for (const [faseKey, faseData] of Object.entries(torneioData.fases)) {
     const config = faseData.pontos;
     const fasePalpites = (userPalpites || {})[faseKey] || {};
-    for (const p of (faseData.partidas || [])) {
+    for (const p of sortMatches(faseData.partidas || [])) {
       const pal = fasePalpites[p.id];
-      if (!pal || p.gols_casa === null) continue;
-      const pts = calcPoints(pal, p, config);
+      if (!pal) continue;
+      const pts = calcPoints(pal, p, config, faseKey);
       if (pts !== null && pts > 0) c++;
     }
   }
@@ -690,7 +828,50 @@ function getTotalCorrect(userPalpites) {
 }
 
 // ============================================================
-//  LOGIN
+// FORMAT HELPERS FOR DISPLAY
+// ============================================================
+function formatResultadoForDisplay(partida, faseKey) {
+  if (!isKnockoutPhase(faseKey)) {
+    if (partida.gols_casa === null) return 'Aguardando resultado';
+    return `${partida.gols_casa} × ${partida.gols_fora}`;
+  }
+  if (partida.gols_casa === null || !partida.vencedor) return 'Aguardando resultado';
+  let str = `${partida.gols_casa}×${partida.gols_fora} após 120'`;
+  if (partida.foi_penaltis) {
+    const vName = partida.vencedor === 'casa' ? partida.casa : partida.fora;
+    str += ` · ${vName} nos pênaltis`;
+  } else if (partida.foi_prorrogacao) {
+    str += ' · com prorrogação';
+  }
+  return str;
+}
+
+function formatPalpiteForDisplay(palpite, partida, faseKey) {
+  if (!palpite || palpite.casa === undefined || palpite.fora === undefined) return '–';
+  if (!isKnockoutPhase(faseKey)) {
+    return `${palpite.casa} × ${palpite.fora}`;
+  }
+  if (palpite.casa === '' || palpite.fora === '') return '–';
+  let str = `${palpite.casa}×${palpite.fora} após 120'`;
+  if (isDrawScore(palpite.casa, palpite.fora)) {
+    if (palpite.vencedor) {
+      const vName = palpite.vencedor === 'casa' ? partida.casa : partida.fora;
+      str += ` · ${vName} nos pênaltis`;
+    } else {
+      str += ' · (pênaltis: pendente)';
+    }
+  } else {
+    if (palpite.foi_prorrogacao === true) {
+      str += ' · com prorrogação';
+    } else if (palpite.foi_prorrogacao === false) {
+      str += ' · sem prorrogação';
+    }
+  }
+  return str;
+}
+
+// ============================================================
+// LOGIN
 // ============================================================
 let loginStep = 0;
 let selectedAvatar = null;
@@ -710,6 +891,7 @@ function populateAvatarGrid() {
     grid.appendChild(d);
   });
 }
+
 function handleReturningChange() {
   const sel = document.getElementById('select-returning');
   const newUserFields = document.getElementById('group-new-user');
@@ -723,6 +905,7 @@ function handleReturningChange() {
     btn.textContent = 'CONFIRMAR E ENTRAR ✅';
   }
 }
+
 function handleLogin() {
   const code = document.getElementById('input-codigo').value.trim();
   if (loginStep === 0) {
@@ -733,23 +916,21 @@ function handleLogin() {
     document.getElementById('err-codigo').classList.remove('visible');
     document.getElementById('group-returning').style.display = '';
     document.getElementById('group-new-user').style.display = '';
-    // Populate returning users dropdown
 
-const sel = document.getElementById('select-returning');
-if (sel) {
-  sel.innerHTML = '<option value="">— Sou novo, quero me cadastrar —</option>';
-
-  palpitesGlobal.forEach(u => {
-    if (!u.nome) return;
-
-    const opt = document.createElement('option');
-    opt.value = u.nome;
-    opt.textContent = `${u.avatar || '⚽'} ${u.nome}`;
-    sel.appendChild(opt);
-  });
-
-  console.log('Dropdown users:', palpitesGlobal);
-}
+    const sel = document.getElementById('select-returning');
+    if (sel) {
+      sel.innerHTML = '<option value="">— Sou novo, quero me cadastrar —</option>';
+      // dedupe by nome
+      const seen = new Set();
+      palpitesGlobal.forEach(u => {
+        if (!u.nome || seen.has(u.nome)) return;
+        seen.add(u.nome);
+        const opt = document.createElement('option');
+        opt.value = u.nome;
+        opt.textContent = `${u.avatar || '⚽'} ${u.nome}`;
+        sel.appendChild(opt);
+      });
+    }
 
     populateAvatarGrid();
     document.getElementById('btn-entrar').textContent = 'CONFIRMAR E ENTRAR ✅';
@@ -757,11 +938,9 @@ if (sel) {
     return;
   }
 
-  // Check if returning user selected themselves
   const returningSelect = document.getElementById('select-returning');
   const selectedReturning = returningSelect ? returningSelect.value : '';
   if (selectedReturning) {
-    // Load from DB and skip registration
     const match = palpitesGlobal.find(u => u.nome === selectedReturning);
     if (match) {
       currentUser = { nome: match.nome, avatar: match.avatar };
@@ -785,40 +964,45 @@ if (sel) {
 }
 
 // ============================================================
-//  APP INIT
+// APP INIT
 // ============================================================
 async function initApp() {
   document.getElementById('app-header').style.display = '';
   document.getElementById('page-login').classList.remove('active');
 
-  // Load saved local palpites for this user
   const saved = localStorage.getItem(`bolao_pal_${currentUser.nome}`);
   localPalpites = saved ? JSON.parse(saved) : {};
 
-  // Load user's existing DB palpites
   try {
     const rows = await sbSelectUser(currentUser.nome);
     if (rows && rows.length) {
       rows.forEach(row => {
         dbPalpites[row.fase] = row.palpites_json;
-        // Merge DB into local (DB is authoritative for already-saved phases)
         if (!localPalpites[row.fase]) localPalpites[row.fase] = row.palpites_json;
       });
     }
   } catch(e) { console.warn('Could not load user DB palpites', e); }
 
-  // Load all palpites for ranking/transparency
   await refreshGlobalPalpites();
+
+  // Default palpites phase to first phase with matches, preferring knockout if available
+  const activeFases = getActiveFases();
+  if (activeFases.length > 0) {
+    // Pick the most recent knockout phase, or grupos if none
+    const knockoutFases = activeFases.filter(([,v]) => v.tipo === 'mata_mata');
+    currentPalpitesPhase = knockoutFases.length > 0
+      ? knockoutFases[knockoutFases.length - 1][0]
+      : activeFases[0][0];
+    currentFamiliaPhase = currentPalpitesPhase;
+  }
 
   showPage('dashboard');
   renderDashboard();
   renderPalpites();
   renderRanking();
   renderFamilia();
-    
-  // Refresh global data every 3 minutes
+
   setInterval(refreshGlobalPalpites, 180000);
-  // Re-render match cards every minute (lock timers)
   setInterval(() => {
     if (document.getElementById('page-palpites').classList.contains('active')) renderPalpites();
     if (document.getElementById('page-familia').classList.contains('active')) renderFamilia();
@@ -829,7 +1013,6 @@ async function refreshGlobalPalpites() {
   try {
     const rows = await sbSelectAll();
     if (rows) {
-      // Build map: nome → { avatar, palpites: { fase: { matchId: {casa,fora} } } }
       const map = {};
       rows.forEach(row => {
         if (!map[row.nome]) map[row.nome] = { nome: row.nome, avatar: row.avatar, palpites: {} };
@@ -841,7 +1024,7 @@ async function refreshGlobalPalpites() {
 }
 
 // ============================================================
-//  NAVIGATION
+// NAVIGATION
 // ============================================================
 function showPage(name) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
@@ -855,19 +1038,28 @@ function showPage(name) {
 }
 
 // ============================================================
-//  DASHBOARD
+// DASHBOARD
 // ============================================================
 function renderDashboard() {
   document.getElementById('dashboard-welcome').textContent =
     `${currentUser.avatar} Bem-vindo, ${currentUser.nome}!`;
+
+  // Show updates banner and mata-mata rules card if knockout phases have matches
+  const hasKnockout = torneioData && Object.entries(torneioData.fases)
+    .some(([,v]) => v.tipo === 'mata_mata' && v.partidas && v.partidas.length > 0);
+
+  const banner = document.getElementById('updates-banner');
+  const mmRules = document.getElementById('mata-mata-rules');
+  if (banner) banner.style.display = hasKnockout ? '' : 'none';
+  if (mmRules) mmRules.style.display = hasKnockout ? '' : 'none';
 }
 
 // ============================================================
-//  PALPITES PAGE
+// PALPITES PAGE
 // ============================================================
 function renderPalpites() {
   if (!torneioData) return;
-  const phases = Object.entries(torneioData.fases).filter(([,v]) => v.partidas && v.partidas.length > 0);
+  const phases = getActiveFases();
 
   document.getElementById('phase-pills').innerHTML = phases.map(([key, fase]) =>
     `<button class="phase-pill${key === currentPalpitesPhase ? ' active' : ''}" onclick="setPalpitesPhase('${key}')">${fase.label}</button>`
@@ -882,9 +1074,8 @@ function renderPalpites() {
   }
 
   document.getElementById('palpites-phase-badge').textContent = currentFase.label;
-  const allPartidas = currentFase.partidas;
+  const allPartidas = sortMatches(currentFase.partidas);
 
-  // Set default to next open matchday
   if (currentDateFilter === 'next') {
     currentDateFilter = getNextMatchDate(allPartidas) || 'todos';
   }
@@ -934,7 +1125,9 @@ function renderPalpites() {
   updateSaveBadge();
 }
 
+// ============================================================
 // DATE FILTER HELPERS
+// ============================================================
 function getMatchDates(partidas) {
   return [...new Set(partidas.map(p => getDateKey(p.data)))].sort();
 }
@@ -946,18 +1139,6 @@ function getNextMatchDate(partidas) {
     if (dayMatches.some(p => !isLocked(p.data))) return date;
   }
   return dates[dates.length - 1] || null;
-}
-
-function getDateKey(dateStr) {
-  return new Date(dateStr).toLocaleDateString('en-CA', { timeZone: 'America/Sao_Paulo' });
-}
-
-function getDateLabel(dateKey) {
-  const d = new Date(dateKey + 'T12:00:00-03:00');
-  return d.toLocaleDateString('pt-BR', {
-    timeZone: 'America/Sao_Paulo',
-    weekday: 'short', day: '2-digit', month: '2-digit'
-  });
 }
 
 function renderDateFilterBar(partidas) {
@@ -990,6 +1171,49 @@ function setDateFilter(dateKey) {
   renderPalpites();
 }
 
+function setPalpitesPhase(key) {
+  currentPalpitesPhase = key;
+  currentDateFilter = 'next';
+  renderPalpites();
+}
+
+// ============================================================
+// FAMÍLIA DATE FILTER
+// ============================================================
+function renderFamiliaDateFilterBar(partidas) {
+  const bar = document.getElementById('familia-date-filter-bar');
+  if (!bar) return;
+  const dates = getMatchDates(partidas);
+
+  let html = `<button class="date-pill ${currentFamiliaDateFilter === 'todos' ? 'active' : ''}" onclick="setFamiliaDateFilter('todos')">📋 Todos</button>`;
+
+  dates.forEach(date => {
+    const dayMatches = partidas.filter(p => getDateKey(p.data) === date);
+    const allLocked = dayMatches.every(p => isLocked(p.data));
+    const isActive = currentFamiliaDateFilter === date;
+    html += `<button class="date-pill ${isActive ? 'active' : ''} ${allLocked ? 'all-locked' : 'has-open'}"
+      onclick="setFamiliaDateFilter('${date}')">
+      ${getDateLabel(date)}
+    </button>`;
+  });
+
+  bar.innerHTML = html;
+}
+
+function setFamiliaDateFilter(dateKey) {
+  currentFamiliaDateFilter = dateKey;
+  renderFamilia();
+}
+
+function setFamiliaPhase(key) {
+  currentFamiliaPhase = key;
+  currentFamiliaDateFilter = 'today'; // reset to today when switching phase
+  renderFamilia();
+}
+
+// ============================================================
+// SAVE BADGE
+// ============================================================
 function updateSaveBadge() {
   const fase = currentPalpitesPhase;
   const faseData = torneioData?.fases[fase];
@@ -997,13 +1221,30 @@ function updateSaveBadge() {
   const userFasePalpites = localPalpites[fase] || {};
   const dbFase = dbPalpites[fase] || {};
   let count = 0;
+
   faseData.partidas.forEach(p => {
     if (isLocked(p.data)) return;
     const local = userFasePalpites[p.id];
-    const db = dbFase[p.id];
     if (!local || local.casa === '' || local.fora === '' || local.casa === undefined) return;
-    if (!db || db.casa !== Number(local.casa) || db.fora !== Number(local.fora)) count++;
+
+    if (!isPalpiteCompleteForMatch(local, p, fase)) return;
+
+    const db = dbFase[p.id];
+    if (!db) { count++; return; }
+
+    // Compare relevant fields
+    if (isKnockoutPhase(fase)) {
+      if (Number(local.casa) !== Number(db.casa) ||
+          Number(local.fora) !== Number(db.fora) ||
+          local.vencedor !== db.vencedor ||
+          local.foi_prorrogacao !== db.foi_prorrogacao ||
+          local.foi_penaltis !== db.foi_penaltis) count++;
+    } else {
+      if (Number(local.casa) !== Number(db.casa) ||
+          Number(local.fora) !== Number(db.fora)) count++;
+    }
   });
+
   const badge = document.getElementById('save-badge');
   if (badge) {
     badge.textContent = count;
@@ -1011,7 +1252,21 @@ function updateSaveBadge() {
   }
 }
 
+// ============================================================
+// MATCH CARD ROUTER
+// ============================================================
 function renderMatchCard(partida, faseData, userFasePalpites, container) {
+  if (isKnockoutPhase(currentPalpitesPhase)) {
+    renderKnockoutMatchCard(partida, faseData, userFasePalpites, container);
+  } else {
+    renderGroupMatchCard(partida, faseData, userFasePalpites, container);
+  }
+}
+
+// ============================================================
+// GROUP MATCH CARD
+// ============================================================
+function renderGroupMatchCard(partida, faseData, userFasePalpites, container) {
   const locked = isLocked(partida.data);
   const userPal = userFasePalpites[partida.id];
   const hasBoth = userPal && userPal.casa !== '' && userPal.fora !== '' && userPal.casa !== undefined;
@@ -1022,7 +1277,7 @@ function renderMatchCard(partida, faseData, userFasePalpites, container) {
 
   let scoreZone;
   if (locked && partida.gols_casa !== null) {
-    const pts = userPal ? calcPoints(userPal, partida, faseData.pontos) : null;
+    const pts = userPal ? calcPoints(userPal, partida, faseData.pontos, currentPalpitesPhase) : null;
     const pc = pointsClass(pts, faseData.pontos);
     scoreZone = `
       <div class="result-display">
@@ -1066,13 +1321,160 @@ function renderMatchCard(partida, faseData, userFasePalpites, container) {
     </div>`;
   container.appendChild(card);
 }
-  
-function setPalpitesPhase(key) {
-  currentPalpitesPhase = key;
-  currentDateFilter = 'next';
+
+// ============================================================
+// KNOCKOUT MATCH CARD
+// ============================================================
+function renderKnockoutMatchCard(partida, faseData, userFasePalpites, container) {
+  const locked = isLocked(partida.data);
+  const userPal = userFasePalpites[partida.id] || {};
+  const timeLabel = !locked ? (getTimeToLock(partida.data) || '') : '';
+  const lockTag = locked
+    ? `<span class="lock-badge">🔒 BLOQUEADO</span>`
+    : timeLabel ? `<span style="font-size:11px;color:var(--gold);">⏱ ${timeLabel}</span>` : '';
+
+  const cVal = userPal.casa !== undefined ? userPal.casa : '';
+  const fVal = userPal.fora !== undefined ? userPal.fora : '';
+  const hasBoth = cVal !== '' && fVal !== '';
+  const isDraw = hasBoth && isDrawScore(cVal, fVal);
+  const isComplete = isPalpiteCompleteForMatch(userPal, partida, currentPalpitesPhase);
+
+  let scoreZone;
+
+  if (locked && partida.gols_casa !== null && partida.vencedor) {
+    // Show result
+    const pts = isComplete ? calcPoints(userPal, partida, faseData.pontos, currentPalpitesPhase) : null;
+    const pc = pointsClass(pts, faseData.pontos);
+    const resultStr = formatResultadoForDisplay(partida, currentPalpitesPhase);
+    const palpiteStr = formatPalpiteForDisplay(userPal, partida, currentPalpitesPhase);
+
+    scoreZone = `
+      <div class="result-display">
+        <div class="result-score">${partida.gols_casa}</div>
+        <div class="score-sep">×</div>
+        <div class="result-score">${partida.gols_fora}</div>
+      </div>
+      ${pts !== null ? `<span class="points-chip ${pc}" style="margin-top:8px;">${pts > 0 ? '🎯 ' : ''}${pts} pts</span>` : ''}
+      <div style="font-size:11px;color:var(--muted);margin-top:4px;">${resultStr}</div>
+      <div style="font-size:11px;color:var(--muted);margin-top:2px;">Palpite: ${palpiteStr}</div>`;
+  } else if (locked) {
+    // Locked but no result yet
+    const palpiteStr = formatPalpiteForDisplay(userPal, partida, currentPalpitesPhase);
+    scoreZone = `
+      <div style="font-size:13px;color:var(--muted);text-align:center;">Aguardando resultado</div>
+      <div style="font-size:11px;color:var(--muted);margin-top:4px;">Palpite: ${palpiteStr}</div>`;
+  } else {
+    // Editable
+    const foiProrr = userPal.foi_prorrogacao;
+    let extraZone = '';
+
+    if (hasBoth) {
+      if (isDraw) {
+        const venc = userPal.vencedor;
+        extraZone = `
+          <div class="draw-notice">Empate após 120' → vai para os pênaltis.</div>
+          <div class="penalty-winner-row">
+            <div class="penalty-winner-label">Quem avança nos pênaltis?</div>
+            <div class="winner-options">
+              <button class="winner-option${venc==='casa'?' selected':''}" onclick="setKnockoutVencedor('${partida.id}','casa')">
+                ${partida.bandeira_casa} ${partida.casa}
+              </button>
+              <button class="winner-option${venc==='fora'?' selected':''}" onclick="setKnockoutVencedor('${partida.id}','fora')">
+                ${partida.bandeira_fora} ${partida.fora}
+              </button>
+            </div>
+          </div>`;
+      } else {
+        extraZone = `
+          <div class="knockout-toggle">
+            <button class="knockout-toggle-btn${foiProrr===false?' selected':''}" onclick="setKnockoutProrr('${partida.id}',false)">
+              ⏱ Tempo Normal
+            </button>
+            <button class="knockout-toggle-btn${foiProrr===true?' selected':''}" onclick="setKnockoutProrr('${partida.id}',true)">
+              ➕ Prorrogação
+            </button>
+          </div>`;
+      }
+    }
+
+    scoreZone = `
+      <div class="knockout-label">Placar após 120 minutos</div>
+      <div class="score-inputs">
+        <input class="score-input${hasBoth?' filled':''}" type="number" min="0" max="20" value="${cVal}"
+          id="inp-${partida.id}-casa"
+          oninput="saveKnockoutScore('${partida.id}','casa',this.value)" placeholder="–"/>
+        <span class="score-sep">×</span>
+        <input class="score-input${hasBoth?' filled':''}" type="number" min="0" max="20" value="${fVal}"
+          id="inp-${partida.id}-fora"
+          oninput="saveKnockoutScore('${partida.id}','fora',this.value)" placeholder="–"/>
+      </div>
+      ${extraZone}`;
+  }
+
+  const card = document.createElement('div');
+  card.className = `sticker-card${locked?' locked':''}${isComplete&&!locked?' saved':''} mb-16`;
+  card.innerHTML = `
+    <div class="match-header">
+      <div class="match-meta">
+        <span class="grupo-badge">${faseData.label}</span>
+        <span class="match-time">${formatDate(partida.data)}</span>
+      </div>
+      ${lockTag}
+    </div>
+    <p class="knockout-helper">No mata-mata, aposte no placar após 120'. Se empatar, escolha quem avança nos pênaltis.</p>
+    <div class="match-teams">
+      <div class="team"><span class="team-flag">${partida.bandeira_casa||'🏳'}</span><span class="team-name">${partida.casa}</span></div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">${scoreZone}</div>
+      <div class="team"><span class="team-flag">${partida.bandeira_fora||'🏳'}</span><span class="team-name">${partida.fora}</span></div>
+    </div>`;
+  container.appendChild(card);
+}
+
+// ============================================================
+// KNOCKOUT INPUT HANDLERS
+// ============================================================
+function saveKnockoutScore(matchId, side, value) {
+  const fase = currentPalpitesPhase;
+  if (!localPalpites[fase]) localPalpites[fase] = {};
+  if (!localPalpites[fase][matchId]) localPalpites[fase][matchId] = {};
+  localPalpites[fase][matchId][side] = value === '' ? '' : parseInt(value);
+
+  // When score changes, re-normalize
+  normalizeKnockoutPalpite(matchId, fase);
+
+  localStorage.setItem(`bolao_pal_${currentUser.nome}`, JSON.stringify(localPalpites));
+  updateSaveBadge();
+
+  // Re-render this phase to update toggle/penalty UI
   renderPalpites();
 }
 
+function setKnockoutProrr(matchId, value) {
+  const fase = currentPalpitesPhase;
+  if (!localPalpites[fase]) localPalpites[fase] = {};
+  if (!localPalpites[fase][matchId]) localPalpites[fase][matchId] = {};
+  localPalpites[fase][matchId].foi_prorrogacao = value;
+  localPalpites[fase][matchId].foi_penaltis = false;
+  // vencedor is inferred from score — normalizeKnockoutPalpite does it
+  normalizeKnockoutPalpite(matchId, fase);
+  localStorage.setItem(`bolao_pal_${currentUser.nome}`, JSON.stringify(localPalpites));
+  updateSaveBadge();
+  renderPalpites();
+}
+
+function setKnockoutVencedor(matchId, vencedor) {
+  const fase = currentPalpitesPhase;
+  if (!localPalpites[fase]) localPalpites[fase] = {};
+  if (!localPalpites[fase][matchId]) localPalpites[fase][matchId] = {};
+  localPalpites[fase][matchId].vencedor = vencedor;
+  localStorage.setItem(`bolao_pal_${currentUser.nome}`, JSON.stringify(localPalpites));
+  updateSaveBadge();
+  renderPalpites();
+}
+
+// ============================================================
+// GROUP SCORE LOCAL SAVE (unchanged)
+// ============================================================
 function savePalpiteLocal(matchId, side, value) {
   if (!localPalpites[currentPalpitesPhase]) localPalpites[currentPalpitesPhase] = {};
   if (!localPalpites[currentPalpitesPhase][matchId]) localPalpites[currentPalpitesPhase][matchId] = {};
@@ -1088,7 +1490,7 @@ function savePalpiteLocal(matchId, side, value) {
 }
 
 // ============================================================
-//  SAVE TO SUPABASE
+// SAVE TO SUPABASE
 // ============================================================
 async function saveToSupabase() {
   const btn = document.getElementById('btn-salvar');
@@ -1098,16 +1500,25 @@ async function saveToSupabase() {
   const fase = currentPalpitesPhase;
   const fasePalpites = localPalpites[fase] || {};
   const faseData = torneioData.fases[fase];
+  const knockout = isKnockoutPhase(fase);
 
-  // Build the full palpites_json for this phase:
-  // Start with whatever is in the DB (preserves locked entries), then
-  // overwrite with current local values for any UNLOCKED matches.
   const toSave = Object.assign({}, dbPalpites[fase] || {});
 
   faseData.partidas.forEach(p => {
-    if (isLocked(p.data)) return; // don't overwrite locked entries from DB
+    if (isLocked(p.data)) return;
     const pal = fasePalpites[p.id];
-    if (pal && pal.casa !== '' && pal.fora !== '' && pal.casa !== undefined && pal.fora !== undefined) {
+    if (!pal || pal.casa === '' || pal.fora === '' || pal.casa === undefined || pal.fora === undefined) return;
+    if (!isPalpiteCompleteForMatch(pal, p, fase)) return;
+
+    if (knockout) {
+      toSave[p.id] = {
+        casa: Number(pal.casa),
+        fora: Number(pal.fora),
+        foi_prorrogacao: pal.foi_prorrogacao,
+        foi_penaltis: pal.foi_penaltis,
+        vencedor: pal.vencedor
+      };
+    } else {
       toSave[p.id] = { casa: Number(pal.casa), fora: Number(pal.fora) };
     }
   });
@@ -1120,14 +1531,13 @@ async function saveToSupabase() {
       palpites_json: toSave
     });
     dbPalpites[fase] = toSave;
-    // Sync local storage
     if (!localPalpites[fase]) localPalpites[fase] = {};
     Object.assign(localPalpites[fase], toSave);
     localStorage.setItem(`bolao_pal_${currentUser.nome}`, JSON.stringify(localPalpites));
     showToast('✅ Palpites salvos! Pode editar a qualquer hora.');
     await refreshGlobalPalpites();
     renderPalpites();
-    } catch(e) {
+  } catch(e) {
     console.error(e);
     showToast('❌ ' + e.message, true, 8000);
   } finally {
@@ -1138,7 +1548,7 @@ async function saveToSupabase() {
 }
 
 // ============================================================
-//  RANKING
+// RANKING
 // ============================================================
 function renderRanking() {
   const list = document.getElementById('ranking-list');
@@ -1174,11 +1584,11 @@ function renderRanking() {
 }
 
 // ============================================================
-//  FAMÍLIA / TRANSPARENCY
+// FAMÍLIA
 // ============================================================
 function renderFamilia() {
   if (!torneioData) return;
-  const phases = Object.entries(torneioData.fases).filter(([,v]) => v.partidas && v.partidas.length > 0);
+  const phases = getActiveFases();
 
   document.getElementById('familia-phase-pills').innerHTML = phases.map(([key, fase]) =>
     `<button class="phase-pill${key === currentFamiliaPhase ? ' active' : ''}" onclick="setFamiliaPhase('${key}')">${fase.label}</button>`
@@ -1186,65 +1596,110 @@ function renderFamilia() {
 
   const currentFase = torneioData.fases[currentFamiliaPhase];
   if (!currentFase || !currentFase.partidas.length) {
+    document.getElementById('familia-date-filter-bar').innerHTML = '';
     document.getElementById('familia-matches-list').innerHTML =
       `<div class="empty-state"><span class="empty-icon">👨‍👩‍👧‍👦</span><h3>FASE NÃO LIBERADA</h3></div>`;
     return;
   }
 
+  const allPartidas = sortMatches(currentFase.partidas);
+
+  // Default to today's date, fallback to last date with locked matches, then first date
+  if (currentFamiliaDateFilter === 'today') {
+    const today = getTodayKey();
+    const dates = getMatchDates(allPartidas);
+    if (dates.includes(today)) {
+      currentFamiliaDateFilter = today;
+    } else {
+      // find most recent past date
+      const pastDates = dates.filter(d => d <= today);
+      currentFamiliaDateFilter = pastDates.length > 0
+        ? pastDates[pastDates.length - 1]
+        : dates[0] || 'todos';
+    }
+  }
+
+  renderFamiliaDateFilterBar(allPartidas);
+
   const list = document.getElementById('familia-matches-list');
   list.innerHTML = '';
 
-  currentFase.partidas.forEach(partida => {
+  let filteredPartidas = currentFamiliaDateFilter === 'todos'
+    ? allPartidas
+    : allPartidas.filter(p => getDateKey(p.data) === currentFamiliaDateFilter);
+
+  if (filteredPartidas.length === 0) {
+    list.innerHTML = `<div class="empty-state"><span class="empty-icon">📅</span><h3>NENHUMA PARTIDA</h3><p>Selecione outra data acima.</p></div>`;
+    return;
+  }
+
+  filteredPartidas.forEach(partida => {
     const locked = isLocked(partida.data);
     const card = document.createElement('div');
-    card.className = `sticker-card mb-16`;
+    card.className = 'sticker-card mb-16';
     card.style.cursor = locked ? 'pointer' : 'default';
     if (!locked) card.style.opacity = '0.6';
-    if (locked) card.onclick = () => showTransparency(partida, currentFase);
+    if (locked) card.onclick = () => showTransparency(partida, currentFase, currentFamiliaPhase);
+
+    const resultStr = formatResultadoForDisplay(partida, currentFamiliaPhase);
 
     card.innerHTML = `
       <div class="match-header">
         <div class="match-meta">
-          ${partida.grupo ? `<span class="grupo-badge">Grupo ${partida.grupo}</span>` : ''}
+          ${partida.grupo ? `<span class="grupo-badge">Grupo ${partida.grupo}</span>` : `<span class="grupo-badge">${currentFase.label}</span>`}
           <span class="match-time">${formatDate(partida.data)}</span>
         </div>
         ${locked ? `<span style="font-size:12px;color:var(--neon);font-weight:600;">👁 Ver palpites</span>` : `<span style="font-size:11px;color:var(--muted);">🔓 Ainda aberto</span>`}
       </div>
       <div class="match-teams">
         <div class="team"><span class="team-flag">${partida.bandeira_casa||'🏳'}</span><span class="team-name">${partida.casa}</span></div>
-        <div style="font-family:var(--font-display);font-size:20px;color:var(--muted);">${partida.gols_casa !== null ? `${partida.gols_casa} × ${partida.gols_fora}` : 'vs'}</div>
+        <div style="font-family:var(--font-display);font-size:20px;color:var(--muted);text-align:center;">
+          ${partida.gols_casa !== null && partida.vencedor !== undefined
+            ? `${partida.gols_casa} × ${partida.gols_fora}`
+            : partida.gols_casa !== null
+              ? `${partida.gols_casa} × ${partida.gols_fora}`
+              : 'vs'}
+        </div>
         <div class="team"><span class="team-flag">${partida.bandeira_fora||'🏳'}</span><span class="team-name">${partida.fora}</span></div>
       </div>
+      ${locked && partida.gols_casa !== null ? `<p style="font-size:11px;color:var(--muted);text-align:center;margin-top:2px;">${resultStr}</p>` : ''}
       <p style="font-size:11px;color:${locked?'var(--neon)':'var(--muted)'};text-align:center;margin-top:4px;">
         ${locked ? 'Toque para ver os palpites da família' : 'Palpites visíveis após o bloqueio'}</p>`;
     list.appendChild(card);
   });
 }
 
-function setFamiliaPhase(key) {
-  currentFamiliaPhase = key;
-  renderFamilia();
-}
-
-function showTransparency(partida, faseData) {
+// ============================================================
+// TRANSPARENCY MODAL
+// ============================================================
+function showTransparency(partida, faseData, faseKey) {
   document.getElementById('trans-modal-title').textContent =
     `${partida.bandeira_casa} ${partida.casa} × ${partida.fora} ${partida.bandeira_fora}`;
   document.getElementById('trans-modal-sub').textContent = formatDate(partida.data);
+
+  // Show actual result if available
+  const resultDisplay = document.getElementById('trans-resultado-display');
+  if (partida.gols_casa !== null) {
+    const resultStr = formatResultadoForDisplay(partida, faseKey);
+    resultDisplay.innerHTML = `<span style="font-size:13px;font-weight:600;color:var(--gold);">Resultado: ${resultStr}</span>`;
+  } else {
+    resultDisplay.innerHTML = '';
+  }
 
   const tbody = document.getElementById('trans-tbody');
   if (!palpitesGlobal.length) {
     tbody.innerHTML = `<tr><td colspan="4" style="text-align:center;color:var(--muted);padding:20px;">Nenhum palpite registrado ainda.</td></tr>`;
   } else {
     tbody.innerHTML = palpitesGlobal.map(u => {
-      const fasePal = (u.palpites || {})[faseData.label === torneioData.fases[currentFamiliaPhase]?.label ? currentFamiliaPhase : currentFamiliaPhase] || {};
+      const fasePal = (u.palpites || {})[faseKey] || {};
       const p = fasePal[partida.id];
-      const pText = p && p.casa !== undefined && p.fora !== undefined ? `${p.casa} × ${p.fora}` : '–';
-      const pts = p ? calcPoints(p, partida, faseData.pontos) : null;
+      const pText = formatPalpiteForDisplay(p, partida, faseKey);
+      const pts = p ? calcPoints(p, partida, faseData.pontos, faseKey) : null;
       const pc = pts !== null ? pointsClass(pts, faseData.pontos) : '';
       return `<tr>
         <td style="font-size:22px;text-align:center;">${u.avatar}</td>
         <td style="color:var(--cream);font-weight:500;">${u.nome}</td>
-        <td style="text-align:center;font-family:var(--font-display);font-size:18px;color:var(--cream-dim);">${pText}</td>
+        <td style="text-align:center;font-size:13px;color:var(--cream-dim);">${pText}</td>
         <td style="text-align:center;">${pts !== null ? `<span class="points-chip ${pc}">${pts}pts</span>` : '<span style="color:var(--muted)">–</span>'}</td>
       </tr>`;
     }).join('');
@@ -1261,12 +1716,22 @@ document.querySelectorAll('.modal-overlay').forEach(o =>
 );
 
 // ============================================================
-//  BOOT
+// TOAST
+// ============================================================
+function showToast(msg, isError = false, duration = 3000) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = 'toast' + (isError ? ' error' : '');
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), duration);
+}
+
+// ============================================================
+// BOOT
 // ============================================================
 (async function boot() {
   const { url, key } = getSupabaseConfig();
 
-    // If keys are missing, just show login and warn
   if (!url || !key) {
     console.error('Supabase não configurado.');
     document.getElementById('page-login').classList.add('active');
@@ -1277,14 +1742,13 @@ document.querySelectorAll('.modal-overlay').forEach(o =>
   await refreshGlobalPalpites();
   supabaseReady = true;
 
-  // Animate stars on login page
+  // Animate login stars
   const starsEl = document.getElementById('login-stars');
   if (starsEl) {
     for (let i = 0; i < 18; i++) {
       const s = document.createElement('span');
       s.className = 'login-star';
       s.style.cssText = `left:${Math.random()*100}%;top:${Math.random()*100}%;--d:${2+Math.random()*4}s;--delay:${Math.random()*4}s;`;
-      // alternate gold and neon
       s.style.background = i % 3 === 0 ? 'var(--neon)' : 'var(--gold)';
       s.style.width = s.style.height = `${1+Math.random()*2}px`;
       starsEl.appendChild(s);
