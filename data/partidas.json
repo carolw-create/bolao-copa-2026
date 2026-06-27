@@ -2,11 +2,12 @@
   "tournament": {
     "name": "Copa do Mundo FIFA 2026",
     "totalGoals": null,
-    "currentPhase": "grupos"
+    "currentPhase": "dezesseis"
   },
   "fases": {
     "grupos": {
       "label": "Fase de Grupos",
+      "tipo": "grupos",
       "pontos": {
         "placar_exato": 10,
         "resultado_e_um_gol": 7,
@@ -20,81 +21,67 @@
         { "id": "g04", "casa": "EUA", "fora": "Paraguai", "bandeira_casa": "🇺🇸", "bandeira_fora": "🇵🇾", "grupo": "D", "data": "2026-06-12T18:00:00-07:00", "gols_casa": 4, "gols_fora": 1 },
         { "id": "g05", "casa": "Catar", "fora": "Suíça", "bandeira_casa": "🇶🇦", "bandeira_fora": "🇨🇭", "grupo": "B", "data": "2026-06-13T12:00:00-07:00", "gols_casa": 1, "gols_fora": 1 },
         { "id": "g06", "casa": "Brasil", "fora": "Marrocos", "bandeira_casa": "🇧🇷", "bandeira_fora": "🇲🇦", "grupo": "C", "data": "2026-06-13T18:00:00-04:00", "gols_casa": 1, "gols_fora": 1 },
-        { "id": "g07", "casa": "Haiti", "fora": "Escócia", "bandeira_casa": "🇭🇹", "bandeira_fora": "🏴", "grupo": "C", "data": "2026-06-13T21:00:00-04:00", "gols_casa": 0, "gols_fora": 1 },
+        { "id": "g07", "casa": "Haiti", "fora": "Escócia", "bandeira_casa": "🇭🇹", "bandeira_fora": "🏴󠁧󠁢󠁳󠁣󠁴󠁿", "grupo": "C", "data": "2026-06-13T21:00:00-04:00", "gols_casa": 0, "gols_fora": 1 },
         { "id": "g08", "casa": "Austrália", "fora": "Turquia", "bandeira_casa": "🇦🇺", "bandeira_fora": "🇹🇷", "grupo": "D", "data": "2026-06-13T21:00:00-07:00", "gols_casa": 2, "gols_fora": 0 },
-
         { "id": "g09", "casa": "Alemanha", "fora": "Curaçao", "bandeira_casa": "🇩🇪", "bandeira_fora": "🇨🇼", "grupo": "E", "data": "2026-06-14T12:00:00-05:00", "gols_casa": 7, "gols_fora": 1 },
         { "id": "g10", "casa": "Holanda", "fora": "Japão", "bandeira_casa": "🇳🇱", "bandeira_fora": "🇯🇵", "grupo": "F", "data": "2026-06-14T15:00:00-05:00", "gols_casa": 2, "gols_fora": 2 },
         { "id": "g11", "casa": "Costa do Marfim", "fora": "Equador", "bandeira_casa": "🇨🇮", "bandeira_fora": "🇪🇨", "grupo": "E", "data": "2026-06-14T19:00:00-04:00", "gols_casa": 1, "gols_fora": 0 },
         { "id": "g12", "casa": "Suécia", "fora": "Tunísia", "bandeira_casa": "🇸🇪", "bandeira_fora": "🇹🇳", "grupo": "F", "data": "2026-06-14T20:00:00-06:00", "gols_casa": 5, "gols_fora": 1 },
-
         { "id": "g13", "casa": "Espanha", "fora": "Cabo Verde", "bandeira_casa": "🇪🇸", "bandeira_fora": "🇨🇻", "grupo": "H", "data": "2026-06-15T12:00:00-04:00", "gols_casa": 0, "gols_fora": 0 },
         { "id": "g14", "casa": "Bélgica", "fora": "Egito", "bandeira_casa": "🇧🇪", "bandeira_fora": "🇪🇬", "grupo": "G", "data": "2026-06-15T12:00:00-07:00", "gols_casa": 1, "gols_fora": 1 },
         { "id": "g15", "casa": "Arábia Saudita", "fora": "Uruguai", "bandeira_casa": "🇸🇦", "bandeira_fora": "🇺🇾", "grupo": "H", "data": "2026-06-15T18:00:00-04:00", "gols_casa": 1, "gols_fora": 1 },
         { "id": "g16", "casa": "Irã", "fora": "Nova Zelândia", "bandeira_casa": "🇮🇷", "bandeira_fora": "🇳🇿", "grupo": "G", "data": "2026-06-15T18:00:00-07:00", "gols_casa": 2, "gols_fora": 2 },
-
         { "id": "g17", "casa": "França", "fora": "Senegal", "bandeira_casa": "🇫🇷", "bandeira_fora": "🇸🇳", "grupo": "I", "data": "2026-06-16T15:00:00-04:00", "gols_casa": 3, "gols_fora": 1 },
         { "id": "g18", "casa": "Iraque", "fora": "Noruega", "bandeira_casa": "🇮🇶", "bandeira_fora": "🇳🇴", "grupo": "I", "data": "2026-06-16T18:00:00-04:00", "gols_casa": 1, "gols_fora": 4 },
         { "id": "g19", "casa": "Argentina", "fora": "Argélia", "bandeira_casa": "🇦🇷", "bandeira_fora": "🇩🇿", "grupo": "J", "data": "2026-06-16T19:00:00-04:00", "gols_casa": 3, "gols_fora": 0 },
         { "id": "g20", "casa": "Áustria", "fora": "Jordânia", "bandeira_casa": "🇦🇹", "bandeira_fora": "🇯🇴", "grupo": "J", "data": "2026-06-16T21:00:00-07:00", "gols_casa": 3, "gols_fora": 1 },
-
         { "id": "g21", "casa": "Portugal", "fora": "Congo (RD)", "bandeira_casa": "🇵🇹", "bandeira_fora": "🇨🇩", "grupo": "K", "data": "2026-06-17T12:00:00-05:00", "gols_casa": 1, "gols_fora": 1 },
-        { "id": "g22", "casa": "Inglaterra", "fora": "Croácia", "bandeira_casa": "🏴", "bandeira_fora": "🇭🇷", "grupo": "L", "data": "2026-06-17T15:00:00-05:00", "gols_casa": 4, "gols_fora": 2 },
+        { "id": "g22", "casa": "Inglaterra", "fora": "Croácia", "bandeira_casa": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "bandeira_fora": "🇭🇷", "grupo": "L", "data": "2026-06-17T15:00:00-05:00", "gols_casa": 4, "gols_fora": 2 },
         { "id": "g23", "casa": "Gana", "fora": "Panamá", "bandeira_casa": "🇬🇭", "bandeira_fora": "🇵🇦", "grupo": "L", "data": "2026-06-17T19:00:00-04:00", "gols_casa": 1, "gols_fora": 0 },
         { "id": "g24", "casa": "Uzbequistão", "fora": "Colômbia", "bandeira_casa": "🇺🇿", "bandeira_fora": "🇨🇴", "grupo": "K", "data": "2026-06-17T20:00:00-06:00", "gols_casa": 1, "gols_fora": 3 },
-
         { "id": "g25", "casa": "Tchéquia", "fora": "África do Sul", "bandeira_casa": "🇨🇿", "bandeira_fora": "🇿🇦", "grupo": "A", "data": "2026-06-18T12:00:00-04:00", "gols_casa": 1, "gols_fora": 1 },
         { "id": "g26", "casa": "Suíça", "fora": "Bósnia e Herz.", "bandeira_casa": "🇨🇭", "bandeira_fora": "🇧🇦", "grupo": "B", "data": "2026-06-18T12:00:00-07:00", "gols_casa": 4, "gols_fora": 1 },
         { "id": "g27", "casa": "Canadá", "fora": "Catar", "bandeira_casa": "🇨🇦", "bandeira_fora": "🇶🇦", "grupo": "B", "data": "2026-06-18T15:00:00-07:00", "gols_casa": 6, "gols_fora": 0 },
         { "id": "g28", "casa": "México", "fora": "Coreia do Sul", "bandeira_casa": "🇲🇽", "bandeira_fora": "🇰🇷", "grupo": "A", "data": "2026-06-18T19:00:00-06:00", "gols_casa": 1, "gols_fora": 0 },
-
         { "id": "g29", "casa": "EUA", "fora": "Austrália", "bandeira_casa": "🇺🇸", "bandeira_fora": "🇦🇺", "grupo": "D", "data": "2026-06-19T12:00:00-07:00", "gols_casa": 2, "gols_fora": 0 },
-        { "id": "g30", "casa": "Escócia", "fora": "Marrocos", "bandeira_casa": "🏴", "bandeira_fora": "🇲🇦", "grupo": "C", "data": "2026-06-19T18:00:00-04:00", "gols_casa": 0, "gols_fora": 1 },
+        { "id": "g30", "casa": "Escócia", "fora": "Marrocos", "bandeira_casa": "🏴󠁧󠁢󠁳󠁣󠁴󠁿", "bandeira_fora": "🇲🇦", "grupo": "C", "data": "2026-06-19T18:00:00-04:00", "gols_casa": 0, "gols_fora": 1 },
         { "id": "g31", "casa": "Brasil", "fora": "Haiti", "bandeira_casa": "🇧🇷", "bandeira_fora": "🇭🇹", "grupo": "C", "data": "2026-06-19T20:30:00-04:00", "gols_casa": 3, "gols_fora": 0 },
         { "id": "g32", "casa": "Turquia", "fora": "Paraguai", "bandeira_casa": "🇹🇷", "bandeira_fora": "🇵🇾", "grupo": "D", "data": "2026-06-19T20:00:00-07:00", "gols_casa": 0, "gols_fora": 1 },
-
         { "id": "g33", "casa": "Holanda", "fora": "Suécia", "bandeira_casa": "🇳🇱", "bandeira_fora": "🇸🇪", "grupo": "F", "data": "2026-06-20T12:00:00-05:00", "gols_casa": 5, "gols_fora": 1 },
         { "id": "g34", "casa": "Alemanha", "fora": "Costa do Marfim", "bandeira_casa": "🇩🇪", "bandeira_fora": "🇨🇮", "grupo": "E", "data": "2026-06-20T16:00:00-04:00", "gols_casa": 2, "gols_fora": 1 },
         { "id": "g35", "casa": "Equador", "fora": "Curaçao", "bandeira_casa": "🇪🇨", "bandeira_fora": "🇨🇼", "grupo": "E", "data": "2026-06-20T19:00:00-05:00", "gols_casa": 0, "gols_fora": 0 },
         { "id": "g36", "casa": "Tunísia", "fora": "Japão", "bandeira_casa": "🇹🇳", "bandeira_fora": "🇯🇵", "grupo": "F", "data": "2026-06-20T22:00:00-06:00", "gols_casa": 0, "gols_fora": 4 },
-
         { "id": "g37", "casa": "Espanha", "fora": "Arábia Saudita", "bandeira_casa": "🇪🇸", "bandeira_fora": "🇸🇦", "grupo": "H", "data": "2026-06-21T12:00:00-04:00", "gols_casa": 4, "gols_fora": 0 },
         { "id": "g38", "casa": "Bélgica", "fora": "Irã", "bandeira_casa": "🇧🇪", "bandeira_fora": "🇮🇷", "grupo": "G", "data": "2026-06-21T12:00:00-07:00", "gols_casa": 0, "gols_fora": 0 },
         { "id": "g39", "casa": "Uruguai", "fora": "Cabo Verde", "bandeira_casa": "🇺🇾", "bandeira_fora": "🇨🇻", "grupo": "H", "data": "2026-06-21T18:00:00-04:00", "gols_casa": 2, "gols_fora": 2 },
         { "id": "g40", "casa": "Nova Zelândia", "fora": "Egito", "bandeira_casa": "🇳🇿", "bandeira_fora": "🇪🇬", "grupo": "G", "data": "2026-06-21T18:00:00-07:00", "gols_casa": 1, "gols_fora": 3 },
-
         { "id": "g41", "casa": "Argentina", "fora": "Áustria", "bandeira_casa": "🇦🇷", "bandeira_fora": "🇦🇹", "grupo": "J", "data": "2026-06-22T12:00:00-05:00", "gols_casa": 2, "gols_fora": 0 },
         { "id": "g42", "casa": "França", "fora": "Iraque", "bandeira_casa": "🇫🇷", "bandeira_fora": "🇮🇶", "grupo": "I", "data": "2026-06-22T17:00:00-04:00", "gols_casa": 3, "gols_fora": 0 },
         { "id": "g43", "casa": "Noruega", "fora": "Senegal", "bandeira_casa": "🇳🇴", "bandeira_fora": "🇸🇳", "grupo": "I", "data": "2026-06-22T20:00:00-04:00", "gols_casa": 3, "gols_fora": 2 },
         { "id": "g44", "casa": "Jordânia", "fora": "Argélia", "bandeira_casa": "🇯🇴", "bandeira_fora": "🇩🇿", "grupo": "J", "data": "2026-06-22T20:00:00-07:00", "gols_casa": 1, "gols_fora": 2 },
-
         { "id": "g45", "casa": "Portugal", "fora": "Uzbequistão", "bandeira_casa": "🇵🇹", "bandeira_fora": "🇺🇿", "grupo": "K", "data": "2026-06-23T12:00:00-05:00", "gols_casa": 5, "gols_fora": 0 },
-        { "id": "g46", "casa": "Inglaterra", "fora": "Gana", "bandeira_casa": "🏴", "bandeira_fora": "🇬🇭", "grupo": "L", "data": "2026-06-23T16:00:00-04:00", "gols_casa": 0, "gols_fora": 0 },
+        { "id": "g46", "casa": "Inglaterra", "fora": "Gana", "bandeira_casa": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "bandeira_fora": "🇬🇭", "grupo": "L", "data": "2026-06-23T16:00:00-04:00", "gols_casa": 0, "gols_fora": 0 },
         { "id": "g47", "casa": "Panamá", "fora": "Croácia", "bandeira_casa": "🇵🇦", "bandeira_fora": "🇭🇷", "grupo": "L", "data": "2026-06-23T19:00:00-04:00", "gols_casa": 0, "gols_fora": 1 },
         { "id": "g48", "casa": "Colômbia", "fora": "Congo (RD)", "bandeira_casa": "🇨🇴", "bandeira_fora": "🇨🇩", "grupo": "K", "data": "2026-06-23T20:00:00-06:00", "gols_casa": 1, "gols_fora": 0 },
-
         { "id": "g49", "casa": "Suíça", "fora": "Canadá", "bandeira_casa": "🇨🇭", "bandeira_fora": "🇨🇦", "grupo": "B", "data": "2026-06-24T12:00:00-07:00", "gols_casa": 2, "gols_fora": 1 },
         { "id": "g50", "casa": "Bósnia e Herz.", "fora": "Catar", "bandeira_casa": "🇧🇦", "bandeira_fora": "🇶🇦", "grupo": "B", "data": "2026-06-24T12:00:00-07:00", "gols_casa": 3, "gols_fora": 1 },
         { "id": "g51", "casa": "Marrocos", "fora": "Haiti", "bandeira_casa": "🇲🇦", "bandeira_fora": "🇭🇹", "grupo": "C", "data": "2026-06-24T18:00:00-04:00", "gols_casa": 4, "gols_fora": 2 },
-        { "id": "g52", "casa": "Escócia", "fora": "Brasil", "bandeira_casa": "🏴", "bandeira_fora": "🇧🇷", "grupo": "C", "data": "2026-06-24T18:00:00-04:00", "gols_casa": 0, "gols_fora": 3 },
+        { "id": "g52", "casa": "Escócia", "fora": "Brasil", "bandeira_casa": "🏴󠁧󠁢󠁳󠁣󠁴󠁿", "bandeira_fora": "🇧🇷", "grupo": "C", "data": "2026-06-24T18:00:00-04:00", "gols_casa": 0, "gols_fora": 3 },
         { "id": "g53", "casa": "África do Sul", "fora": "Coreia do Sul", "bandeira_casa": "🇿🇦", "bandeira_fora": "🇰🇷", "grupo": "A", "data": "2026-06-24T19:00:00-06:00", "gols_casa": 1, "gols_fora": 0 },
         { "id": "g54", "casa": "Tchéquia", "fora": "México", "bandeira_casa": "🇨🇿", "bandeira_fora": "🇲🇽", "grupo": "A", "data": "2026-06-24T19:00:00-06:00", "gols_casa": 0, "gols_fora": 3 },
-
         { "id": "g55", "casa": "Equador", "fora": "Alemanha", "bandeira_casa": "🇪🇨", "bandeira_fora": "🇩🇪", "grupo": "E", "data": "2026-06-25T16:00:00-04:00", "gols_casa": 2, "gols_fora": 1 },
         { "id": "g56", "casa": "Curaçao", "fora": "Costa do Marfim", "bandeira_casa": "🇨🇼", "bandeira_fora": "🇨🇮", "grupo": "E", "data": "2026-06-25T16:00:00-04:00", "gols_casa": 0, "gols_fora": 2 },
         { "id": "g57", "casa": "Tunísia", "fora": "Holanda", "bandeira_casa": "🇹🇳", "bandeira_fora": "🇳🇱", "grupo": "F", "data": "2026-06-25T18:00:00-05:00", "gols_casa": 1, "gols_fora": 3 },
         { "id": "g58", "casa": "Japão", "fora": "Suécia", "bandeira_casa": "🇯🇵", "bandeira_fora": "🇸🇪", "grupo": "F", "data": "2026-06-25T18:00:00-05:00", "gols_casa": 1, "gols_fora": 1 },
         { "id": "g59", "casa": "Turquia", "fora": "EUA", "bandeira_casa": "🇹🇷", "bandeira_fora": "🇺🇸", "grupo": "D", "data": "2026-06-25T19:00:00-07:00", "gols_casa": 3, "gols_fora": 2 },
         { "id": "g60", "casa": "Paraguai", "fora": "Austrália", "bandeira_casa": "🇵🇾", "bandeira_fora": "🇦🇺", "grupo": "D", "data": "2026-06-25T19:00:00-07:00", "gols_casa": 0, "gols_fora": 0 },
-
-        { "id": "g61", "casa": "Senegal", "fora": "Iraque", "bandeira_casa": "🇸🇳", "bandeira_fora": "🇮🇶", "grupo": "I", "data": "2026-06-26T15:00:00-04:00", "gols_casa": 5, "gols_fora": 0 },
-        { "id": "g62", "casa": "Noruega", "fora": "França", "bandeira_casa": "🇳🇴", "bandeira_fora": "🇫🇷", "grupo": "I", "data": "2026-06-26T15:00:00-04:00", "gols_casa": 1, "gols_fora": 4 },
+        { "id": "g61", "casa": "Senegal", "fora": "Iraque", "bandeira_casa": "🇸🇳", "bandeira_fora": "🇮🇶", "grupo": "I", "data": "2026-06-26T15:00:00-04:00", "gols_casa": null, "gols_fora": null },
+        { "id": "g62", "casa": "Noruega", "fora": "França", "bandeira_casa": "🇳🇴", "bandeira_fora": "🇫🇷", "grupo": "I", "data": "2026-06-26T15:00:00-04:00", "gols_casa": null, "gols_fora": null },
         { "id": "g63", "casa": "Cabo Verde", "fora": "Arábia Saudita", "bandeira_casa": "🇨🇻", "bandeira_fora": "🇸🇦", "grupo": "H", "data": "2026-06-26T19:00:00-05:00", "gols_casa": null, "gols_fora": null },
         { "id": "g64", "casa": "Uruguai", "fora": "Espanha", "bandeira_casa": "🇺🇾", "bandeira_fora": "🇪🇸", "grupo": "H", "data": "2026-06-26T18:00:00-06:00", "gols_casa": null, "gols_fora": null },
         { "id": "g65", "casa": "Egito", "fora": "Irã", "bandeira_casa": "🇪🇬", "bandeira_fora": "🇮🇷", "grupo": "G", "data": "2026-06-26T20:00:00-07:00", "gols_casa": null, "gols_fora": null },
         { "id": "g66", "casa": "Nova Zelândia", "fora": "Bélgica", "bandeira_casa": "🇳🇿", "bandeira_fora": "🇧🇪", "grupo": "G", "data": "2026-06-26T20:00:00-07:00", "gols_casa": null, "gols_fora": null },
-
-        { "id": "g67", "casa": "Panamá", "fora": "Inglaterra", "bandeira_casa": "🇵🇦", "bandeira_fora": "🏴", "grupo": "L", "data": "2026-06-27T17:00:00-04:00", "gols_casa": null, "gols_fora": null },
+        { "id": "g67", "casa": "Panamá", "fora": "Inglaterra", "bandeira_casa": "🇵🇦", "bandeira_fora": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "grupo": "L", "data": "2026-06-27T17:00:00-04:00", "gols_casa": null, "gols_fora": null },
         { "id": "g68", "casa": "Croácia", "fora": "Gana", "bandeira_casa": "🇭🇷", "bandeira_fora": "🇬🇭", "grupo": "L", "data": "2026-06-27T17:00:00-04:00", "gols_casa": null, "gols_fora": null },
         { "id": "g69", "casa": "Colômbia", "fora": "Portugal", "bandeira_casa": "🇨🇴", "bandeira_fora": "🇵🇹", "grupo": "K", "data": "2026-06-27T19:30:00-04:00", "gols_casa": null, "gols_fora": null },
         { "id": "g70", "casa": "Congo (RD)", "fora": "Uzbequistão", "bandeira_casa": "🇨🇩", "bandeira_fora": "🇺🇿", "grupo": "K", "data": "2026-06-27T19:30:00-04:00", "gols_casa": null, "gols_fora": null },
@@ -103,67 +90,299 @@
       ]
     },
     "dezesseis": {
-      "label": "Dezesseis-avos (R-32)",
+      "label": "R-32",
+      "tipo": "mata_mata",
       "pontos": {
         "placar_exato": 12,
         "resultado_e_um_gol": 8,
         "resultado_certo": 5,
-        "resultado_errado": 0
+        "resultado_errado": 0,
+        "bonus_prorrogacao": 2,
+        "bonus_penaltis": 4,
+        "bonus_vencedor_penaltis": 2
       },
-      "_nota": "Preencher após grupos. Datas: 28 jun – 3 jul 2026.",
-      "partidas": []
+      "partidas": [
+        {
+          "id": "r32-01",
+          "casa": "África do Sul",
+          "fora": "Canadá",
+          "bandeira_casa": "🇿🇦",
+          "bandeira_fora": "🇨🇦",
+          "data": "2026-06-28T12:00:00-07:00",
+          "gols_casa": null,
+          "gols_fora": null,
+          "foi_prorrogacao": null,
+          "foi_penaltis": null,
+          "vencedor": null
+        },
+        {
+          "id": "r32-02",
+          "casa": "Brasil",
+          "fora": "Japão",
+          "bandeira_casa": "🇧🇷",
+          "bandeira_fora": "🇯🇵",
+          "data": "2026-06-29T10:00:00-05:00",
+          "gols_casa": null,
+          "gols_fora": null,
+          "foi_prorrogacao": null,
+          "foi_penaltis": null,
+          "vencedor": null
+        },
+        {
+          "id": "r32-03",
+          "casa": "Alemanha",
+          "fora": "3º Grupo A/B/C/D/F",
+          "bandeira_casa": "🇩🇪",
+          "bandeira_fora": "🏳️",
+          "data": "2026-06-29T16:30:00-04:00",
+          "gols_casa": null,
+          "gols_fora": null,
+          "foi_prorrogacao": null,
+          "foi_penaltis": null,
+          "vencedor": null
+        },
+        {
+          "id": "r32-04",
+          "casa": "Holanda",
+          "fora": "Marrocos",
+          "bandeira_casa": "🇳🇱",
+          "bandeira_fora": "🇲🇦",
+          "data": "2026-06-29T19:00:00-06:00",
+          "gols_casa": null,
+          "gols_fora": null,
+          "foi_prorrogacao": null,
+          "foi_penaltis": null,
+          "vencedor": null
+        },
+        {
+          "id": "r32-05",
+          "casa": "Costa do Marfim",
+          "fora": "2º Grupo I",
+          "bandeira_casa": "🇨🇮",
+          "bandeira_fora": "🏳️",
+          "data": "2026-06-30T12:00:00-05:00",
+          "gols_casa": null,
+          "gols_fora": null,
+          "foi_prorrogacao": null,
+          "foi_penaltis": null,
+          "vencedor": null
+        },
+        {
+          "id": "r32-06",
+          "casa": "1º Grupo I",
+          "fora": "3º Grupo C/D/F/G/H",
+          "bandeira_casa": "🏳️",
+          "bandeira_fora": "🏳️",
+          "data": "2026-06-30T14:00:00-04:00",
+          "gols_casa": null,
+          "gols_fora": null,
+          "foi_prorrogacao": null,
+          "foi_penaltis": null,
+          "vencedor": null
+        },
+        {
+          "id": "r32-07",
+          "casa": "México",
+          "fora": "3º Grupo C/E/F/H/I",
+          "bandeira_casa": "🇲🇽",
+          "bandeira_fora": "🏳️",
+          "data": "2026-06-30T20:00:00-06:00",
+          "gols_casa": null,
+          "gols_fora": null,
+          "foi_prorrogacao": null,
+          "foi_penaltis": null,
+          "vencedor": null
+        },
+        {
+          "id": "r32-08",
+          "casa": "1º Grupo L",
+          "fora": "3º Grupo E/H/I/J/K",
+          "bandeira_casa": "🏳️",
+          "bandeira_fora": "🏳️",
+          "data": "2026-07-01T09:00:00-04:00",
+          "gols_casa": null,
+          "gols_fora": null,
+          "foi_prorrogacao": null,
+          "foi_penaltis": null,
+          "vencedor": null
+        },
+        {
+          "id": "r32-09",
+          "casa": "1º Grupo G",
+          "fora": "3º Grupo A/E/H/I/J",
+          "bandeira_casa": "🏳️",
+          "bandeira_fora": "🏳️",
+          "data": "2026-07-01T13:00:00-07:00",
+          "gols_casa": null,
+          "gols_fora": null,
+          "foi_prorrogacao": null,
+          "foi_penaltis": null,
+          "vencedor": null
+        },
+        {
+          "id": "r32-10",
+          "casa": "EUA",
+          "fora": "Bósnia e Herz.",
+          "bandeira_casa": "🇺🇸",
+          "bandeira_fora": "🇧🇦",
+          "data": "2026-07-01T16:00:00-07:00",
+          "gols_casa": null,
+          "gols_fora": null,
+          "foi_prorrogacao": null,
+          "foi_penaltis": null,
+          "vencedor": null
+        },
+        {
+          "id": "r32-11",
+          "casa": "1º Grupo H",
+          "fora": "2º Grupo J",
+          "bandeira_casa": "🏳️",
+          "bandeira_fora": "🏳️",
+          "data": "2026-07-02T12:00:00-07:00",
+          "gols_casa": null,
+          "gols_fora": null,
+          "foi_prorrogacao": null,
+          "foi_penaltis": null,
+          "vencedor": null
+        },
+        {
+          "id": "r32-12",
+          "casa": "2º Grupo K",
+          "fora": "2º Grupo L",
+          "bandeira_casa": "🏳️",
+          "bandeira_fora": "🏳️",
+          "data": "2026-07-02T19:00:00-04:00",
+          "gols_casa": null,
+          "gols_fora": null,
+          "foi_prorrogacao": null,
+          "foi_penaltis": null,
+          "vencedor": null
+        },
+        {
+          "id": "r32-13",
+          "casa": "Suíça",
+          "fora": "3º Grupo E/F/G/I/J",
+          "bandeira_casa": "🇨🇭",
+          "bandeira_fora": "🏳️",
+          "data": "2026-07-02T20:00:00-07:00",
+          "gols_casa": null,
+          "gols_fora": null,
+          "foi_prorrogacao": null,
+          "foi_penaltis": null,
+          "vencedor": null
+        },
+        {
+          "id": "r32-14",
+          "casa": "1º Grupo K",
+          "fora": "3º Grupo D/E/I/J/L",
+          "bandeira_casa": "🏳️",
+          "bandeira_fora": "🏳️",
+          "data": "2026-07-03T13:00:00-05:00",
+          "gols_casa": null,
+          "gols_fora": null,
+          "foi_prorrogacao": null,
+          "foi_penaltis": null,
+          "vencedor": null
+        },
+        {
+          "id": "r32-15",
+          "casa": "Argentina",
+          "fora": "2º Grupo H",
+          "bandeira_casa": "🇦🇷",
+          "bandeira_fora": "🏳️",
+          "data": "2026-07-03T18:00:00-04:00",
+          "gols_casa": null,
+          "gols_fora": null,
+          "foi_prorrogacao": null,
+          "foi_penaltis": null,
+          "vencedor": null
+        },
+        {
+          "id": "r32-16",
+          "casa": "Austrália",
+          "fora": "2º Grupo G",
+          "bandeira_casa": "🇦🇺",
+          "bandeira_fora": "🏳️",
+          "data": "2026-07-03T20:30:00-05:00",
+          "gols_casa": null,
+          "gols_fora": null,
+          "foi_prorrogacao": null,
+          "foi_penaltis": null,
+          "vencedor": null
+        }
+      ]
     },
     "oitavas": {
-      "label": "Oitavas de Final",
+      "label": "Oitavas",
+      "tipo": "mata_mata",
       "pontos": {
         "placar_exato": 14,
         "resultado_e_um_gol": 9,
         "resultado_certo": 6,
-        "resultado_errado": 0
+        "resultado_errado": 0,
+        "bonus_prorrogacao": 2,
+        "bonus_penaltis": 4,
+        "bonus_vencedor_penaltis": 2
       },
-      "_nota": "Datas: 4–7 jul 2026.",
+      "_nota": "Preencher após R-32. Datas: 4–7 jul 2026.",
       "partidas": []
     },
     "quartas": {
-      "label": "Quartas de Final",
+      "label": "Quartas",
+      "tipo": "mata_mata",
       "pontos": {
         "placar_exato": 16,
         "resultado_e_um_gol": 10,
         "resultado_certo": 7,
-        "resultado_errado": 0
+        "resultado_errado": 0,
+        "bonus_prorrogacao": 2,
+        "bonus_penaltis": 4,
+        "bonus_vencedor_penaltis": 2
       },
       "_nota": "Datas: 9–11 jul 2026.",
       "partidas": []
     },
     "semifinais": {
-      "label": "Semifinais",
+      "label": "Semis",
+      "tipo": "mata_mata",
       "pontos": {
         "placar_exato": 18,
         "resultado_e_um_gol": 11,
         "resultado_certo": 8,
-        "resultado_errado": 0
+        "resultado_errado": 0,
+        "bonus_prorrogacao": 2,
+        "bonus_penaltis": 4,
+        "bonus_vencedor_penaltis": 2
       },
       "_nota": "Datas: 14–15 jul 2026.",
       "partidas": []
     },
     "terceiro": {
       "label": "3º Lugar",
+      "tipo": "mata_mata",
       "pontos": {
         "placar_exato": 20,
         "resultado_e_um_gol": 12,
         "resultado_certo": 9,
-        "resultado_errado": 0
+        "resultado_errado": 0,
+        "bonus_prorrogacao": 2,
+        "bonus_penaltis": 4,
+        "bonus_vencedor_penaltis": 2
       },
-      "_nota": "Data: 18 jul 2026.",
+      "_nota": "18 jul 2026 – Hard Rock Stadium, Miami.",
       "partidas": []
     },
     "final": {
       "label": "Final",
+      "tipo": "mata_mata",
       "pontos": {
         "placar_exato": 20,
         "resultado_e_um_gol": 12,
         "resultado_certo": 9,
-        "resultado_errado": 0
+        "resultado_errado": 0,
+        "bonus_prorrogacao": 2,
+        "bonus_penaltis": 4,
+        "bonus_vencedor_penaltis": 2
       },
       "_nota": "19 jul 2026 – MetLife Stadium.",
       "partidas": []
