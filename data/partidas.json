@@ -2,7 +2,7 @@
   "tournament": {
     "name": "Copa do Mundo FIFA 2026",
     "totalGoals": null,
-    "currentPhase": "dezesseis"
+    "currentPhase": "grupos"
   },
   "fases": {
     "grupos": {
@@ -77,8 +77,8 @@
         { "id": "g60", "casa": "Paraguai", "fora": "Austrália", "bandeira_casa": "🇵🇾", "bandeira_fora": "🇦🇺", "grupo": "D", "data": "2026-06-25T19:00:00-07:00", "gols_casa": 0, "gols_fora": 0 },
         { "id": "g61", "casa": "Senegal", "fora": "Iraque", "bandeira_casa": "🇸🇳", "bandeira_fora": "🇮🇶", "grupo": "I", "data": "2026-06-26T15:00:00-04:00", "gols_casa": null, "gols_fora": null },
         { "id": "g62", "casa": "Noruega", "fora": "França", "bandeira_casa": "🇳🇴", "bandeira_fora": "🇫🇷", "grupo": "I", "data": "2026-06-26T15:00:00-04:00", "gols_casa": null, "gols_fora": null },
-        { "id": "g63", "casa": "Cabo Verde", "fora": "Arábia Saudita", "bandeira_casa": "🇨🇻", "bandeira_fora": "🇸🇦", "grupo": "H", "data": "2026-06-26T19:00:00-05:00", "gols_casa": null, "gols_fora": null },
-        { "id": "g64", "casa": "Uruguai", "fora": "Espanha", "bandeira_casa": "🇺🇾", "bandeira_fora": "🇪🇸", "grupo": "H", "data": "2026-06-26T18:00:00-06:00", "gols_casa": null, "gols_fora": null },
+        { "id": "g63", "casa": "Cabo Verde", "fora": "Arábia Saudita", "bandeira_casa": "🇨🇻", "bandeira_fora": "🇸🇦", "grupo": "H", "data": "2026-06-26T19:00:00-05:00", "gols_casa": 0, "gols_fora": 0 },
+        { "id": "g64", "casa": "Uruguai", "fora": "Espanha", "bandeira_casa": "🇺🇾", "bandeira_fora": "🇪🇸", "grupo": "H", "data": "2026-06-26T18:00:00-06:00", "gols_casa": 0, "gols_fora": 1 },
         { "id": "g65", "casa": "Egito", "fora": "Irã", "bandeira_casa": "🇪🇬", "bandeira_fora": "🇮🇷", "grupo": "G", "data": "2026-06-26T20:00:00-07:00", "gols_casa": null, "gols_fora": null },
         { "id": "g66", "casa": "Nova Zelândia", "fora": "Bélgica", "bandeira_casa": "🇳🇿", "bandeira_fora": "🇧🇪", "grupo": "G", "data": "2026-06-26T20:00:00-07:00", "gols_casa": null, "gols_fora": null },
         { "id": "g67", "casa": "Panamá", "fora": "Inglaterra", "bandeira_casa": "🇵🇦", "bandeira_fora": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "grupo": "L", "data": "2026-06-27T17:00:00-04:00", "gols_casa": null, "gols_fora": null },
