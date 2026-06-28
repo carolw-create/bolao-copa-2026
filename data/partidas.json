@@ -111,9 +111,9 @@
           "data": "2026-06-28T12:00:00-07:00",
           "gols_casa": 0,
           "gols_fora": 1,
-          "foi_prorrogacao": null,
-          "foi_penaltis": null,
-          "vencedor": null
+          "foi_prorrogacao": false,
+          "foi_penaltis": false,
+          "vencedor": fora
         },
         {
           "id": "r32-02",
