@@ -83,8 +83,8 @@
         { "id": "g66", "casa": "Nova Zelândia", "fora": "Bélgica", "bandeira_casa": "🇳🇿", "bandeira_fora": "🇧🇪", "grupo": "G", "data": "2026-06-26T20:00:00-07:00", "gols_casa": 1, "gols_fora": 5 },
         { "id": "g67", "casa": "Panamá", "fora": "Inglaterra", "bandeira_casa": "🇵🇦", "bandeira_fora": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "grupo": "L", "data": "2026-06-27T17:00:00-04:00", "gols_casa": 0, "gols_fora": 3 },
         { "id": "g68", "casa": "Croácia", "fora": "Gana", "bandeira_casa": "🇭🇷", "bandeira_fora": "🇬🇭", "grupo": "L", "data": "2026-06-27T17:00:00-04:00", "gols_casa": 2, "gols_fora": 1 },
-        { "id": "g69", "casa": "Colômbia", "fora": "Portugal", "bandeira_casa": "🇨🇴", "bandeira_fora": "🇵🇹", "grupo": "K", "data": "2026-06-27T19:30:00-04:00", "gols_casa": null, "gols_fora": null },
-        { "id": "g70", "casa": "Congo (RD)", "fora": "Uzbequistão", "bandeira_casa": "🇨🇩", "bandeira_fora": "🇺🇿", "grupo": "K", "data": "2026-06-27T19:30:00-04:00", "gols_casa": null, "gols_fora": null },
+        { "id": "g69", "casa": "Colômbia", "fora": "Portugal", "bandeira_casa": "🇨🇴", "bandeira_fora": "🇵🇹", "grupo": "K", "data": "2026-06-27T19:30:00-04:00", "gols_casa": 0, "gols_fora": 0 },
+        { "id": "g70", "casa": "Congo (RD)", "fora": "Uzbequistão", "bandeira_casa": "🇨🇩", "bandeira_fora": "🇺🇿", "grupo": "K", "data": "2026-06-27T19:30:00-04:00", "gols_casa": 3, "gols_fora": 1 },
         { "id": "g71", "casa": "Argélia", "fora": "Áustria", "bandeira_casa": "🇩🇿", "bandeira_fora": "🇦🇹", "grupo": "J", "data": "2026-06-27T21:00:00-05:00", "gols_casa": null, "gols_fora": null },
         { "id": "g72", "casa": "Jordânia", "fora": "Argentina", "bandeira_casa": "🇯🇴", "bandeira_fora": "🇦🇷", "grupo": "J", "data": "2026-06-27T21:00:00-05:00", "gols_casa": null, "gols_fora": null }
       ]
