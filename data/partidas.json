@@ -109,8 +109,8 @@
           "bandeira_casa": "🇿🇦",
           "bandeira_fora": "🇨🇦",
           "data": "2026-06-28T12:00:00-07:00",
-          "gols_casa": null,
-          "gols_fora": null,
+          "gols_casa": 0,
+          "gols_fora": 1,
           "foi_prorrogacao": null,
           "foi_penaltis": null,
           "vencedor": null
