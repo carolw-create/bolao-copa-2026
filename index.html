@@ -483,6 +483,7 @@ nav{display:flex;gap:4px}
         <h2 class="section-title">RANKING</h2>
         <span class="section-badge" id="ranking-count">0 participantes</span>
       </div>
+      <div class="phase-pills" id="ranking-phase-pills"></div>
       <div id="ranking-list"></div>
     </div>
   </div>
@@ -547,6 +548,7 @@ let currentPalpitesPhase = 'grupos';
 let currentFamiliaPhase = 'grupos';
 let currentDateFilter = 'next';
 let currentFamiliaDateFilter = 'today';
+let currentRankingPhase = 'geral';
 let supabaseReady = false;
 
 // ============================================================
@@ -1550,33 +1552,96 @@ async function saveToSupabase() {
 // ============================================================
 // RANKING
 // ============================================================
+function getPhasePoints(userPalpites, faseKey) {
+  if (!torneioData) return 0;
+  const faseData = torneioData.fases[faseKey];
+  if (!faseData) return 0;
+  const config = faseData.pontos;
+  const fasePalpites = (userPalpites || {})[faseKey] || {};
+  let total = 0;
+  for (const p of sortMatches(faseData.partidas || [])) {
+    const pal = fasePalpites[p.id];
+    if (!pal) continue;
+    const pts = calcPoints(pal, p, config, faseKey);
+    if (pts !== null) total += pts;
+  }
+  return total;
+}
+
+function getPhaseCorrect(userPalpites, faseKey) {
+  if (!torneioData) return 0;
+  const faseData = torneioData.fases[faseKey];
+  if (!faseData) return 0;
+  const config = faseData.pontos;
+  const fasePalpites = (userPalpites || {})[faseKey] || {};
+  let c = 0;
+  for (const p of sortMatches(faseData.partidas || [])) {
+    const pal = fasePalpites[p.id];
+    if (!pal) continue;
+    const pts = calcPoints(pal, p, config, faseKey);
+    if (pts !== null && pts > 0) c++;
+  }
+  return c;
+}
+
+function setRankingPhase(key) {
+  currentRankingPhase = key;
+  renderRanking();
+}
+
 function renderRanking() {
+  if (!torneioData) return;
   const list = document.getElementById('ranking-list');
+  const activeFases = getActiveFases();
+
+  // Build pills: Geral + one per active phase
+  const pillsEl = document.getElementById('ranking-phase-pills');
+  const pills = [['geral', 'Geral'], ...activeFases.map(([k, v]) => [k, v.label])];
+  pillsEl.innerHTML = pills.map(([key, label]) =>
+    `<button class="phase-pill${key === currentRankingPhase ? ' active' : ''}" onclick="setRankingPhase('${key}')">${label}</button>`
+  ).join('');
+
   if (!palpitesGlobal.length) {
     list.innerHTML = `<div class="empty-state"><span class="empty-icon">🏆</span><h3>RANKING AINDA VAZIO</h3><p>Seja o primeiro a enviar seus palpites!</p></div>`;
     document.getElementById('ranking-count').textContent = '0 participantes';
     return;
   }
 
-  const users = palpitesGlobal.map(u => ({
-    ...u,
-    pts: getTotalPoints(u.palpites),
-    acertos: getTotalCorrect(u.palpites)
-  })).sort((a, b) => b.pts !== a.pts ? b.pts - a.pts : b.acertos - a.acertos);
+  let users;
+  if (currentRankingPhase === 'geral') {
+    users = palpitesGlobal.map(u => ({
+      ...u,
+      pts: getTotalPoints(u.palpites),
+      acertos: getTotalCorrect(u.palpites)
+    }));
+  } else {
+    users = palpitesGlobal.map(u => ({
+      ...u,
+      pts: getPhasePoints(u.palpites, currentRankingPhase),
+      acertos: getPhaseCorrect(u.palpites, currentRankingPhase)
+    }));
+  }
 
-  document.getElementById('ranking-count').textContent = `${users.length} participante${users.length !== 1 ? 's' : ''}`;
+  users.sort((a, b) => b.pts !== a.pts ? b.pts - a.pts : b.acertos - a.acertos);
+
+  const phaseLabel = currentRankingPhase === 'geral'
+    ? 'Geral'
+    : torneioData.fases[currentRankingPhase]?.label || '';
+  document.getElementById('ranking-count').textContent =
+    `${users.length} participante${users.length !== 1 ? 's' : ''} · ${phaseLabel}`;
 
   list.innerHTML = users.map((u, i) => {
     const rank = i + 1;
     const rankClass = rank === 1 ? 'gold' : rank === 2 ? 'silver' : rank === 3 ? 'bronze' : '';
     const medal = rank === 1 ? '🥇' : rank === 2 ? '🥈' : rank === 3 ? '🥉' : rank;
     const isMe = currentUser && u.nome === currentUser.nome;
+    const detailLabel = currentRankingPhase === 'geral' ? 'total' : phaseLabel;
     return `<div class="leaderboard-row" style="${isMe ? 'border-color:rgba(0,209,102,0.4);' : ''}">
       <div class="rank-num ${rankClass}">${medal}</div>
       <div class="leaderboard-avatar">${u.avatar}</div>
       <div class="leaderboard-info">
         <div class="leaderboard-name">${u.nome}${isMe ? ' <span style="font-size:11px;color:var(--neon);">• você</span>' : ''}</div>
-        <div class="leaderboard-detail">✅ ${u.acertos} acerto${u.acertos !== 1 ? 's' : ''}</div>
+        <div class="leaderboard-detail">✅ ${u.acertos} acerto${u.acertos !== 1 ? 's' : ''} · ${detailLabel}</div>
       </div>
       <div class="leaderboard-pts">${u.pts}</div>
     </div>`;
