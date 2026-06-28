@@ -113,7 +113,7 @@
           "gols_fora": 1,
           "foi_prorrogacao": false,
           "foi_penaltis": false,
-          "vencedor": fora
+          "vencedor": "fora"
         },
         {
           "id": "r32-02",
