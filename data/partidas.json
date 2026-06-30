@@ -174,11 +174,11 @@
           "bandeira_casa": "🇫🇷",
           "bandeira_fora": "🇸🇪",
           "data": "2026-06-30T17:00:00-04:00",
-          "gols_casa": null,
-          "gols_fora": null,
+          "gols_casa": 3,
+          "gols_fora": 0,
           "foi_prorrogacao": null,
           "foi_penaltis": null,
-          "vencedor": null
+          "vencedor": "casa"
         },
         {
           "id": "r32-07",
