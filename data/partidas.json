@@ -126,7 +126,10 @@
           "gols_fora": 1,
           "foi_prorrogacao": false,
           "foi_penaltis": false,
-          "vencedor": "casa",
+          "vencedor": "casa"
+        },
+        {
+          "id": "r32-03",
           "casa": "Alemanha",
           "fora": "Paraguai",
           "bandeira_casa": "🇩🇪",
@@ -138,7 +141,10 @@
           "foi_penaltis": true,
           "vencedor": "fora",
           "vencedor_penaltis": "Paraguai",
-          "placar_penaltis": "4-3",
+          "placar_penaltis": "4-3"
+        },
+        {
+          "id": "r32-04",
           "casa": "Holanda",
           "fora": "Marrocos",
           "bandeira_casa": "🇳🇱",
@@ -151,6 +157,9 @@
           "vencedor": "fora",
           "vencedor_penaltis": "Marrocos",
           "placar_penaltis": "3-2",
+        },
+        {
+          "id": "r32-05",
           "casa": "Costa do Marfim",
           "fora": "Noruega",
           "bandeira_casa": "🇨🇮",
@@ -160,7 +169,10 @@
           "gols_fora": 2,
           "foi_prorrogacao": false,
           "foi_penaltis": false,
-          "vencedor": "fora",
+          "vencedor": "fora"
+        },
+        {
+          "id": "r32-06",
           "casa": "França",
           "fora": "Suécia",
           "bandeira_casa": "🇫🇷",
@@ -170,7 +182,10 @@
           "gols_fora": 0,
           "foi_prorrogacao": false,
           "foi_penaltis": false,
-          "vencedor": "casa",
+          "vencedor": "casa"
+        },
+        {
+          "id": "r32-07",
           "casa": "México",
           "fora": "Equador",
           "bandeira_casa": "🇲🇽",
@@ -180,10 +195,13 @@
           "gols_fora": 0,
           "foi_prorrogacao": false,
           "foi_penaltis": false,
-          "vencedor": "casa",
+          "vencedor": "casa"
+        },
+        {
+          "id": "r32-08",
           "casa": "Inglaterra",
           "fora": "Congo (RD)",
-          "bandeira_casa": "�󠁧󠁢󠁥󠁮󠁧󠁿",
+          "bandeira_casa": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
           "bandeira_fora": "🇨🇩",
           "data": "2026-07-01T11:00:00-04:00",
           "gols_casa": 2,
