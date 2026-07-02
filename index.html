@@ -755,10 +755,15 @@ function calcKnockoutPoints(palpite, partida, config) {
   // Base score: compare 120-min scores and winner
   let base = config.resultado_errado;
   const winnerCorrect = predWinner === actualWinner;
+  // resultado_e_um_gol only valid when scores are comparable:
+  // i.e. both prediction and actual are non-draw (same score type)
+  const actualIsDraw = rc === rf;
+  const predIsDraw = pc === pf;
+  const scoresComparable = actualIsDraw === predIsDraw;
 
   if (pc === rc && pf === rf) {
     base = config.placar_exato;
-  } else if (winnerCorrect && (pc === rc || pf === rf)) {
+  } else if (winnerCorrect && scoresComparable && (pc === rc || pf === rf)) {
     base = config.resultado_e_um_gol;
   } else if (winnerCorrect) {
     base = config.resultado_certo;
@@ -1506,6 +1511,21 @@ async function saveToSupabase() {
 
   const toSave = Object.assign({}, dbPalpites[fase] || {});
 
+  // Count incomplete knockout predictions to warn user
+  let incompleteWarnings = [];
+  faseData.partidas.forEach(p => {
+    if (isLocked(p.data)) return;
+    const pal = fasePalpites[p.id];
+    if (!pal || pal.casa === '' || pal.fora === '' || pal.casa === undefined || pal.fora === undefined) return;
+    if (knockout && !isPalpiteCompleteForMatch(pal, p, fase)) {
+      const isDraw = isDrawScore(pal.casa, pal.fora);
+      const reason = isDraw
+        ? 'não escolheu o vencedor nos pênaltis'
+        : 'não escolheu Tempo Normal ou Prorrogação';
+      incompleteWarnings.push(`${p.casa} × ${p.fora}: ${reason}`);
+    }
+  });
+
   faseData.partidas.forEach(p => {
     if (isLocked(p.data)) return;
     const pal = fasePalpites[p.id];
@@ -1536,7 +1556,11 @@ async function saveToSupabase() {
     if (!localPalpites[fase]) localPalpites[fase] = {};
     Object.assign(localPalpites[fase], toSave);
     localStorage.setItem(`bolao_pal_${currentUser.nome}`, JSON.stringify(localPalpites));
-    showToast('✅ Palpites salvos! Pode editar a qualquer hora.');
+    if (incompleteWarnings.length > 0) {
+      showToast(`⚠️ ${incompleteWarnings.length} palpite${incompleteWarnings.length > 1 ? 's' : ''} incompleto${incompleteWarnings.length > 1 ? 's' : ''} não foram salvos — complete o placar e a opção de prorrogação/pênaltis.`, true, 7000);
+    } else {
+      showToast('✅ Palpites salvos! Pode editar a qualquer hora.');
+    }
     await refreshGlobalPalpites();
     renderPalpites();
   } catch(e) {
