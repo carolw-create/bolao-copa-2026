@@ -1045,7 +1045,112 @@
         "bonus_vencedor_penaltis": 2
       },
       "_nota": "Preencher após R-32. Datas: 4–7 jul 2026.",
-      "partidas": []
+      "partidas": [
+        {
+          "id": "o01",
+          "casa": "Canadá",
+          "fora": "Marrocos",
+          "bandeira_casa": "🇨🇦",
+          "bandeira_fora": "🇲🇦",
+          "data": "2026-07-04T12:00:00-05:00",
+          "gols_casa": null,
+          "gols_fora": null,
+          "foi_prorrogacao": null,
+          "foi_penaltis": null,
+          "vencedor": null
+        },
+        {
+          "id": "o02",
+          "casa": "Paraguai",
+          "fora": "França",
+          "bandeira_casa": "🇵🇾",
+          "bandeira_fora": "🇫🇷",
+          "data": "2026-07-04T17:00:00-04:00",
+          "gols_casa": null,
+          "gols_fora": null,
+          "foi_prorrogacao": null,
+          "foi_penaltis": null,
+          "vencedor": null
+        },
+        {
+          "id": "o03",
+          "casa": "Brasil",
+          "fora": "Noruega",
+          "bandeira_casa": "🇧🇷",
+          "bandeira_fora": "🇳🇴",
+          "data": "2026-07-05T16:00:00-04:00",
+          "gols_casa": null,
+          "gols_fora": null,
+          "foi_prorrogacao": null,
+          "foi_penaltis": null,
+          "vencedor": null
+        },
+        {
+          "id": "o04",
+          "casa": "México",
+          "fora": "Inglaterra",
+          "bandeira_casa": "🇲🇽",
+          "bandeira_fora": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+          "data": "2026-07-05T18:00:00-05:00",
+          "gols_casa": null,
+          "gols_fora": null,
+          "foi_prorrogacao": null,
+          "foi_penaltis": null,
+          "vencedor": null
+        },
+        {
+          "id": "o05",
+          "casa": "Portugal",
+          "fora": "Espanha",
+          "bandeira_casa": "🇵🇹",
+          "bandeira_fora": "🇪🇸",
+          "data": "2026-07-06T14:00:00-05:00",
+          "gols_casa": null,
+          "gols_fora": null,
+          "foi_prorrogacao": null,
+          "foi_penaltis": null,
+          "vencedor": null
+        },
+        {
+          "id": "o06",
+          "casa": "EUA",
+          "fora": "Bélgica",
+          "bandeira_casa": "🇺🇸",
+          "bandeira_fora": "🇧🇪",
+          "data": "2026-07-06T17:00:00-07:00",
+          "gols_casa": null,
+          "gols_fora": null,
+          "foi_prorrogacao": null,
+          "foi_penaltis": null,
+          "vencedor": null
+        },
+        {
+          "id": "o07",
+          "casa": "Argentina",
+          "fora": "Egito",
+          "bandeira_casa": "🇦🇷",
+          "bandeira_fora": "🇪🇬",
+          "data": "2026-07-07T12:00:00-04:00",
+          "gols_casa": null,
+          "gols_fora": null,
+          "foi_prorrogacao": null,
+          "foi_penaltis": null,
+          "vencedor": null
+        },
+        {
+          "id": "o08",
+          "casa": "Suíça",
+          "fora": "Colômbia/Gana",
+          "bandeira_casa": "🇨🇭",
+          "bandeira_fora": "🏳️",
+          "data": "2026-07-07T13:00:00-07:00",
+          "gols_casa": null,
+          "gols_fora": null,
+          "foi_prorrogacao": null,
+          "foi_penaltis": null,
+          "vencedor": null
+        }
+      ]
     },
     "quartas": {
       "label": "Quartas",
