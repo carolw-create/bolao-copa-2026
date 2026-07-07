@@ -1153,17 +1153,72 @@
       ]
     },
     "quartas": {
-      "label": "Quartas",
-      "tipo": "mata_mata",
-      "pontos": {
-        "placar_exato": 16,
-        "resultado_e_um_gol": 10,
-        "resultado_certo": 7,
-        "resultado_errado": 0,
-        "bonus_prorrogacao": 2,
-        "bonus_penaltis": 4,
-        "bonus_vencedor_penaltis": 2
-      },
+  "label": "Quartas",
+  "tipo": "mata_mata",
+  "pontos": {
+    "placar_exato": 16,
+    "resultado_e_um_gol": 10,
+    "resultado_certo": 7,
+    "resultado_errado": 0,
+    "bonus_prorrogacao": 2,
+    "bonus_penaltis": 4,
+    "bonus_vencedor_penaltis": 2
+  },
+  "partidas": [
+    {
+      "id": "q01",
+      "casa": "França",
+      "fora": "Marrocos",
+      "bandeira_casa": "🇫🇷",
+      "bandeira_fora": "🇲🇦",
+      "data": "2026-07-09T16:00:00-04:00",
+      "gols_casa": null,
+      "gols_fora": null,
+      "foi_prorrogacao": null,
+      "foi_penaltis": null,
+      "vencedor": null
+    },
+    {
+      "id": "q02",
+      "casa": "Vencedor o05",
+      "fora": "Vencedor o06",
+      "bandeira_casa": "🏳️",
+      "bandeira_fora": "🏳️",
+      "data": "2026-07-10T12:00:00-07:00",
+      "gols_casa": null,
+      "gols_fora": null,
+      "foi_prorrogacao": null,
+      "foi_penaltis": null,
+      "vencedor": null
+    },
+    {
+      "id": "q03",
+      "casa": "Noruega",
+      "fora": "Inglaterra",
+      "bandeira_casa": "🇳🇴",
+      "bandeira_fora": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+      "data": "2026-07-11T17:00:00-04:00",
+      "gols_casa": null,
+      "gols_fora": null,
+      "foi_prorrogacao": null,
+      "foi_penaltis": null,
+      "vencedor": null
+    },
+    {
+      "id": "q04",
+      "casa": "Vencedor o07",
+      "fora": "Suíça",
+      "bandeira_casa": "🏳️",
+      "bandeira_fora": "🇨🇭",
+      "data": "2026-07-11T20:00:00-05:00",
+      "gols_casa": null,
+      "gols_fora": null,
+      "foi_prorrogacao": null,
+      "foi_penaltis": null,
+      "vencedor": null
+    }
+  ]
+},
       "_nota": "Datas: 9–11 jul 2026.",
       "partidas": []
     },
