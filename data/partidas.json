@@ -1144,11 +1144,11 @@
           "bandeira_casa": "🇨🇭",
           "bandeira_fora": "🇨🇴",
           "data": "2026-07-07T13:00:00-07:00",
-          "gols_casa": null,
-          "gols_fora": null,
-          "foi_prorrogacao": null,
-          "foi_penaltis": null,
-          "vencedor": null
+          "gols_casa": 0,
+          "gols_fora": 0,
+          "foi_prorrogacao": true,
+          "foi_penaltis": true,
+          "vencedor": "casa"
         }
       ]
     },
