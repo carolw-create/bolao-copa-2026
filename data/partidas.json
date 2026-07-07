@@ -959,11 +959,11 @@
           "bandeira_casa": "🇪🇸",
           "bandeira_fora": "🇦🇹",
           "data": "2026-07-02T12:00:00-07:00",
-          "gols_casa": null,
-          "gols_fora": null,
-          "foi_prorrogacao": null,
-          "foi_penaltis": null,
-          "vencedor": null
+          "gols_casa": 3,
+          "gols_fora": 0,
+          "foi_prorrogacao": false,
+          "foi_penaltis": false,
+          "vencedor": "casa"
         },
         {
           "id": "r32-12",
@@ -972,11 +972,11 @@
           "bandeira_casa": "🇵🇹",
           "bandeira_fora": "🇭🇷",
           "data": "2026-07-02T19:00:00-04:00",
-          "gols_casa": null,
-          "gols_fora": null,
-          "foi_prorrogacao": null,
-          "foi_penaltis": null,
-          "vencedor": null
+          "gols_casa": 2,
+          "gols_fora": 1,
+          "foi_prorrogacao": false,
+          "foi_penaltis": false,
+          "vencedor": "casa"
         },
         {
           "id": "r32-13",
@@ -985,11 +985,11 @@
           "bandeira_casa": "🇨🇭",
           "bandeira_fora": "🇩🇿",
           "data": "2026-07-02T20:00:00-07:00",
-          "gols_casa": null,
-          "gols_fora": null,
-          "foi_prorrogacao": null,
-          "foi_penaltis": null,
-          "vencedor": null
+          "gols_casa": 2,
+          "gols_fora": 0,
+          "foi_prorrogacao": false,
+          "foi_penaltis": false,
+          "vencedor": "casa"
         },
         {
           "id": "r32-14",
@@ -998,11 +998,11 @@
           "bandeira_casa": "🇨🇴",
           "bandeira_fora": "🇬🇭",
           "data": "2026-07-03T20:30:00-05:00",
-          "gols_casa": null,
-          "gols_fora": null,
-          "foi_prorrogacao": null,
-          "foi_penaltis": null,
-          "vencedor": null
+          "gols_casa": 1,
+          "gols_fora": 0,
+          "foi_prorrogacao": false,
+          "foi_penaltis": false,
+          "vencedor": "casa"
         },
         {
           "id": "r32-15",
@@ -1011,11 +1011,11 @@
           "bandeira_casa": "🇦🇷",
           "bandeira_fora": "🇨🇻",
           "data": "2026-07-03T18:00:00-04:00",
-          "gols_casa": null,
-          "gols_fora": null,
-          "foi_prorrogacao": null,
-          "foi_penaltis": null,
-          "vencedor": null
+          "gols_casa": 3,
+          "gols_fora": 2,
+          "foi_prorrogacao": true,
+          "foi_penaltis": false,
+          "vencedor": "casa"
         },
         {
           "id": "r32-16",
@@ -1024,11 +1024,11 @@
           "bandeira_casa": "🇦🇺",
           "bandeira_fora": "🇪🇬",
           "data": "2026-07-03T13:00:00-05:00",
-          "gols_casa": null,
-          "gols_fora": null,
-          "foi_prorrogacao": null,
-          "foi_penaltis": null,
-          "vencedor": null
+          "gols_casa": 1,
+          "gols_fora": 1,
+          "foi_prorrogacao": true,
+          "foi_penaltis": true,
+          "vencedor": "fora"
         }
       ]
     },
