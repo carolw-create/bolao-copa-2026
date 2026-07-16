@@ -1044,6 +1044,7 @@
         "bonus_penaltis": 4,
         "bonus_vencedor_penaltis": 2
       },
+      "_nota": "Preencher após R-32. Datas: 4–7 jul 2026.",
       "partidas": [
         {
           "id": "o01",
@@ -1273,8 +1274,21 @@
         "bonus_penaltis": 4,
         "bonus_vencedor_penaltis": 2
       },
-      "_nota": "18 jul 2026 – Hard Rock Stadium, Miami.",
-      "partidas": []
+      "partidas": [
+        {
+          "id": "t01",
+          "casa": "França",
+          "fora": "Inglaterra",
+          "bandeira_casa": "🇫🇷",
+          "bandeira_fora": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+          "data": "2026-07-18T17:00:00-04:00",
+          "gols_casa": null,
+          "gols_fora": null,
+          "foi_prorrogacao": null,
+          "foi_penaltis": null,
+          "vencedor": null
+        }
+      ]
     },
     "final": {
       "label": "Final",
@@ -1288,8 +1302,21 @@
         "bonus_penaltis": 4,
         "bonus_vencedor_penaltis": 2
       },
-      "_nota": "19 jul 2026 – MetLife Stadium.",
-      "partidas": []
+      "partidas": [
+        {
+          "id": "f01",
+          "casa": "Espanha",
+          "fora": "Argentina",
+          "bandeira_casa": "🇪🇸",
+          "bandeira_fora": "🇦🇷",
+          "data": "2026-07-19T15:00:00-04:00",
+          "gols_casa": null,
+          "gols_fora": null,
+          "foi_prorrogacao": null,
+          "foi_penaltis": null,
+          "vencedor": null
+        }
+      ]
     }
   }
 }
